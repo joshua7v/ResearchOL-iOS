@@ -8,11 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */; };
-		422328A01AD8BDDF0008EB80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4223289F1AD8BDDF0008EB80 /* ViewController.swift */; };
 		422328A31AD8BDDF0008EB80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422328A11AD8BDDF0008EB80 /* Main.storyboard */; };
 		422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422328A41AD8BDDF0008EB80 /* Images.xcassets */; };
 		422328A81AD8BDDF0008EB80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422328A61AD8BDDF0008EB80 /* LaunchScreen.xib */; };
 		422328B41AD8BDDF0008EB80 /* ResearchOLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */; };
+		429240661AD94CA700D4F152 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240501AD94CA700D4F152 /* Colours.m */; };
+		429240671AD94CA700D4F152 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240521AD94CA700D4F152 /* Foundation+Log.m */; };
+		429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240541AD94CA700D4F152 /* NSArray+SELog.m */; };
+		429240691AD94CA700D4F152 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240561AD94CA700D4F152 /* NSString+Hash.m */; };
+		4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240581AD94CA700D4F152 /* NSString+SE.m */; };
+		4292406B1AD94CA700D4F152 /* UIBarButtonItem+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292405B1AD94CA700D4F152 /* UIBarButtonItem+SE.m */; };
+		4292406C1AD94CA700D4F152 /* UIButton+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292405D1AD94CA700D4F152 /* UIButton+SE.m */; };
+		4292406D1AD94CA700D4F152 /* UIColor+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292405F1AD94CA700D4F152 /* UIColor+SE.m */; };
+		4292406E1AD94CA700D4F152 /* UIImage+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240611AD94CA700D4F152 /* UIImage+SE.m */; };
+		4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240631AD94CA700D4F152 /* UITextField+SE.m */; };
+		429240701AD94CA700D4F152 /* UIView+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240651AD94CA700D4F152 /* UIView+SE.m */; };
+		429240861AD94CAE00D4F152 /* SESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240741AD94CAE00D4F152 /* SESettingViewController.m */; };
+		429240871AD94CAE00D4F152 /* imageAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 429240751AD94CAE00D4F152 /* imageAssets.bundle */; };
+		429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240781AD94CAE00D4F152 /* SESettingArrowItem.m */; };
+		429240891AD94CAE00D4F152 /* SESettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292407A1AD94CAE00D4F152 /* SESettingGroup.m */; };
+		4292408A1AD94CAE00D4F152 /* SESettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292407C1AD94CAE00D4F152 /* SESettingItem.m */; };
+		4292408B1AD94CAE00D4F152 /* SESettingLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292407E1AD94CAE00D4F152 /* SESettingLabelItem.m */; };
+		4292408C1AD94CAE00D4F152 /* SESettingSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240801AD94CAE00D4F152 /* SESettingSwitchItem.m */; };
+		4292408D1AD94CAE00D4F152 /* SEBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240831AD94CAE00D4F152 /* SEBadgeButton.m */; };
+		4292408E1AD94CAE00D4F152 /* SESettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240851AD94CAE00D4F152 /* SESettingCell.m */; };
+		429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240931AD94E1F00D4F152 /* ROLTabBarController.swift */; };
+		429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240951AD94E3700D4F152 /* ROLNavigationController.swift */; };
+		4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240991AD94E8800D4F152 /* ROLMeController.swift */; };
 		B33807CA89C783509B0C09C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA674857E60A402C73A426A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,13 +52,58 @@
 		422328981AD8BDDF0008EB80 /* ResearchOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResearchOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4223289C1AD8BDDF0008EB80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4223289F1AD8BDDF0008EB80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		422328A21AD8BDDF0008EB80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		422328A41AD8BDDF0008EB80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		422328A71AD8BDDF0008EB80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		422328AD1AD8BDDF0008EB80 /* ResearchOLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResearchOLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422328B21AD8BDDF0008EB80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchOLTests.swift; sourceTree = "<group>"; };
+		4292404B1AD94B7100D4F152 /* ResearchOL-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResearchOL-Bridging-Header.h"; sourceTree = "<group>"; };
+		4292404F1AD94CA700D4F152 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		429240501AD94CA700D4F152 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
+		429240511AD94CA700D4F152 /* Foundation+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+Log.h"; sourceTree = "<group>"; };
+		429240521AD94CA700D4F152 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		429240531AD94CA700D4F152 /* NSArray+SELog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SELog.h"; sourceTree = "<group>"; };
+		429240541AD94CA700D4F152 /* NSArray+SELog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SELog.m"; sourceTree = "<group>"; };
+		429240551AD94CA700D4F152 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		429240561AD94CA700D4F152 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		429240571AD94CA700D4F152 /* NSString+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SE.h"; sourceTree = "<group>"; };
+		429240581AD94CA700D4F152 /* NSString+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SE.m"; sourceTree = "<group>"; };
+		429240591AD94CA700D4F152 /* SECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECategory.h; sourceTree = "<group>"; };
+		4292405A1AD94CA700D4F152 /* UIBarButtonItem+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SE.h"; sourceTree = "<group>"; };
+		4292405B1AD94CA700D4F152 /* UIBarButtonItem+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SE.m"; sourceTree = "<group>"; };
+		4292405C1AD94CA700D4F152 /* UIButton+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SE.h"; sourceTree = "<group>"; };
+		4292405D1AD94CA700D4F152 /* UIButton+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SE.m"; sourceTree = "<group>"; };
+		4292405E1AD94CA700D4F152 /* UIColor+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SE.h"; sourceTree = "<group>"; };
+		4292405F1AD94CA700D4F152 /* UIColor+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SE.m"; sourceTree = "<group>"; };
+		429240601AD94CA700D4F152 /* UIImage+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SE.h"; sourceTree = "<group>"; };
+		429240611AD94CA700D4F152 /* UIImage+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SE.m"; sourceTree = "<group>"; };
+		429240621AD94CA700D4F152 /* UITextField+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SE.h"; sourceTree = "<group>"; };
+		429240631AD94CA700D4F152 /* UITextField+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SE.m"; sourceTree = "<group>"; };
+		429240641AD94CA700D4F152 /* UIView+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SE.h"; sourceTree = "<group>"; };
+		429240651AD94CA700D4F152 /* UIView+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SE.m"; sourceTree = "<group>"; };
+		429240731AD94CAE00D4F152 /* SESettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingViewController.h; sourceTree = "<group>"; };
+		429240741AD94CAE00D4F152 /* SESettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingViewController.m; sourceTree = "<group>"; };
+		429240751AD94CAE00D4F152 /* imageAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = imageAssets.bundle; sourceTree = "<group>"; };
+		429240771AD94CAE00D4F152 /* SESettingArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingArrowItem.h; sourceTree = "<group>"; };
+		429240781AD94CAE00D4F152 /* SESettingArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingArrowItem.m; sourceTree = "<group>"; };
+		429240791AD94CAE00D4F152 /* SESettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingGroup.h; sourceTree = "<group>"; };
+		4292407A1AD94CAE00D4F152 /* SESettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingGroup.m; sourceTree = "<group>"; };
+		4292407B1AD94CAE00D4F152 /* SESettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingItem.h; sourceTree = "<group>"; };
+		4292407C1AD94CAE00D4F152 /* SESettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingItem.m; sourceTree = "<group>"; };
+		4292407D1AD94CAE00D4F152 /* SESettingLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingLabelItem.h; sourceTree = "<group>"; };
+		4292407E1AD94CAE00D4F152 /* SESettingLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingLabelItem.m; sourceTree = "<group>"; };
+		4292407F1AD94CAE00D4F152 /* SESettingSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingSwitchItem.h; sourceTree = "<group>"; };
+		429240801AD94CAE00D4F152 /* SESettingSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingSwitchItem.m; sourceTree = "<group>"; };
+		429240821AD94CAE00D4F152 /* SEBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEBadgeButton.h; sourceTree = "<group>"; };
+		429240831AD94CAE00D4F152 /* SEBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEBadgeButton.m; sourceTree = "<group>"; };
+		429240841AD94CAE00D4F152 /* SESettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingCell.h; sourceTree = "<group>"; };
+		429240851AD94CAE00D4F152 /* SESettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingCell.m; sourceTree = "<group>"; };
+		4292408F1AD94D4100D4F152 /* SESettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettings.h; sourceTree = "<group>"; };
+		429240901AD94D8900D4F152 /* SECommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECommon.h; sourceTree = "<group>"; };
+		429240931AD94E1F00D4F152 /* ROLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLTabBarController.swift; sourceTree = "<group>"; };
+		429240951AD94E3700D4F152 /* ROLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLNavigationController.swift; sourceTree = "<group>"; };
+		429240991AD94E8800D4F152 /* ROLMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeController.swift; sourceTree = "<group>"; };
 		64718FA09A66E54D503A24E2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8FA674857E60A402C73A426A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E312773B3F32660CEE8D6BFB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,7 +161,9 @@
 		4223289B1AD8BDDF0008EB80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4292404D1AD94C7900D4F152 /* Lib */,
 				4223289C1AD8BDDF0008EB80 /* Info.plist */,
+				4292404B1AD94B7100D4F152 /* ResearchOL-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -116,9 +185,124 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4292404C1AD94C5D00D4F152 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				429240931AD94E1F00D4F152 /* ROLTabBarController.swift */,
+				429240951AD94E3700D4F152 /* ROLNavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4292404D1AD94C7900D4F152 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				429240901AD94D8900D4F152 /* SECommon.h */,
+				429240711AD94CAE00D4F152 /* SESettings */,
+				4292404E1AD94CA700D4F152 /* SECategory */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		4292404E1AD94CA700D4F152 /* SECategory */ = {
+			isa = PBXGroup;
+			children = (
+				4292404F1AD94CA700D4F152 /* Colours.h */,
+				429240501AD94CA700D4F152 /* Colours.m */,
+				429240511AD94CA700D4F152 /* Foundation+Log.h */,
+				429240521AD94CA700D4F152 /* Foundation+Log.m */,
+				429240531AD94CA700D4F152 /* NSArray+SELog.h */,
+				429240541AD94CA700D4F152 /* NSArray+SELog.m */,
+				429240551AD94CA700D4F152 /* NSString+Hash.h */,
+				429240561AD94CA700D4F152 /* NSString+Hash.m */,
+				429240571AD94CA700D4F152 /* NSString+SE.h */,
+				429240581AD94CA700D4F152 /* NSString+SE.m */,
+				429240591AD94CA700D4F152 /* SECategory.h */,
+				4292405A1AD94CA700D4F152 /* UIBarButtonItem+SE.h */,
+				4292405B1AD94CA700D4F152 /* UIBarButtonItem+SE.m */,
+				4292405C1AD94CA700D4F152 /* UIButton+SE.h */,
+				4292405D1AD94CA700D4F152 /* UIButton+SE.m */,
+				4292405E1AD94CA700D4F152 /* UIColor+SE.h */,
+				4292405F1AD94CA700D4F152 /* UIColor+SE.m */,
+				429240601AD94CA700D4F152 /* UIImage+SE.h */,
+				429240611AD94CA700D4F152 /* UIImage+SE.m */,
+				429240621AD94CA700D4F152 /* UITextField+SE.h */,
+				429240631AD94CA700D4F152 /* UITextField+SE.m */,
+				429240641AD94CA700D4F152 /* UIView+SE.h */,
+				429240651AD94CA700D4F152 /* UIView+SE.m */,
+			);
+			path = SECategory;
+			sourceTree = "<group>";
+		};
+		429240711AD94CAE00D4F152 /* SESettings */ = {
+			isa = PBXGroup;
+			children = (
+				429240721AD94CAE00D4F152 /* Controller */,
+				429240751AD94CAE00D4F152 /* imageAssets.bundle */,
+				429240761AD94CAE00D4F152 /* Model */,
+				429240811AD94CAE00D4F152 /* View */,
+				4292408F1AD94D4100D4F152 /* SESettings.h */,
+			);
+			path = SESettings;
+			sourceTree = "<group>";
+		};
+		429240721AD94CAE00D4F152 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				429240731AD94CAE00D4F152 /* SESettingViewController.h */,
+				429240741AD94CAE00D4F152 /* SESettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		429240761AD94CAE00D4F152 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				429240771AD94CAE00D4F152 /* SESettingArrowItem.h */,
+				429240781AD94CAE00D4F152 /* SESettingArrowItem.m */,
+				429240791AD94CAE00D4F152 /* SESettingGroup.h */,
+				4292407A1AD94CAE00D4F152 /* SESettingGroup.m */,
+				4292407B1AD94CAE00D4F152 /* SESettingItem.h */,
+				4292407C1AD94CAE00D4F152 /* SESettingItem.m */,
+				4292407D1AD94CAE00D4F152 /* SESettingLabelItem.h */,
+				4292407E1AD94CAE00D4F152 /* SESettingLabelItem.m */,
+				4292407F1AD94CAE00D4F152 /* SESettingSwitchItem.h */,
+				429240801AD94CAE00D4F152 /* SESettingSwitchItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		429240811AD94CAE00D4F152 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				429240821AD94CAE00D4F152 /* SEBadgeButton.h */,
+				429240831AD94CAE00D4F152 /* SEBadgeButton.m */,
+				429240841AD94CAE00D4F152 /* SESettingCell.h */,
+				429240851AD94CAE00D4F152 /* SESettingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		429240971AD94E4700D4F152 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				429240981AD94E5300D4F152 /* Controller */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		429240981AD94E5300D4F152 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				429240991AD94E8800D4F152 /* ROLMeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		42E3EFA11AD8BFDD0030ED16 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				429240971AD94E4700D4F152 /* Me */,
 				42E3EFA41AD8C0000030ED16 /* Delegate */,
 				42E3EFA31AD8BFFA0030ED16 /* Main */,
 			);
@@ -137,7 +321,7 @@
 		42E3EFA31AD8BFFA0030ED16 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4223289F1AD8BDDF0008EB80 /* ViewController.swift */,
+				4292404C1AD94C5D00D4F152 /* Controller */,
 				422328A11AD8BDDF0008EB80 /* Main.storyboard */,
 			);
 			path = Main;
@@ -214,6 +398,7 @@
 		422328901AD8BDDF0008EB80 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ROL;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = SigmaStudio;
 				TargetAttributes = {
@@ -250,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429240871AD94CAE00D4F152 /* imageAssets.bundle in Resources */,
 				422328A31AD8BDDF0008EB80 /* Main.storyboard in Resources */,
 				422328A81AD8BDDF0008EB80 /* LaunchScreen.xib in Resources */,
 				422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */,
@@ -303,8 +489,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422328A01AD8BDDF0008EB80 /* ViewController.swift in Sources */,
 				4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */,
+				4292406E1AD94CA700D4F152 /* UIImage+SE.m in Sources */,
+				4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */,
+				4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */,
+				429240661AD94CA700D4F152 /* Colours.m in Sources */,
+				429240861AD94CAE00D4F152 /* SESettingViewController.m in Sources */,
+				429240671AD94CA700D4F152 /* Foundation+Log.m in Sources */,
+				429240691AD94CA700D4F152 /* NSString+Hash.m in Sources */,
+				4292406D1AD94CA700D4F152 /* UIColor+SE.m in Sources */,
+				4292406C1AD94CA700D4F152 /* UIButton+SE.m in Sources */,
+				4292406B1AD94CA700D4F152 /* UIBarButtonItem+SE.m in Sources */,
+				429240701AD94CA700D4F152 /* UIView+SE.m in Sources */,
+				4292408E1AD94CAE00D4F152 /* SESettingCell.m in Sources */,
+				429240891AD94CAE00D4F152 /* SESettingGroup.m in Sources */,
+				429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */,
+				4292408D1AD94CAE00D4F152 /* SEBadgeButton.m in Sources */,
+				429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */,
+				4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */,
+				429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */,
+				429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */,
+				4292408B1AD94CAE00D4F152 /* SESettingLabelItem.m in Sources */,
+				4292408A1AD94CAE00D4F152 /* SESettingItem.m in Sources */,
+				4292408C1AD94CAE00D4F152 /* SESettingSwitchItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +643,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResearchOL/Supporting Files/ResearchOL-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -448,6 +656,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResearchOL/Supporting Files/ResearchOL-Bridging-Header.h";
 			};
 			name = Release;
 		};

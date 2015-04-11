@@ -126,6 +126,12 @@
 #define COCOAPODS_VERSION_MINOR_MWFeedParser_NSString_HTML 0
 #define COCOAPODS_VERSION_PATCH_MWFeedParser_NSString_HTML 1
 
+// Masonry
+#define COCOAPODS_POD_AVAILABLE_Masonry
+#define COCOAPODS_VERSION_MAJOR_Masonry 0
+#define COCOAPODS_VERSION_MINOR_Masonry 6
+#define COCOAPODS_VERSION_PATCH_Masonry 1
+
 // NSString-Hashes
 #define COCOAPODS_POD_AVAILABLE_NSString_Hashes
 #define COCOAPODS_VERSION_MAJOR_NSString_Hashes 1
