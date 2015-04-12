@@ -13,6 +13,7 @@
 #import <Masonry/Masonry.h>
 #import "SECategory.h"
 #import "SESettings.h"
+#import "SECommon.h"
 
 
 #endif

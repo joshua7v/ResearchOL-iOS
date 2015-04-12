@@ -12,8 +12,10 @@
 		422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422328A41AD8BDDF0008EB80 /* Images.xcassets */; };
 		422328A81AD8BDDF0008EB80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422328A61AD8BDDF0008EB80 /* LaunchScreen.xib */; };
 		422328B41AD8BDDF0008EB80 /* ResearchOLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */; };
+		422586641ADA1BC8009EC220 /* ROL.m in Sources */ = {isa = PBXBuildFile; fileRef = 422586631ADA1BC8009EC220 /* ROL.m */; };
+		422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586B51ADA2D6B009EC220 /* SECommon.swift */; };
+		422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */; };
 		429240661AD94CA700D4F152 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240501AD94CA700D4F152 /* Colours.m */; };
-		429240671AD94CA700D4F152 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240521AD94CA700D4F152 /* Foundation+Log.m */; };
 		429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240541AD94CA700D4F152 /* NSArray+SELog.m */; };
 		429240691AD94CA700D4F152 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240561AD94CA700D4F152 /* NSString+Hash.m */; };
 		4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240581AD94CA700D4F152 /* NSString+SE.m */; };
@@ -58,11 +60,13 @@
 		422328AD1AD8BDDF0008EB80 /* ResearchOLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResearchOLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422328B21AD8BDDF0008EB80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchOLTests.swift; sourceTree = "<group>"; };
+		422586621ADA1BC8009EC220 /* ROL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROL.h; sourceTree = "<group>"; };
+		422586631ADA1BC8009EC220 /* ROL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROL.m; sourceTree = "<group>"; };
+		422586B51ADA2D6B009EC220 /* SECommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SECommon.swift; path = ../SECommon.swift; sourceTree = "<group>"; };
+		422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMoreController.swift; sourceTree = "<group>"; };
 		4292404B1AD94B7100D4F152 /* ResearchOL-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResearchOL-Bridging-Header.h"; sourceTree = "<group>"; };
 		4292404F1AD94CA700D4F152 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		429240501AD94CA700D4F152 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
-		429240511AD94CA700D4F152 /* Foundation+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+Log.h"; sourceTree = "<group>"; };
-		429240521AD94CA700D4F152 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		429240531AD94CA700D4F152 /* NSArray+SELog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SELog.h"; sourceTree = "<group>"; };
 		429240541AD94CA700D4F152 /* NSArray+SELog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SELog.m"; sourceTree = "<group>"; };
 		429240551AD94CA700D4F152 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
@@ -185,6 +189,22 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		422586BB1ADA9BB0009EC220 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				422586BC1ADA9BC2009EC220 /* Controller */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		422586BC1ADA9BC2009EC220 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4292404C1AD94C5D00D4F152 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				429240901AD94D8900D4F152 /* SECommon.h */,
+				422586B51ADA2D6B009EC220 /* SECommon.swift */,
 				429240711AD94CAE00D4F152 /* SESettings */,
 				4292404E1AD94CA700D4F152 /* SECategory */,
 			);
@@ -209,8 +230,6 @@
 			children = (
 				4292404F1AD94CA700D4F152 /* Colours.h */,
 				429240501AD94CA700D4F152 /* Colours.m */,
-				429240511AD94CA700D4F152 /* Foundation+Log.h */,
-				429240521AD94CA700D4F152 /* Foundation+Log.m */,
 				429240531AD94CA700D4F152 /* NSArray+SELog.h */,
 				429240541AD94CA700D4F152 /* NSArray+SELog.m */,
 				429240551AD94CA700D4F152 /* NSString+Hash.h */,
@@ -295,6 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				429240991AD94E8800D4F152 /* ROLMeController.swift */,
+				422586621ADA1BC8009EC220 /* ROL.h */,
+				422586631ADA1BC8009EC220 /* ROL.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +323,7 @@
 		42E3EFA11AD8BFDD0030ED16 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				422586BB1ADA9BB0009EC220 /* More */,
 				429240971AD94E4700D4F152 /* Me */,
 				42E3EFA41AD8C0000030ED16 /* Delegate */,
 				42E3EFA31AD8BFFA0030ED16 /* Main */,
@@ -493,9 +515,10 @@
 				4292406E1AD94CA700D4F152 /* UIImage+SE.m in Sources */,
 				4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */,
 				4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */,
+				422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */,
 				429240661AD94CA700D4F152 /* Colours.m in Sources */,
 				429240861AD94CAE00D4F152 /* SESettingViewController.m in Sources */,
-				429240671AD94CA700D4F152 /* Foundation+Log.m in Sources */,
+				422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */,
 				429240691AD94CA700D4F152 /* NSString+Hash.m in Sources */,
 				4292406D1AD94CA700D4F152 /* UIColor+SE.m in Sources */,
 				4292406C1AD94CA700D4F152 /* UIButton+SE.m in Sources */,
@@ -510,6 +533,7 @@
 				429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */,
 				429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */,
 				4292408B1AD94CAE00D4F152 /* SESettingLabelItem.m in Sources */,
+				422586641ADA1BC8009EC220 /* ROL.m in Sources */,
 				4292408A1AD94CAE00D4F152 /* SESettingItem.m in Sources */,
 				4292408C1AD94CAE00D4F152 /* SESettingSwitchItem.m in Sources */,
 			);

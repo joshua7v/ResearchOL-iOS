@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 SigmaStudio. All rights reserved.
 //
 
-#define MabiDividerInset 10
+#define SEDividerInset 10
 
 #import "SESettingCell.h"
 #import "SESettingItem.h"

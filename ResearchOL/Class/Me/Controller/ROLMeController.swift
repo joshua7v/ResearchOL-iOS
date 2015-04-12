@@ -14,13 +14,31 @@ class ROLMeController: SESettingViewController {
         super.viewDidLoad()
         
         self.setupGroup01()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.setupGroup02()
+        self.setupHeaderView()
     }
     
-    // MARK: - setup first group
+    // MARK: - setup
+    // MARK: setup first group
     func setupGroup01() {
         var group = self.addGroup()
         var item = SESettingArrowItem(icon: "tabbar_more", title: "个人信息", destVcClass: UITableViewController.classForCoder())
         group.items = [item]
     }
+    
+    // MARK: setup second group
+    func setupGroup02() {
+        var group = self.addGroup()
+        var item = SESettingArrowItem(icon: "tabbar_more", title: "个人信息", destVcClass: UITableViewController.classForCoder())
+        group.items = [item]
+    }
+    
+    // MARK: setup headerView
+    func setupHeaderView() {
+        
+    }
+}
+
+extension ROLMeController: UITabBarDelegate {
+    
 }

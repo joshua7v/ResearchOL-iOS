@@ -14,4 +14,19 @@
  */
 + (UIImage *)resizedImageWithName:(NSString *)name;
 + (UIImage *)resizedImageWithName:(NSString *)name top:(float)top left:(float)left;
+/**
+ *  返回圆形图片
+ */
++ (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+/**
+ *  打水印
+ *
+ *  @param bg   背景图片
+ *  @param logo 右下角的水印图片
+ */
++ (instancetype)waterImageWithBg:(NSString *)bg logo:(NSString *)logo;
+/**
+ *  截图
+ */
++ (instancetype)captureWithView:(UIView *)view;
 @end

@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Colours.h"
+#import "NSString+SE.h"
 #import "NSString+Hash.h"
-//#import "NSSring+SE.h"
 #import "UIImage+SE.h"
 #import "UIColor+SE.h"
-#import "Colours.h"
 #import "UIView+SE.h"
 #import "UIBarButtonItem+SE.h"
 #import "UIButton+SE.h"
