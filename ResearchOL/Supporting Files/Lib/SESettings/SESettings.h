@@ -10,8 +10,6 @@
 #define ResearchOL_SESettings_h
 
 #import "SESettingViewController.h"
-#import "SESettingViewController.h"
-#import "SESettingViewController.h"
 #import "SESettingGroup.h"
 #import "SESettingCell.h"
 #import "SESettingArrowItem.h"

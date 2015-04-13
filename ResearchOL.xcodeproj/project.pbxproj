@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */; };
+		421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */; };
 		4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */; };
 		422328A31AD8BDDF0008EB80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422328A11AD8BDDF0008EB80 /* Main.storyboard */; };
 		422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422328A41AD8BDDF0008EB80 /* Images.xcassets */; };
 		422328A81AD8BDDF0008EB80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422328A61AD8BDDF0008EB80 /* LaunchScreen.xib */; };
 		422328B41AD8BDDF0008EB80 /* ResearchOLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */; };
-		422586641ADA1BC8009EC220 /* ROL.m in Sources */ = {isa = PBXBuildFile; fileRef = 422586631ADA1BC8009EC220 /* ROL.m */; };
 		422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586B51ADA2D6B009EC220 /* SECommon.swift */; };
 		422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */; };
 		429240661AD94CA700D4F152 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240501AD94CA700D4F152 /* Colours.m */; };
@@ -37,6 +38,7 @@
 		429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240931AD94E1F00D4F152 /* ROLTabBarController.swift */; };
 		429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240951AD94E3700D4F152 /* ROLNavigationController.swift */; };
 		4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240991AD94E8800D4F152 /* ROLMeController.swift */; };
+		42FCF7B01ADC031E00E18089 /* ROLProfileDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCF7AF1ADC031E00E18089 /* ROLProfileDetailController.swift */; };
 		B33807CA89C783509B0C09C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA674857E60A402C73A426A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeProfileCell.swift; sourceTree = "<group>"; };
+		421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLMeProfileCell.xib; sourceTree = "<group>"; };
 		422328981AD8BDDF0008EB80 /* ResearchOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResearchOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4223289C1AD8BDDF0008EB80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +64,6 @@
 		422328AD1AD8BDDF0008EB80 /* ResearchOLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResearchOLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422328B21AD8BDDF0008EB80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchOLTests.swift; sourceTree = "<group>"; };
-		422586621ADA1BC8009EC220 /* ROL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROL.h; sourceTree = "<group>"; };
-		422586631ADA1BC8009EC220 /* ROL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROL.m; sourceTree = "<group>"; };
 		422586B51ADA2D6B009EC220 /* SECommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SECommon.swift; path = ../SECommon.swift; sourceTree = "<group>"; };
 		422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMoreController.swift; sourceTree = "<group>"; };
 		4292404B1AD94B7100D4F152 /* ResearchOL-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResearchOL-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		429240931AD94E1F00D4F152 /* ROLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLTabBarController.swift; sourceTree = "<group>"; };
 		429240951AD94E3700D4F152 /* ROLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLNavigationController.swift; sourceTree = "<group>"; };
 		429240991AD94E8800D4F152 /* ROLMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeController.swift; sourceTree = "<group>"; };
+		42FCF7AF1ADC031E00E18089 /* ROLProfileDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLProfileDetailController.swift; sourceTree = "<group>"; };
 		64718FA09A66E54D503A24E2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8FA674857E60A402C73A426A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E312773B3F32660CEE8D6BFB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421A3B961ADB619400F9A4A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */,
+				421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4223288F1AD8BDDF0008EB80 = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				429240981AD94E5300D4F152 /* Controller */,
+				421A3B961ADB619400F9A4A8 /* View */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -314,8 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				429240991AD94E8800D4F152 /* ROLMeController.swift */,
-				422586621ADA1BC8009EC220 /* ROL.h */,
-				422586631ADA1BC8009EC220 /* ROL.m */,
+				42FCF7AF1ADC031E00E18089 /* ROLProfileDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -461,6 +473,7 @@
 				422328A31AD8BDDF0008EB80 /* Main.storyboard in Resources */,
 				422328A81AD8BDDF0008EB80 /* LaunchScreen.xib in Resources */,
 				422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */,
+				421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,14 +539,15 @@
 				429240701AD94CA700D4F152 /* UIView+SE.m in Sources */,
 				4292408E1AD94CAE00D4F152 /* SESettingCell.m in Sources */,
 				429240891AD94CAE00D4F152 /* SESettingGroup.m in Sources */,
+				421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */,
 				429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */,
 				4292408D1AD94CAE00D4F152 /* SEBadgeButton.m in Sources */,
+				42FCF7B01ADC031E00E18089 /* ROLProfileDetailController.swift in Sources */,
 				429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */,
 				4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */,
 				429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */,
 				429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */,
 				4292408B1AD94CAE00D4F152 /* SESettingLabelItem.m in Sources */,
-				422586641ADA1BC8009EC220 /* ROL.m in Sources */,
 				4292408A1AD94CAE00D4F152 /* SESettingItem.m in Sources */,
 				4292408C1AD94CAE00D4F152 /* SESettingSwitchItem.m in Sources */,
 			);

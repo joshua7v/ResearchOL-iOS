@@ -12,6 +12,8 @@
 #import "SESettingGroup.h"
 #import "SESettingCell.h"
 #import "SESettingArrowItem.h"
+#import "SESettingSwitchItem.h"
+#import "SESettingLabelItem.h"
 //#import "SESettingCheckItem.h"
 //#import "SESettingCheckGroup.h"
 
@@ -110,11 +112,16 @@
         SESettingArrowItem *arrowItem = (SESettingArrowItem *)item;
         if (arrowItem.destVcClass) {
             UIViewController *destVc = [[arrowItem.destVcClass alloc] init];
-            destVc.view.backgroundColor = [UIColor whiteColor];
+//            destVc.view.backgroundColor = [UIColor whiteColor];
             
             [self.navigationController pushViewController:destVc animated:YES];
         }
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 @end

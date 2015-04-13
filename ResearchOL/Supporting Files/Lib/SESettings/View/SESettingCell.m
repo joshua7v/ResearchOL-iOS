@@ -41,45 +41,10 @@
 @end
 
 @implementation SESettingCell
-- (UISwitch *)switchView
-{
-    if (_switchView == nil) {
-        _switchView = [[UISwitch alloc] init];
-    }
-    return _switchView;
-}
-
-- (UILabel *)labelView
-{
-    if (_labelView == nil) {
-        _labelView = [[UILabel alloc] init];
-        _labelView.frame = CGRectMake(0, 0, 100, 30);
-        _labelView.textAlignment = NSTextAlignmentRight;
-        _labelView.font = [UIFont systemFontOfSize:13];
-        _labelView.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    }
-    return _labelView;
-}
-
-- (UIImageView *)arrowView
-{
-    if (_arrowView == nil) {
-        _arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"imageAssets.bundle/push_arrow"]];
-    }
-    return _arrowView;
-}
-
-- (SEBadgeButton *)badgeButton
-{
-    if (_badgeButton == nil) {
-        _badgeButton = [[SEBadgeButton alloc] init];
-    }
-    return _badgeButton;
-}
 
 + (instancetype)cellWithTableView:(UITableView *)tableView
 {
-    static NSString *ID = @"setting";
+    static NSString *ID = @"SESetting";
     SESettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell = [[SESettingCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
@@ -115,6 +80,7 @@
 //        frame.origin.x = 5;
 //        frame.size.width -= 10;
 //    }
+//    frame.size.height = 44;
     [super setFrame:frame];
 }
 
@@ -189,6 +155,43 @@
     } else { // 右边没有东西
         self.accessoryView = nil;
     }
+}
+
+#pragma mark - lazy load
+- (UISwitch *)switchView
+{
+    if (_switchView == nil) {
+        _switchView = [[UISwitch alloc] init];
+    }
+    return _switchView;
+}
+
+- (UILabel *)labelView
+{
+    if (_labelView == nil) {
+        _labelView = [[UILabel alloc] init];
+        _labelView.frame = CGRectMake(0, 0, 100, 30);
+        _labelView.textAlignment = NSTextAlignmentRight;
+        _labelView.font = [UIFont systemFontOfSize:13];
+        _labelView.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    }
+    return _labelView;
+}
+
+- (UIImageView *)arrowView
+{
+    if (_arrowView == nil) {
+        _arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"imageAssets.bundle/push_arrow"]];
+    }
+    return _arrowView;
+}
+
+- (SEBadgeButton *)badgeButton
+{
+    if (_badgeButton == nil) {
+        _badgeButton = [[SEBadgeButton alloc] init];
+    }
+    return _badgeButton;
 }
 
 @end
