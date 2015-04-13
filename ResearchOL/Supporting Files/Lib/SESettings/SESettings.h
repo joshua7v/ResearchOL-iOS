@@ -15,5 +15,7 @@
 #import "SESettingGroup.h"
 #import "SESettingCell.h"
 #import "SESettingArrowItem.h"
+#import "SESettingLabelItem.h"
+#import "SESettingSwitchItem.h"
 
 #endif

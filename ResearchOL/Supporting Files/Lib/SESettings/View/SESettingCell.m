@@ -26,6 +26,10 @@
  */
 @property (strong, nonatomic) UISwitch *switchView;
 /**
+ *  文字
+ */
+@property (strong, nonatomic) UILabel *labelView;
+/**
  *  提醒数字
  */
 @property (strong, nonatomic) SEBadgeButton *badgeButton;
@@ -43,6 +47,18 @@
         _switchView = [[UISwitch alloc] init];
     }
     return _switchView;
+}
+
+- (UILabel *)labelView
+{
+    if (_labelView == nil) {
+        _labelView = [[UILabel alloc] init];
+        _labelView.frame = CGRectMake(0, 0, 100, 30);
+        _labelView.textAlignment = NSTextAlignmentRight;
+        _labelView.font = [UIFont systemFontOfSize:13];
+        _labelView.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    }
+    return _labelView;
 }
 
 - (UIImageView *)arrowView
@@ -162,15 +178,15 @@
     if (self.item.badgeValue) {
         self.badgeButton.badgeValue = self.item.badgeValue;
         self.accessoryView = self.badgeButton;
-    } else if ([self.item isKindOfClass:[SESettingSwitchItem class]])
-    { // 右边是开关
+    } else if ([self.item isKindOfClass:[SESettingSwitchItem class]]) { // 右边是开关
         self.accessoryView = self.switchView;
-    }
-    else if ([self.item isKindOfClass:[SESettingArrowItem class]])
-    { // 右边是箭头
+    } else if ([self.item isKindOfClass:[SESettingArrowItem class]]) { // 右边是箭头
         self.accessoryView = self.arrowView;
-    }
-    else { // 右边没有东西
+    } else if ([self.item isKindOfClass:[SESettingLabelItem class]]) { // 右边是文字
+        SESettingLabelItem *item = (SESettingLabelItem *)self.item;
+        self.labelView.text = item.text;
+        self.accessoryView = self.labelView;
+    } else { // 右边没有东西
         self.accessoryView = nil;
     }
 }

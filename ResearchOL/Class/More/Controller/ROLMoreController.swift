@@ -31,7 +31,7 @@ class ROLMoreController: SESettingViewController {
         var group = self.addGroup()
         group.header = "关于"
         var rate = SESettingArrowItem(title: "评分", destVcClass: UIViewController.classForCoder())
-        var version = SESettingArrowItem(title: "当前版本", destVcClass: UIViewController.classForCoder())
+        var version = SESettingLabelItem(title: "版本", text: "2.2.2")
         var questions = SESettingArrowItem(title: "常见问题", destVcClass: UIViewController.classForCoder())
         group.items = [rate, version, questions]
     }
