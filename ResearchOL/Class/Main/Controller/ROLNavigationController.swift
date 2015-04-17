@@ -9,5 +9,14 @@
 import UIKit
 
 class ROLNavigationController: UINavigationController {
-
+    
+    // MARK: initialize
+    override class func initialize() {
+        var appearance = UINavigationBar.appearance()
+        appearance.barTintColor = UIColor.whiteColor()
+    }
+    
+    override func awakeFromNib() {
+        
+    }
 }

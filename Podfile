@@ -1,6 +1,7 @@
 platform :ios, '7.0'
 inhibit_all_warnings!
 
+pod 'Firebase', '~> 2.2.1'
 pod 'Masonry', '~> 0.6.1'
 pod 'AFNetworking', '~> 2.2.0'
 pod 'NYXImagesKit', '~> 2.3'

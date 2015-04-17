@@ -29,7 +29,7 @@
         <!--主页-->
         <scene sceneID="hGY-UV-9Aw">
             <objects>
-                <viewController id="jc0-Yj-yMS" sceneMemberID="viewController">
+                <viewController id="jc0-Yj-yMS" customClass="ROLHomeController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i27-aP-FPe"/>
                         <viewControllerLayoutGuide type="bottom" id="PXi-9R-kle"/>
@@ -37,9 +37,28 @@
                     <view key="view" contentMode="scaleToFill" id="zxM-RN-zFT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Seq-qK-Pdz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jc0-Yj-yMS" id="RLg-XI-fwR"/>
+                                    <outlet property="delegate" destination="jc0-Yj-yMS" id="7fQ-pt-uKc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Seq-qK-Pdz" secondAttribute="bottom" id="B8j-nW-nmD"/>
+                            <constraint firstItem="Seq-qK-Pdz" firstAttribute="top" secondItem="zxM-RN-zFT" secondAttribute="top" id="NOX-Cf-KrM"/>
+                            <constraint firstItem="Seq-qK-Pdz" firstAttribute="leading" secondItem="zxM-RN-zFT" secondAttribute="leading" id="fPs-ub-edi"/>
+                            <constraint firstAttribute="trailing" secondItem="Seq-qK-Pdz" secondAttribute="trailing" id="v7z-fS-ESL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="主页" id="cRF-yr-AHA"/>
+                    <connections>
+                        <outlet property="tableView" destination="Seq-qK-Pdz" id="4rT-cd-0jS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8q-5A-OAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
