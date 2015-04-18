@@ -10,10 +10,11 @@ import UIKit
 
 class ROLHomeController: UIViewController {
     
-    lazy var questionares: [ROLQuestionare] = []
-    
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
+    let segueId = "HOME2DETAIL"
     
+    lazy var questionares: [ROLQuestionare] = []
+    var currentIndex = 0
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +32,10 @@ class ROLHomeController: UIViewController {
         }
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var dest = segue.destinationViewController as! ROLHomeDetailController
+        dest.questionare = self.questionares[self.currentIndex]
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -52,5 +57,11 @@ extension ROLHomeController: UITableViewDataSource {
 extension ROLHomeController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return ROLHomeCell.heightForHomeCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.currentIndex = indexPath.row
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.performSegueWithIdentifier(segueId, sender: nil)
     }
 }

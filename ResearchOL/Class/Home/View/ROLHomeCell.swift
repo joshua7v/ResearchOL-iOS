@@ -57,7 +57,7 @@ class ROLHomeCell: UITableViewCell {
     
     // MARK: height
     class func heightForHomeCell() -> CGFloat {
-        return 60
+        return 70
     }
     
 }

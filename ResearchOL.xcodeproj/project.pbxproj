@@ -39,6 +39,7 @@
 		429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240931AD94E1F00D4F152 /* ROLTabBarController.swift */; };
 		429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240951AD94E3700D4F152 /* ROLNavigationController.swift */; };
 		4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429240991AD94E8800D4F152 /* ROLMeController.swift */; };
+		4297CABA1AE1E7E20023AA6A /* ROLHomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CAB91AE1E7E20023AA6A /* ROLHomeDetailController.swift */; };
 		42B7A9101ADF2FB2001B4D25 /* ROLHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7A90F1ADF2FB2001B4D25 /* ROLHomeController.swift */; };
 		42B7A9141ADF3060001B4D25 /* ROLHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7A9121ADF3060001B4D25 /* ROLHomeCell.swift */; };
 		42B7A9151ADF3060001B4D25 /* ROLHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B7A9131ADF3060001B4D25 /* ROLHomeCell.xib */; };
@@ -118,6 +119,7 @@
 		429240931AD94E1F00D4F152 /* ROLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLTabBarController.swift; sourceTree = "<group>"; };
 		429240951AD94E3700D4F152 /* ROLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLNavigationController.swift; sourceTree = "<group>"; };
 		429240991AD94E8800D4F152 /* ROLMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeController.swift; sourceTree = "<group>"; };
+		4297CAB91AE1E7E20023AA6A /* ROLHomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLHomeDetailController.swift; sourceTree = "<group>"; };
 		42B7A90F1ADF2FB2001B4D25 /* ROLHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLHomeController.swift; sourceTree = "<group>"; };
 		42B7A9121ADF3060001B4D25 /* ROLHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLHomeCell.swift; sourceTree = "<group>"; };
 		42B7A9131ADF3060001B4D25 /* ROLHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLHomeCell.xib; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				42B7A90F1ADF2FB2001B4D25 /* ROLHomeController.swift */,
+				4297CAB91AE1E7E20023AA6A /* ROLHomeDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */,
 				42B7A9181ADF850A001B4D25 /* ROLQuestionare.swift in Sources */,
 				4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */,
+				4297CABA1AE1E7E20023AA6A /* ROLHomeDetailController.swift in Sources */,
 				422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */,
 				429240661AD94CA700D4F152 /* Colours.m in Sources */,
 				42B7A9141ADF3060001B4D25 /* ROLHomeCell.swift in Sources */,
