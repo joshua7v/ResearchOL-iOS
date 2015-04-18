@@ -74,6 +74,9 @@ class ROLQuestionManager: NSObject {
             var question = ROLQuestion()
             question.title = snapshot.value["title"] as! String
             question.type = snapshot.value["type"] as! Int
+            if question.type != 3 {
+                question.choice = snapshot.value["choice"] as! [String]
+            }
             questionare.questions.append(question)
             if count == amount {
                 success()
