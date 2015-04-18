@@ -28,7 +28,7 @@ class ROLQuestionareController: UIViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLQuestionCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLQuestionCell)
         self.tableView.estimatedRowHeight = 44
-        self.tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 44, right: 0)
     }
 }
 

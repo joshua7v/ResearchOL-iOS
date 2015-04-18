@@ -42,7 +42,7 @@ class ROLQuestionCell: UITableViewCell {
     // MARK: - private
     override var frame: CGRect {
         set {
-            super.frame = CGRectMake(newValue.origin.x, newValue.origin.y, newValue.size.width, newValue.size.height - 3)
+            super.frame = CGRectMake(newValue.origin.x, newValue.origin.y, newValue.size.width, newValue.size.height - 15)
         }
         get {
             return super.frame
@@ -175,16 +175,16 @@ class ROLQuestionCell: UITableViewCell {
     // MARK: height
     func heightForQuestionCell() -> CGFloat {
         if self.item.choice.count == 2 {
-            return 100
+            return 110
         } else if self.item.choice.count == 3 {
-            return 105
+            return 115
         } else if self.item.choice.count == 4 {
-            return 155
+            return 165
         } else if self.item.choice.count == 5 {
-            return 180
+            return 190
         }
         
-        return 100
+        return 110
     }
     
     class func cellWithTableView(tableView: UITableView, indexPath: NSIndexPath) -> ROLQuestionCell {
