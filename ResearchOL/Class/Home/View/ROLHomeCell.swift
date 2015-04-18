@@ -15,19 +15,16 @@ class ROLHomeCell: UITableViewCell {
             titleLabel.text = item.title
             dateLabel.text = item.fireDate
             questionCount.text = String(item.questionCount)
-            participants.text = String(item.participants)
+            participant.text = String(item.participant)
             point.text = String(format: "%d 积分", item.point)
         }
     }
     
-    struct TableViewCellIdentifiers {
-        static let ROLHomeCell = "ROLHomeCell"
-    }
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionCount: UILabel!
-    @IBOutlet weak var participants: UILabel!
+    @IBOutlet weak var participant: UILabel!
     @IBOutlet weak var point: UILabel!
     
     // MARK: - public
@@ -41,9 +38,8 @@ class ROLHomeCell: UITableViewCell {
         }
     }
     
-    class func cellWithTableView(tableView: UITableView) -> ROLHomeCell {
-        tableView.registerNib(UINib(nibName: TableViewCellIdentifiers.ROLHomeCell, bundle: nil), forCellReuseIdentifier: TableViewCellIdentifiers.ROLHomeCell)
-        var cell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.ROLHomeCell) as! ROLHomeCell
+    class func cellWithTableView(tableView: UITableView, indexPath: NSIndexPath) -> ROLHomeCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(ROLCellIdentifiers.ROLHomeCell, forIndexPath: indexPath) as! ROLHomeCell
         
         return cell
     }

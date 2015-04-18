@@ -26,12 +26,20 @@ class ROLHomeController: UIViewController {
 //        var question = ["title" : "xxx"]
 //        questionareRef.setValue(question)
         
-        ROLQuestionManager.sharedManager.getQuestionares { () -> Void in
+        self.setup()
+        
+        ROLQuestionManager.sharedManager.getQuestionares(5, success: { () -> Void in
             self.questionares = ROLQuestionManager.sharedManager.questionares
             self.tableView.reloadData()
-        }
+        })
+        
     }
-
+    
+    // MARK: - private
+    func setup() {
+        tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLHomeCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLHomeCell)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var dest = segue.destinationViewController as! ROLHomeDetailController
         dest.questionare = self.questionares[self.currentIndex]
@@ -46,7 +54,7 @@ extension ROLHomeController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = ROLHomeCell.cellWithTableView(tableView)
+        var cell = ROLHomeCell.cellWithTableView(tableView, indexPath: indexPath)
         cell.item = self.questionares[indexPath.row]
         
         return cell

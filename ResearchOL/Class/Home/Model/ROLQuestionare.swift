@@ -41,7 +41,8 @@ class ROLQuestionare: NSObject {
     var desc: String = ""
     var questionCount: Int = 0
     var point: Int = 0
-    var participants: Int = 0
+    var participant: Int = 0
+    var questions: [ROLQuestion] = []
     
     override init() {
         super.init()

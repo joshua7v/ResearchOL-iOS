@@ -11,6 +11,7 @@ import UIKit
 class ROLQuestionManager: NSObject {
     
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
+    let questionaresRef = Firebase(url: "https://researchol.firebaseio.com/questionares")
     var questionares: [ROLQuestionare] = []
     
     
@@ -37,22 +38,43 @@ class ROLQuestionManager: NSObject {
     // MARK: - private
     
     // MARK: - public
-    func getQuestionares(success: () -> Void) {
-        let questionaresRef = firebaseRef.childByAppendingPath("questionares")
-        let amount: UInt = 3
-        var count: UInt = 0
+    func getQuestionares(amount: UInt, success: () -> Void) {
+        var count: UInt = 1
+        var flag: Bool = false
+        
         questionaresRef.queryLimitedToFirst(amount).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
-            count = count + 1
             var questionare = ROLQuestionare()
+            questionare.uuid = snapshot.key as String
             questionare.title = snapshot.value["title"] as! String
             questionare.desc = snapshot.value["description"] as! String
             questionare.fireDate = snapshot.value["fireDate"] as! String
             questionare.endDate = snapshot.value["endDate"] as! String
             questionare.point = snapshot.value["point"] as! Int
-            questionare.participants = snapshot.value["participants"] as! Int
+            questionare.participant = snapshot.value["participant"] as! Int
             questionare.questionCount = snapshot.value["questionCount"] as! Int
-            self.questionares.append(questionare)
             
+            
+            self.getQuestions(questionare.questionCount, questionare: questionare, success: {
+                
+                count = count + 1
+                self.questionares.append(questionare)
+                
+                if count == amount {
+                    success()
+                }
+            })
+        })
+    }
+    
+    func getQuestions(amount: Int, questionare: ROLQuestionare, success: () -> Void) {
+        var count = 0
+        let questionsRef = questionaresRef.childByAppendingPath(questionare.uuid).childByAppendingPath("questions")
+        questionsRef.queryOrderedByKey().observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
+            count = count + 1
+            var question = ROLQuestion()
+            question.title = snapshot.value["title"] as! String
+            question.type = snapshot.value["type"] as! Int
+            questionare.questions.append(question)
             if count == amount {
                 success()
             }
