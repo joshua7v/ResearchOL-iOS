@@ -126,6 +126,7 @@ class ROLQuestionCell: UITableViewCell {
         self.choice4()
         
         choice8oval.hidden = false
+        choice8Label.hidden = false
         choice8Label.text = self.item.choice[4]
         self.whiteLineVConstraint.constant = -28
     }
@@ -208,7 +209,7 @@ class ROLQuestionCell: UITableViewCell {
         } else if self.item.choice.count == 4 {
             return height + 55
         } else if self.item.choice.count == 5 {
-            return height + 80
+            return height + 100
         }
         
         return height
