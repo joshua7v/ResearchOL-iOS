@@ -13,7 +13,7 @@ class ROLQuestionManager: NSObject {
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
     let questionaresRef = Firebase(url: "https://researchol.firebaseio.com/questionares")
     var questionares: [ROLQuestionare] = []
-    var answers: [ROLAnswer] = []
+    var answers: [Int: ROLAnswer] = Dictionary()
     
     
 //        let questionaresRef = fireBaseRef.childByAppendingPath("questionares")
@@ -85,17 +85,22 @@ class ROLQuestionManager: NSObject {
         })
     }
     
-    func passAnswer(answer: ROLAnswer) {
-        self.answers.append(answer)
+    func setAnswer(answer: ROLAnswer, index: Int) {
+        self.answers[index] = answer
         for i in self.answers {
-            println("type: " + "\(i.type)" + " " + "choice: " + "\(i.choice)\n")
+            println("index: " + "\(i.0)" + " " + "choice: " + "\(i.1.choice)\n")
         }
     }
     
     func getAnswerWithIndex(index: Int) -> ROLAnswer {
-        if index > self.answers.count - 1 {
+        if self.answers[index] == nil {
             return ROLAnswer()
+        } else {
+            return self.answers[index]!
         }
-        return self.answers[index]
+    }
+    
+    func resetAnswers() {
+        self.answers.removeAll(keepCapacity: true)
     }
 }

@@ -39,5 +39,7 @@ class ROLHomeDetailController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var dest = segue.destinationViewController as! ROLQuestionareController
         dest.questions = self.questionare.questions
+        // reset answers in memory
+        ROLQuestionManager.sharedManager.resetAnswers()
     }
 }

@@ -81,6 +81,7 @@ class ROLQuestionCell: UITableViewCell {
     }
     
     func setup() {
+        
         self.hideAll()
         self.resetOvalSelection()
         self.retriveBtnState()
@@ -196,7 +197,8 @@ class ROLQuestionCell: UITableViewCell {
                 if self.answer.choice < 0 { self.answer.choice = 0 }
             }
         }
-        ROLQuestionManager.sharedManager.passAnswer(self.answer)
+        println(self.index)
+        ROLQuestionManager.sharedManager.setAnswer(self.answer, index: self.index)
     }
     
     func resetOvalSelection() {
@@ -213,11 +215,10 @@ class ROLQuestionCell: UITableViewCell {
         var answer = ROLQuestionManager.sharedManager.getAnswerWithIndex(self.index)
         var subviews: [UIView] = self.contentView.subviews as! [UIView]
         var tag = 0
-        if self.answer.type == 1 {
-            tag = self.answer.choice
-            if self.item.choice.count == 2 {
-                tag += 1
-                if self.answer.choice > 1 { self.answer.choice = 1 }
+        if answer.type == 1 {
+            tag = answer.choice
+            if self.item.choice.count == 2 { // fix 2 answer condition
+                if answer.choice == 1 { tag = 2 }
             }
             
             for i: UIView in subviews {
