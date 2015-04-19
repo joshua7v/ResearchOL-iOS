@@ -88,13 +88,15 @@ class ROLQuestionManager: NSObject {
     func setAnswer(answer: ROLAnswer, index: Int) {
         self.answers[index] = answer
         for i in self.answers {
-            println("index: " + "\(i.0)" + " " + "choice: " + "\(i.1.choice)\n")
+//            println("type:" + "\(i.1.type)")
+//            println("index: " + "\(i.0)" + " " + "choice: " + "\(i.1.choice)\n") // for single choice
+//            println("index: " + "\(i.0)" + " " + "choices: " + "\(i.1.choices)\n")
         }
     }
     
-    func getAnswerWithIndex(index: Int) -> ROLAnswer {
+    func getAnswerWithIndex(index: Int) -> ROLAnswer? {
         if self.answers[index] == nil {
-            return ROLAnswer()
+            return nil
         } else {
             return self.answers[index]!
         }

@@ -11,6 +11,6 @@ import UIKit
 class ROLAnswer: NSObject {
     var text: String = ""
     var type: Int = 0
-    var choices: [String] = []
+    var choices: [Int] = []
     var choice: Int = 0
 }

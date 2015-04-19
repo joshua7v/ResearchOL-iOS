@@ -36,7 +36,7 @@ class ROLHomeController: UIViewController {
         
         self.setup()
         
-        ROLQuestionManager.sharedManager.getQuestionares(5, success: { () -> Void in
+        ROLQuestionManager.sharedManager.getQuestionares(6, success: { () -> Void in
             self.questionares = ROLQuestionManager.sharedManager.questionares
             self.tableView.reloadData()
         })

@@ -11,9 +11,9 @@ import UIKit
 class ROLQuestionCell: UITableViewCell {
     
     var index = 0
-    var answers: [ROLAnswer] = []
     var answer: ROLAnswer = ROLAnswer()
-    
+    var ovalPurpleImg = UIImage(named: "oval_purple")
+    var ovalPwhiteImg = UIImage(named: "oval_white")
     var item: ROLQuestion = ROLQuestion() {
         didSet {
             titleLabel.text = item.title
@@ -148,7 +148,7 @@ class ROLQuestionCell: UITableViewCell {
         choice5Label.text = self.item.choice[1]
         choice6Label.text = self.item.choice[2]
         choice7Label.text = self.item.choice[3]
-        self.whiteLineVConstraint.constant = CGFloat(27 * (self.item.choice.count - 2))
+        self.whiteLineVConstraint.constant = CGFloat(30 * (self.item.choice.count - 2))
     }
     
     func choice5() {
@@ -187,17 +187,38 @@ class ROLQuestionCell: UITableViewCell {
     }
     
     func setSelectedState(sender: UIButton) {
-        self.resetOvalSelection()
-        sender.setImage(UIImage(named: "oval_purple"), forState: UIControlState.Normal)
+        self.answer = ROLAnswer()
         self.answer.type = self.item.type
-        if self.answer.type == 1 {
+        if self.answer.type == 1 { // single choice
+            self.resetOvalSelection()
+            sender.setImage(ovalPurpleImg, forState: UIControlState.Normal)
             self.answer.choice = sender.tag
             if self.item.choice.count == 2 { // fix 2 answer condition
                 self.answer.choice -= 1
                 if self.answer.choice < 0 { self.answer.choice = 0 }
             }
+        } else if self.answer.type == 2 { // multi choice
+            if (sender.currentImage == ovalPwhiteImg) {
+                sender.setImage(ovalPurpleImg, forState: UIControlState.Normal)
+                self.answer.choices.append(sender.tag)
+                self.answer.choices.sort(<)
+            } else {
+                sender.setImage(ovalPwhiteImg, forState: UIControlState.Normal)
+                var temp: Int?
+                for i in enumerate(self.answer.choices) {
+                    if i.element == sender.tag {
+                        temp = i.index
+                    }
+                }
+                if temp != nil {
+                    self.answer.choices.removeAtIndex(temp!)
+                }
+            }
         }
         println(self.index)
+        println(self.answer.type)
+        println(self.answer.choice)
+        println(self.answer.choices)
         ROLQuestionManager.sharedManager.setAnswer(self.answer, index: self.index)
     }
     
@@ -206,30 +227,45 @@ class ROLQuestionCell: UITableViewCell {
         for i: UIView in subviews {
             if i.isKindOfClass(UIButton.classForCoder()) {
                 var btn = i as! UIButton
-                btn.setImage(UIImage(named: "oval_white"), forState: .Normal)
+                btn.setImage(ovalPwhiteImg, forState: .Normal)
             }
         }
     }
     
+    // FIXME: multi choice lost answer
     func retriveBtnState() {
         var answer = ROLQuestionManager.sharedManager.getAnswerWithIndex(self.index)
         var subviews: [UIView] = self.contentView.subviews as! [UIView]
         var tag = 0
-        if answer.type == 1 {
-            tag = answer.choice
-            if self.item.choice.count == 2 { // fix 2 answer condition
-                if answer.choice == 1 { tag = 2 }
-            }
-            
-            for i: UIView in subviews {
-                if i.isKindOfClass(UIButton.classForCoder()) {
-                    var btn = i as! UIButton
-                    if btn.tag == tag {
-                        btn.setImage(UIImage(named: "oval_purple"), forState: UIControlState.Normal)
+        if (answer != nil) {
+            if answer!.type == 1 {
+                tag = answer!.choice
+                if self.item.choice.count == 2 { // fix 2 answer condition
+                    if answer!.choice == 1 { tag = 2 }
+                }
+                
+                for i: UIView in subviews {
+                    if i.isKindOfClass(UIButton.classForCoder()) {
+                        var btn = i as! UIButton
+                        if btn.tag == tag {
+                            btn.setImage(ovalPurpleImg, forState: UIControlState.Normal)
+                        }
+                    }
+                }
+            } else if answer!.type == 2 {
+                for i in enumerate(answer!.choices) {
+                    for x: UIView in subviews {
+                        if x.isKindOfClass(UIButton.classForCoder()) {
+                            var btn = x as! UIButton
+                            if btn.tag == i.element {
+                                btn.setImage(ovalPurpleImg, forState: UIControlState.Normal)
+                            }
+                        }
                     }
                 }
             }
         }
+        
     }
     
     func getRectWithStr(string: String, width: CGFloat, attributes: Dictionary<NSObject, AnyObject>) -> CGRect {
@@ -265,9 +301,9 @@ class ROLQuestionCell: UITableViewCell {
         } else if self.item.choice.count == 3 {
             return self.fixTooLongChoice(height) + 25
         } else if self.item.choice.count == 4 {
-            return height + 65
+            return height + 85
         } else if self.item.choice.count == 5 {
-            return height + 90
+            return height + 110
         }
         
         return height
