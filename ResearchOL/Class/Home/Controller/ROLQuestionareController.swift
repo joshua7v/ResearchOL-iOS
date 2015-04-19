@@ -34,22 +34,47 @@ class ROLQuestionareController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension ROLQuestionareController: UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.questions.count
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.questions.count
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = ROLQuestionCell.cellWithTableView(tableView, indexPath: indexPath)
-        cell.item = self.questions[indexPath.row]
+        cell.item = self.questions[indexPath.section]
         heightForCell = cell.heightForQuestionCell()
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var view = UIView()
+        var title = UILabel(frame: CGRectMake(10, 3, 100, 20))
+        let type = self.questions[section].type
+        if type == 1 {
+            title.text = "单选"
+        } else if type == 2 {
+            title.text = "多选"
+        } else if type == 3 {
+            title.text = "填写"
+        }
+        
+        title.font = UIFont.systemFontOfSize(13)
+        title.textColor = UIColor.black50PercentColor()
+        view.addSubview(title)
+        return view
     }
 }
 
 // MARK: - UITableViewDelegate
 extension ROLQuestionareController: UITableViewDelegate {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return heightForCell
     }

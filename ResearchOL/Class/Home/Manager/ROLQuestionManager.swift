@@ -15,14 +15,14 @@ class ROLQuestionManager: NSObject {
     var questionares: [ROLQuestionare] = []
     
     
-    //    let questionaresRef = fireBaseRef.childByAppendingPath("questionares")
-    //    let questionare1 = ["title": "标题", "description": "描述"]
-    //    let questionare1Ref = questionaresRef.childByAutoId()
-    //    questionare1Ref.setValue(questionare1)
-    //
-    //    let questionare2 = ["title": "alanisawesome", "description": "The Turing Machine"]
-    //    let questionare2Ref = questionaresRef.childByAutoId()
-    //    questionare2Ref.setValue(post2)
+//        let questionaresRef = fireBaseRef.childByAppendingPath("questionares")
+//        let questionare1 = ["title": "标题", "description": "描述"]
+//        let questionare1Ref = questionaresRef.childByAutoId()
+//        questionare1Ref.setValue(questionare1)
+//    
+//        let questionare2 = ["title": "alanisawesome", "description": "The Turing Machine"]
+//        let questionare2Ref = questionaresRef.childByAutoId()
+//        questionare2Ref.setValue(post2)
    
     class var sharedManager: ROLQuestionManager {
         struct Static {
@@ -42,7 +42,7 @@ class ROLQuestionManager: NSObject {
         var count: UInt = 1
         var flag: Bool = false
         
-        questionaresRef.queryLimitedToFirst(amount).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
+        questionaresRef.queryOrderedByKey().queryLimitedToFirst(amount).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
             var questionare = ROLQuestionare()
             questionare.uuid = snapshot.key as String
             questionare.title = snapshot.value["title"] as! String

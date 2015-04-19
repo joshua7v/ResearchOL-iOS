@@ -22,6 +22,14 @@ class ROLHomeController: UIViewController {
         super.viewDidLoad()
         self.tableView.backgroundColor = SEColor(226, 226, 226)
         
+//        let questionaresRef = firebaseRef.childByAppendingPath("questionares")
+//        let questionare1 = ["title": "标题", "description": "描述"]
+//        let questionare1Ref = questionaresRef.childByAutoId()
+//        questionare1Ref.setValue(questionare1)
+//
+//        let questionare2 = ["title": "alanisawesome", "description": "The Turing Machine"]
+//        let questionare2Ref = questionaresRef.childByAutoId()
+//        questionare2Ref.setValue(questionare2)
 //        let questionareRef = firebaseRef.childByAppendingPath("questionares").childByAutoId()
 //        var question = ["title" : "xxx"]
 //        questionareRef.setValue(question)

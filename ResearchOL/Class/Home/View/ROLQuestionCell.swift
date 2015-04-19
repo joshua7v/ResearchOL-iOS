@@ -17,6 +17,7 @@ class ROLQuestionCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var choice2Constraint: NSLayoutConstraint!
     @IBOutlet weak var choic1ovalConstraint: NSLayoutConstraint!
     @IBOutlet weak var whiteLineVConstraint: NSLayoutConstraint!
     @IBOutlet weak var whiteLineV: UIView!
@@ -38,6 +39,7 @@ class ROLQuestionCell: UITableViewCell {
     @IBOutlet weak var choice2Label: UILabel!
     @IBOutlet weak var choice1Label: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var answerTextField: UITextField!
     
     // MARK: - private
     override var frame: CGRect {
@@ -56,7 +58,7 @@ class ROLQuestionCell: UITableViewCell {
     
     func setup() {
         self.hideAll()
-        if self.item.type == 1 {
+        if self.item.type == 1 || self.item.type == 2 {
             switch item.choice.count {
             case 2:
                 self.choice2()
@@ -69,6 +71,8 @@ class ROLQuestionCell: UITableViewCell {
             default:
                 self.hideAll()
             }
+        } else if self.item.type == 3 {
+            self.fillInBlanks()
         }
     }
     
@@ -119,28 +123,25 @@ class ROLQuestionCell: UITableViewCell {
     }
     
     func choice5() {
-        self.hideAll()
+        self.choice4()
         
-        choice4Label.hidden = false
-        choice5Label.hidden = false
-        choice6Label.hidden = false
-        choice7Label.hidden = false
-        choice8Label.hidden = false
-        choice4oval.hidden = false
-        choice5oval.hidden = false
-        choice6oval.hidden = false
-        choice7oval.hidden = false
         choice8oval.hidden = false
-        whiteLineV.hidden = false
-        choice4Label.text = self.item.choice[0]
-        choice5Label.text = self.item.choice[1]
-        choice6Label.text = self.item.choice[2]
-        choice7Label.text = self.item.choice[3]
         choice8Label.text = self.item.choice[4]
         self.whiteLineVConstraint.constant = -28
     }
     
+    func choiceGreaterThan5() {
+        // TODO
+    }
+    
+    func fillInBlanks() {
+        self.hideAll()
+        
+        answerTextField.hidden = false
+    }
+    
     func hideAll() {
+        answerTextField.hidden = true
         choice1Label.hidden = true
         choice2Label.hidden = true
         choice3Label.hidden = true
@@ -169,22 +170,48 @@ class ROLQuestionCell: UITableViewCell {
         choice8Label.text = nil
         self.choic1ovalConstraint.constant = 35
         self.whiteLineVConstraint.constant = -3
+        self.choice2Constraint.constant = 5
+    }
+    
+    func getRectWithStr(string: String, width: CGFloat, attributes: Dictionary<NSObject, AnyObject>) -> CGRect {
+        var str: NSString = string
+        var size = CGSize(width: width, height: CGFloat.max)
+        return str.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
+    }
+    
+    func fixTooLongChoice(height: CGFloat) -> CGFloat {
+        var attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(14) ]
+        var rect = self.getRectWithStr(self.choice1Label.text!, width: self.choice1Label.bounds.width, attributes: attributes)
+        var tempH = height
+        if rect.width > UIScreen.mainScreen().bounds.width / 2 {
+            self.choice2Constraint.constant += rect.height + 5
+            tempH += rect.height
+        }
+        return tempH
     }
     
     // MARK: - public
     // MARK: height
     func heightForQuestionCell() -> CGFloat {
-        if self.item.choice.count == 2 {
-            return 110
-        } else if self.item.choice.count == 3 {
-            return 115
-        } else if self.item.choice.count == 4 {
-            return 165
-        } else if self.item.choice.count == 5 {
-            return 190
+        var height: CGFloat = 110
+        
+        var attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(15) ]
+        var rect = self.getRectWithStr(self.titleLabel.text!, width: self.titleLabel.bounds.width, attributes: attributes)
+        if rect.height > 17 {
+            height += rect.height - 17
         }
         
-        return 110
+        if self.item.choice.count == 2 {
+            return self.fixTooLongChoice(height)
+        } else if self.item.choice.count == 3 {
+            return self.fixTooLongChoice(height) + 10
+        } else if self.item.choice.count == 4 {
+            return height + 55
+        } else if self.item.choice.count == 5 {
+            return height + 80
+        }
+        
+        return height
     }
     
     class func cellWithTableView(tableView: UITableView, indexPath: NSIndexPath) -> ROLQuestionCell {
