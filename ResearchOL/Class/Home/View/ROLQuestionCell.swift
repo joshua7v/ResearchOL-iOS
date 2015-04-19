@@ -187,9 +187,7 @@ class ROLQuestionCell: UITableViewCell {
     }
     
     func setSelectedState(sender: UIButton) {
-        self.answer = ROLAnswer()
-        self.answer.type = self.item.type
-        if self.answer.type == 1 { // single choice
+        if self.item.type == 1 { // single choice
             self.resetOvalSelection()
             sender.setImage(ovalPurpleImg, forState: UIControlState.Normal)
             self.answer.choice = sender.tag
@@ -197,7 +195,7 @@ class ROLQuestionCell: UITableViewCell {
                 self.answer.choice -= 1
                 if self.answer.choice < 0 { self.answer.choice = 0 }
             }
-        } else if self.answer.type == 2 { // multi choice
+        } else if self.item.type == 2 { // multi choice
             if (sender.currentImage == ovalPwhiteImg) {
                 sender.setImage(ovalPurpleImg, forState: UIControlState.Normal)
                 self.answer.choices.append(sender.tag)
@@ -215,14 +213,12 @@ class ROLQuestionCell: UITableViewCell {
                 }
             }
         }
-        println(self.index)
-        println(self.answer.type)
-        println(self.answer.choice)
-        println(self.answer.choices)
+        self.answer.type = self.item.type
         ROLQuestionManager.sharedManager.setAnswer(self.answer, index: self.index)
     }
     
     func resetOvalSelection() {
+        self.answer = ROLAnswer()
         var subviews: [UIView] = self.contentView.subviews as! [UIView]
         for i: UIView in subviews {
             if i.isKindOfClass(UIButton.classForCoder()) {
@@ -232,12 +228,15 @@ class ROLQuestionCell: UITableViewCell {
         }
     }
     
-    // FIXME: multi choice lost answer
     func retriveBtnState() {
         var answer = ROLQuestionManager.sharedManager.getAnswerWithIndex(self.index)
         var subviews: [UIView] = self.contentView.subviews as! [UIView]
         var tag = 0
+        println("index" + "\(self.index)")
         if (answer != nil) {
+            println(answer!.type)
+            println(answer!.choice)
+            println(answer!.choices)
             if answer!.type == 1 {
                 tag = answer!.choice
                 if self.item.choice.count == 2 { // fix 2 answer condition
