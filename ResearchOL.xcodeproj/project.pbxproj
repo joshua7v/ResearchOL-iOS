@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4204D13E1AE1316300CF19E6 /* NSDate+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204D13D1AE1316300CF19E6 /* NSDate+SE.m */; };
+		4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217B3581AE3A169000FA69B /* ROLAnswer.swift */; };
 		421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */; };
 		421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */; };
 		4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		4204D13C1AE1316300CF19E6 /* NSDate+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SE.h"; sourceTree = "<group>"; };
 		4204D13D1AE1316300CF19E6 /* NSDate+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SE.m"; sourceTree = "<group>"; };
+		4217B3581AE3A169000FA69B /* ROLAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLAnswer.swift; sourceTree = "<group>"; };
 		421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeProfileCell.swift; sourceTree = "<group>"; };
 		421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLMeProfileCell.xib; sourceTree = "<group>"; };
 		422328981AD8BDDF0008EB80 /* ResearchOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResearchOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +399,7 @@
 				42B7A9171ADF850A001B4D25 /* ROLQuestionare.swift */,
 				4297CAC51AE241F70023AA6A /* ROLQuestion.swift */,
 				4297CAC31AE22DE90023AA6A /* ROLCellIdentifiers.swift */,
+				4217B3581AE3A169000FA69B /* ROLAnswer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */,
 				4297CABC1AE2003A0023AA6A /* ROLQuestionareController.swift in Sources */,
 				4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */,
+				4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */,
 				429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */,
 				4297CAC41AE22DE90023AA6A /* ROLCellIdentifiers.swift in Sources */,
 				429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */,

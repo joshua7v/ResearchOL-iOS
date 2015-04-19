@@ -10,6 +10,10 @@ import UIKit
 
 class ROLQuestionCell: UITableViewCell {
     
+    var index = 0
+    var answers: [ROLAnswer] = []
+    var answer: ROLAnswer = ROLAnswer()
+    
     var item: ROLQuestion = ROLQuestion() {
         didSet {
             titleLabel.text = item.title
@@ -17,24 +21,44 @@ class ROLQuestionCell: UITableViewCell {
         }
     }
     
+    @IBAction func choice1BtnClicked(sender: UIButton) {
+        self.setSelectedState(sender)
+    }
+    @IBAction func choice2BtnClicked(sender: UIButton) {
+        self.setSelectedState(sender)
+    }
+    @IBAction func choice3BtnClicked(sender: UIButton) {
+        self.setSelectedState(sender)
+    }
+    @IBAction func choice4BtnClicked(sender: UIButton) {
+        self.setSelectedState(sender)
+    }
+    @IBAction func choice5BtnClicked(sender: UIButton) {
+        self.setSelectedState(sender)
+    }
+    
+    
     @IBOutlet weak var choice2Constraint: NSLayoutConstraint!
     @IBOutlet weak var choic1ovalConstraint: NSLayoutConstraint!
     @IBOutlet weak var whiteLineVConstraint: NSLayoutConstraint!
     @IBOutlet weak var whiteLineV: UIView!
-    @IBOutlet weak var choice8oval: UIImageView!
-    @IBOutlet weak var choice7oval: UIImageView!
-    @IBOutlet weak var choice6oval: UIImageView!
-    @IBOutlet weak var choice5oval: UIImageView!
-    @IBOutlet weak var choice4oval: UIImageView!
+    
     @IBOutlet weak var choice8Label: UILabel!
     @IBOutlet weak var choice7Label: UILabel!
     @IBOutlet weak var choice6Label: UILabel!
     @IBOutlet weak var choice5Label: UILabel!
     @IBOutlet weak var choice4Label: UILabel!
     @IBOutlet weak var whiteLine: UIView!
-    @IBOutlet weak var choice3oval: UIImageView!
-    @IBOutlet weak var choice2oval: UIImageView!
-    @IBOutlet weak var choice1oval: UIImageView!
+    
+    @IBOutlet weak var choice8oval: UIButton!
+    @IBOutlet weak var choice7oval: UIButton!
+    @IBOutlet weak var choice6oval: UIButton!
+    @IBOutlet weak var choice5oval: UIButton!
+    @IBOutlet weak var choice4oval: UIButton!
+    @IBOutlet weak var choice3oval: UIButton!
+    @IBOutlet weak var choice2oval: UIButton!
+    @IBOutlet weak var choice1oval: UIButton!
+    
     @IBOutlet weak var choice3Label: UILabel!
     @IBOutlet weak var choice2Label: UILabel!
     @IBOutlet weak var choice1Label: UILabel!
@@ -58,6 +82,9 @@ class ROLQuestionCell: UITableViewCell {
     
     func setup() {
         self.hideAll()
+        self.resetOvalSelection()
+        self.retriveBtnState()
+        
         if self.item.type == 1 || self.item.type == 2 {
             switch item.choice.count {
             case 2:
@@ -100,8 +127,8 @@ class ROLQuestionCell: UITableViewCell {
         choice3oval.hidden = false
         whiteLine.hidden = false
         choice1Label.text = self.item.choice[0]
-        choice2Label.text = self.item.choice[1]
-        choice3Label.text = self.item.choice[2]
+        choice3Label.text = self.item.choice[1]
+        choice2Label.text = self.item.choice[2]
     }
     
     func choice4() {
@@ -120,6 +147,7 @@ class ROLQuestionCell: UITableViewCell {
         choice5Label.text = self.item.choice[1]
         choice6Label.text = self.item.choice[2]
         choice7Label.text = self.item.choice[3]
+        self.whiteLineVConstraint.constant = CGFloat(27 * (self.item.choice.count - 2))
     }
     
     func choice5() {
@@ -128,7 +156,6 @@ class ROLQuestionCell: UITableViewCell {
         choice8oval.hidden = false
         choice8Label.hidden = false
         choice8Label.text = self.item.choice[4]
-        self.whiteLineVConstraint.constant = -28
     }
     
     func choiceGreaterThan5() {
@@ -142,36 +169,66 @@ class ROLQuestionCell: UITableViewCell {
     }
     
     func hideAll() {
-        answerTextField.hidden = true
-        choice1Label.hidden = true
-        choice2Label.hidden = true
-        choice3Label.hidden = true
-        choice4Label.hidden = true
-        choice5Label.hidden = true
-        choice6Label.hidden = true
-        choice7Label.hidden = true
-        choice8Label.hidden = true
-        choice1oval.hidden = true
-        choice2oval.hidden = true
-        choice3oval.hidden = true
-        choice4oval.hidden = true
-        choice5oval.hidden = true
-        choice6oval.hidden = true
-        choice7oval.hidden = true
-        choice8oval.hidden = true
-        whiteLine.hidden = true
-        whiteLineV.hidden = true
-        choice1Label.text = nil
-        choice2Label.text = nil
-        choice3Label.text = nil
-        choice4Label.text = nil
-        choice5Label.text = nil
-        choice6Label.text = nil
-        choice7Label.text = nil
-        choice8Label.text = nil
-        self.choic1ovalConstraint.constant = 35
-        self.whiteLineVConstraint.constant = -3
+        for i: UIView in self.contentView.subviews as! [UIView] {
+            if i.tag == 999 { // title should not be hide
+                continue
+            }
+            if i.isKindOfClass(UILabel.classForCoder()) {
+                var label = i as! UILabel
+                label.text = nil
+            }
+            i.hidden = true
+        }
+        
+        self.choic1ovalConstraint.constant = 30
+        self.whiteLineVConstraint.constant = 0
         self.choice2Constraint.constant = 5
+    }
+    
+    func setSelectedState(sender: UIButton) {
+        self.resetOvalSelection()
+        sender.setImage(UIImage(named: "oval_purple"), forState: UIControlState.Normal)
+        self.answer.type = self.item.type
+        if self.answer.type == 1 {
+            self.answer.choice = sender.tag
+            if self.item.choice.count == 2 { // fix 2 answer condition
+                self.answer.choice -= 1
+                if self.answer.choice < 0 { self.answer.choice = 0 }
+            }
+        }
+        ROLQuestionManager.sharedManager.passAnswer(self.answer)
+    }
+    
+    func resetOvalSelection() {
+        var subviews: [UIView] = self.contentView.subviews as! [UIView]
+        for i: UIView in subviews {
+            if i.isKindOfClass(UIButton.classForCoder()) {
+                var btn = i as! UIButton
+                btn.setImage(UIImage(named: "oval_white"), forState: .Normal)
+            }
+        }
+    }
+    
+    func retriveBtnState() {
+        var answer = ROLQuestionManager.sharedManager.getAnswerWithIndex(self.index)
+        var subviews: [UIView] = self.contentView.subviews as! [UIView]
+        var tag = 0
+        if self.answer.type == 1 {
+            tag = self.answer.choice
+            if self.item.choice.count == 2 {
+                tag += 1
+                if self.answer.choice > 1 { self.answer.choice = 1 }
+            }
+            
+            for i: UIView in subviews {
+                if i.isKindOfClass(UIButton.classForCoder()) {
+                    var btn = i as! UIButton
+                    if btn.tag == tag {
+                        btn.setImage(UIImage(named: "oval_purple"), forState: UIControlState.Normal)
+                    }
+                }
+            }
+        }
     }
     
     func getRectWithStr(string: String, width: CGFloat, attributes: Dictionary<NSObject, AnyObject>) -> CGRect {
@@ -203,13 +260,13 @@ class ROLQuestionCell: UITableViewCell {
         }
         
         if self.item.choice.count == 2 {
-            return self.fixTooLongChoice(height)
-        } else if self.item.choice.count == 3 {
             return self.fixTooLongChoice(height) + 10
+        } else if self.item.choice.count == 3 {
+            return self.fixTooLongChoice(height) + 25
         } else if self.item.choice.count == 4 {
-            return height + 55
+            return height + 65
         } else if self.item.choice.count == 5 {
-            return height + 100
+            return height + 90
         }
         
         return height

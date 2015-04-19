@@ -13,6 +13,7 @@ class ROLQuestionManager: NSObject {
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
     let questionaresRef = Firebase(url: "https://researchol.firebaseio.com/questionares")
     var questionares: [ROLQuestionare] = []
+    var answers: [ROLAnswer] = []
     
     
 //        let questionaresRef = fireBaseRef.childByAppendingPath("questionares")
@@ -82,5 +83,19 @@ class ROLQuestionManager: NSObject {
                 success()
             }
         })
+    }
+    
+    func passAnswer(answer: ROLAnswer) {
+        self.answers.append(answer)
+        for i in self.answers {
+            println("type: " + "\(i.type)" + " " + "choice: " + "\(i.choice)\n")
+        }
+    }
+    
+    func getAnswerWithIndex(index: Int) -> ROLAnswer {
+        if index > self.answers.count - 1 {
+            return ROLAnswer()
+        }
+        return self.answers[index]
     }
 }

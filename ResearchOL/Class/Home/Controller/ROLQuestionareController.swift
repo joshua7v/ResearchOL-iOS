@@ -45,6 +45,7 @@ extension ROLQuestionareController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = ROLQuestionCell.cellWithTableView(tableView, indexPath: indexPath)
         cell.item = self.questions[indexPath.section]
+        cell.index = indexPath.section
         heightForCell = cell.heightForQuestionCell()
         
         return cell
