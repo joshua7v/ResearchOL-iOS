@@ -78,7 +78,14 @@ class ROLQuestionCell: UITableViewCell {
     // MARK: awake
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.answerTextField.delegate = self
+        var view = UIView()
+        view.backgroundColor = UIColor.whiteColor()
+        view.frame = CGRectMake(0, 0, 10, self.answerTextField.frame.size.height)
+        self.answerTextField.leftView = view
+        self.answerTextField.leftViewMode = UITextFieldViewMode.Always
     }
+    
     
     func setup() {
         
@@ -187,6 +194,7 @@ class ROLQuestionCell: UITableViewCell {
     }
     
     func setSelectedState(sender: UIButton) {
+        self.endEditing(true)
         if self.item.type == 1 { // single choice
             self.resetOvalSelection()
             sender.setImage(ovalPurpleImg, forState: UIControlState.Normal)
@@ -232,11 +240,7 @@ class ROLQuestionCell: UITableViewCell {
         var answer = ROLQuestionManager.sharedManager.getAnswerWithIndex(self.index)
         var subviews: [UIView] = self.contentView.subviews as! [UIView]
         var tag = 0
-        println("index" + "\(self.index)")
         if (answer != nil) {
-            println(answer!.type)
-            println(answer!.choice)
-            println(answer!.choices)
             if answer!.type == 1 {
                 tag = answer!.choice
                 if self.item.choice.count == 2 { // fix 2 answer condition
@@ -262,6 +266,8 @@ class ROLQuestionCell: UITableViewCell {
                         }
                     }
                 }
+            } else if answer!.type == 3 {
+                self.answerTextField.text = answer!.text
             }
         }
         
@@ -314,4 +320,17 @@ class ROLQuestionCell: UITableViewCell {
         return cell
     }
     
+}
+
+extension ROLQuestionCell: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        NSNotificationCenter.defaultCenter().postNotificationName("beginEditing", object: self.index)
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.answer.type = self.item.type
+        self.answer.text = textField.text
+    }
 }
