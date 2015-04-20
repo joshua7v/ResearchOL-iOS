@@ -214,11 +214,14 @@
                                             <action selector="skipBtnClicked" destination="FKU-jm-C7w" eventType="touchUpInside" id="aZ7-yI-ZZb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E82-0q-FGl">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E82-0q-FGl">
                                         <rect key="frame" x="185" y="7" width="30" height="30"/>
                                         <state key="normal" title="完成">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="finishBtnClicked:" destination="FKU-jm-C7w" eventType="touchUpInside" id="5QZ-Q0-0Oc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,6 +257,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="L9I-Q1-Muh" id="cj3-JU-gjt"/>
+                        <outlet property="finishBtn" destination="E82-0q-FGl" id="gzS-gf-wC1"/>
                         <outlet property="tableView" destination="xG2-ic-B79" id="KBg-gR-fel"/>
                     </connections>
                 </viewController>

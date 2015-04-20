@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol ROLQuestionCellDelegate: NSObjectProtocol {
+    func questionCellDidChooseAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath)
+}
+
 class ROLQuestionCell: UITableViewCell {
-    
+    var delegate: ROLQuestionCellDelegate?
     var index = 0
     var answer: ROLAnswer = ROLAnswer()
     var ovalPurpleImg = UIImage(named: "oval_purple")
@@ -221,8 +225,7 @@ class ROLQuestionCell: UITableViewCell {
                 }
             }
         }
-        self.answer.type = self.item.type
-        ROLQuestionManager.sharedManager.setAnswer(self.answer, index: self.index)
+        self.saveAnswerToManager()
     }
     
     func resetOvalSelection() {
@@ -271,6 +274,17 @@ class ROLQuestionCell: UITableViewCell {
             }
         }
         
+    }
+    
+    func saveAnswerToManager() {
+        
+        if (self.delegate?.respondsToSelector("questionCellDidChooseAnswer") != nil) {
+            var indexPath = NSIndexPath(forRow: 0, inSection: self.index)
+            self.delegate?.questionCellDidChooseAnswer(self, indexPath: indexPath)
+        }
+        
+        self.answer.type = self.item.type
+        ROLQuestionManager.sharedManager.setAnswer(self.answer, index: self.index)
     }
     
     func getRectWithStr(string: String, width: CGFloat, attributes: Dictionary<NSObject, AnyObject>) -> CGRect {
@@ -330,7 +344,7 @@ extension ROLQuestionCell: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        self.answer.type = self.item.type
         self.answer.text = textField.text
+        self.saveAnswerToManager()
     }
 }

@@ -13,11 +13,11 @@ class ROLQuestionareController: UIViewController {
     lazy var questions: [ROLQuestion] = []
     var selectedIndexPath: NSIndexPath?
     var heightForCell = CGFloat()
+    var answeredQuestions: [Int] = []
+    var lastIndex = 999
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
-    @IBAction func skipBtnClicked() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+    @IBOutlet weak var finishBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +37,30 @@ class ROLQuestionareController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "beginEditing:", name: "beginEditing", object: nil)
     }
     
+    func setFinishBtn() {
+        var count = 0
+        if self.answeredQuestions.count != self.questions.count {
+            self.finishBtn.enabled = false
+        } else {
+            self.finishBtn.enabled = true
+        }
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "beginEditing", object: nil)
+    }
+    
+    // MARK: action
+    @IBAction func skipBtnClicked() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func finishBtnClicked(sender: UIButton) {
+        for i in enumerate(ROLQuestionManager.sharedManager.answers) {
+            println("index \(i.element.0)" + "type \(i.element.1.type)" + "text \(i.element.1.text)")
+        }
     }
     
     // MARK: notification
@@ -94,6 +114,7 @@ extension ROLQuestionareController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = ROLQuestionCell.cellWithTableView(tableView, indexPath: indexPath)
+        cell.delegate = self
         cell.index = indexPath.section
         cell.item = self.questions[indexPath.section]
         heightForCell = cell.heightForQuestionCell()
@@ -132,5 +153,15 @@ extension ROLQuestionareController: UITableViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.view.endEditing(true)
+    }
+}
+
+extension ROLQuestionareController: ROLQuestionCellDelegate {
+    func questionCellDidChooseAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath) {
+        if self.lastIndex != indexPath.section {
+            self.answeredQuestions.append(indexPath.section)
+        }
+        self.setFinishBtn()
+        self.lastIndex = indexPath.section
     }
 }
