@@ -13,8 +13,7 @@ class ROLQuestionareController: UIViewController {
     lazy var questions: [ROLQuestion] = []
     var selectedIndexPath: NSIndexPath?
     var heightForCell = CGFloat()
-    var answeredQuestions: [Int] = []
-    var lastIndex = 999
+    var answeredQuestions: NSMutableArray = NSMutableArray()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var finishBtn: UIButton!
@@ -38,7 +37,6 @@ class ROLQuestionareController: UIViewController {
     }
     
     func setFinishBtn() {
-        var count = 0
         if self.answeredQuestions.count != self.questions.count {
             self.finishBtn.enabled = false
         } else {
@@ -157,11 +155,16 @@ extension ROLQuestionareController: UITableViewDelegate {
 }
 
 extension ROLQuestionareController: ROLQuestionCellDelegate {
-    func questionCellDidChooseAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath) {
-        if self.lastIndex != indexPath.section {
-            self.answeredQuestions.append(indexPath.section)
+    func questionCellDidSelectAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath) {
+        if !self.answeredQuestions.containsObject(indexPath.section) {
+            self.answeredQuestions.addObject(indexPath.section)
         }
         self.setFinishBtn()
-        self.lastIndex = indexPath.section
+    }
+    func questionCellDidDeSelectAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath) {
+        if self.answeredQuestions.containsObject(indexPath.section) {
+            self.answeredQuestions.removeObject(indexPath.section)
+        }
+        self.setFinishBtn()
     }
 }

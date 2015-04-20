@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ROLQuestionCellDelegate: NSObjectProtocol {
-    func questionCellDidChooseAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath)
+    func questionCellDidSelectAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath)
+    func questionCellDidDeSelectAnswer(questionCell: ROLQuestionCell, indexPath: NSIndexPath)
 }
 
 class ROLQuestionCell: UITableViewCell {
@@ -244,6 +245,8 @@ class ROLQuestionCell: UITableViewCell {
         var subviews: [UIView] = self.contentView.subviews as! [UIView]
         var tag = 0
         if (answer != nil) {
+            self.answer = answer!
+            println("\(self.index) \(answer!.type) \(answer!.choices)")
             if answer!.type == 1 {
                 tag = answer!.choice
                 if self.item.choice.count == 2 { // fix 2 answer condition
@@ -278,13 +281,17 @@ class ROLQuestionCell: UITableViewCell {
     
     func saveAnswerToManager() {
         
-        if (self.delegate?.respondsToSelector("questionCellDidChooseAnswer") != nil) {
-            var indexPath = NSIndexPath(forRow: 0, inSection: self.index)
-            self.delegate?.questionCellDidChooseAnswer(self, indexPath: indexPath)
+        var indexPath = NSIndexPath(forRow: 0, inSection: self.index)
+        if (self.answer.type == 2 && self.answer.choices.count == 0) {
+            if (self.delegate?.respondsToSelector("questionCellDidDeSelectAnswer") != nil) {
+                self.delegate?.questionCellDidDeSelectAnswer(self, indexPath: indexPath)
+            }
+        } else if (self.delegate?.respondsToSelector("questionCellDidSelectAnswer") != nil) {
+            self.delegate?.questionCellDidSelectAnswer(self, indexPath: indexPath)
+            self.answer.type = self.item.type
         }
-        
-        self.answer.type = self.item.type
         ROLQuestionManager.sharedManager.setAnswer(self.answer, index: self.index)
+        
     }
     
     func getRectWithStr(string: String, width: CGFloat, attributes: Dictionary<NSObject, AnyObject>) -> CGRect {
