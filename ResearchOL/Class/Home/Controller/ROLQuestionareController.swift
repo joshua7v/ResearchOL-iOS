@@ -11,6 +11,7 @@ import UIKit
 class ROLQuestionareController: UIViewController {
 
     lazy var questions: [ROLQuestion] = []
+    var questionareID = ""
     var selectedIndexPath: NSIndexPath?
     var heightForCell = CGFloat()
     var answeredQuestions: NSMutableArray = NSMutableArray()
@@ -56,9 +57,10 @@ class ROLQuestionareController: UIViewController {
     }
     
     @IBAction func finishBtnClicked(sender: UIButton) {
-        for i in enumerate(ROLQuestionManager.sharedManager.answers) {
-            println("index \(i.element.0)" + "type \(i.element.1.type)" + "text \(i.element.1.text)")
-        }
+        ROLQuestionManager.sharedManager.setAnswerSheetToServer(self.questionareID, success: { () -> Void in
+            println("save to server - success")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
     }
     
     // MARK: notification

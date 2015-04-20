@@ -85,6 +85,43 @@ class ROLQuestionManager: NSObject {
         })
     }
     
+    func sortedAnswer() -> NSArray {
+        var array = NSMutableArray()
+        var index = 0
+        while (self.answers.count > 0) {
+            for i in self.answers {
+                if i.0 == index {
+                    array.addObject(i.1)
+                    self.answers.removeValueForKey(i.0)
+                }
+            }
+            index = index + 1
+        }
+        return array.copy() as! NSArray
+    }
+    
+    func setAnswerSheetToServer(questionareID: String, success: () -> Void) {
+        let answersRef = questionaresRef.childByAppendingPath(questionareID).childByAppendingPath("answers")
+        let answerRef = answersRef.childByAutoId()
+        var array: NSMutableArray = NSMutableArray()
+        var answers: NSArray = self.sortedAnswer()
+        for (var x = 0; x < answers.count; x++) {
+            var temp: ROLAnswer = answers[x] as! ROLAnswer
+            var ans: NSMutableDictionary = NSMutableDictionary()
+            if temp.type == 1 {
+                ans = ["type": temp.type, "choice": temp.choice]
+            } else if temp.type == 2 {
+                ans = ["type": temp.type, "choices": temp.choices]
+            } else if temp.type == 3 {
+                ans = ["type": temp.type, "text": temp.text]
+            }
+            array.addObject(ans)
+        }
+        answerRef.setValue(array, withCompletionBlock: { (error:NSError?, ref:Firebase!) -> Void in
+            success()
+        })
+    }
+    
     func setAnswer(answer: ROLAnswer, index: Int) {
         self.answers[index] = answer
         for i in self.answers {

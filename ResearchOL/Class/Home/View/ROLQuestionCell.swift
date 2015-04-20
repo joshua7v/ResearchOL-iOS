@@ -246,7 +246,6 @@ class ROLQuestionCell: UITableViewCell {
         var tag = 0
         if (answer != nil) {
             self.answer = answer!
-            println("\(self.index) \(answer!.type) \(answer!.choices)")
             if answer!.type == 1 {
                 tag = answer!.choice
                 if self.item.choice.count == 2 { // fix 2 answer condition
