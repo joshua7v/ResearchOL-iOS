@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol ROLHomeDetailControllerDelegate: NSObjectProtocol {
+    func homeDetailControllerDidGetQuestions(homeDetailController: ROLHomeDetailController, questionare: ROLQuestionare)
+}
+
 class ROLHomeDetailController: UITableViewController {
     
     var questionare: ROLQuestionare = ROLQuestionare()
+    var delegate: ROLHomeDetailControllerDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -29,6 +34,15 @@ class ROLHomeDetailController: UITableViewController {
     
     // MARK: - private
     func setup() {
+        if questionare.questions.count == 0 {
+            ROLQuestionManager.sharedManager.getQuestions(questionare.questionCount, questionare: questionare) { () -> Void in
+                println("get questions success -- ")
+                if (self.delegate?.respondsToSelector("homeDetailControllerDidGetQuestions:") != nil) {
+                    self.delegate?.homeDetailControllerDidGetQuestions(self, questionare: self.questionare)
+                }
+            }
+        }
+        
         titleLabel.text = questionare.title
         descLabel.text = questionare.desc
         participantLabel.text = String(format: "%d 人", questionare.participant)

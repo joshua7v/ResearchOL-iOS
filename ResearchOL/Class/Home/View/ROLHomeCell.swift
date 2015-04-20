@@ -20,7 +20,6 @@ class ROLHomeCell: UITableViewCell {
         }
     }
     
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var questionCount: UILabel!
@@ -29,8 +28,16 @@ class ROLHomeCell: UITableViewCell {
     
     // MARK: - public
     // MARK: height
-    class func heightForHomeCell() -> CGFloat {
-        return 70
+    func heightForHomeCell() -> CGFloat {
+        var height: CGFloat = 70
+        var attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(15) ]
+        var rect = ROLStringTool.getRectWithStr(item.title, width: self.titleLabel.bounds.width, attributes: attributes)
+        
+        if rect.width > 300 {
+            height += 15 * (rect.width / 300)
+        }
+        
+        return height
     }
     
     // MARK: override frame

@@ -282,10 +282,10 @@ class ROLQuestionCell: UITableViewCell {
         
         var indexPath = NSIndexPath(forRow: 0, inSection: self.index)
         if (self.answer.type == 2 && self.answer.choices.count == 0) {
-            if (self.delegate?.respondsToSelector("questionCellDidDeSelectAnswer") != nil) {
+            if (self.delegate?.respondsToSelector("questionCellDidDeSelectAnswer:") != nil) {
                 self.delegate?.questionCellDidDeSelectAnswer(self, indexPath: indexPath)
             }
-        } else if (self.delegate?.respondsToSelector("questionCellDidSelectAnswer") != nil) {
+        } else if (self.delegate?.respondsToSelector("questionCellDidSelectAnswer:") != nil) {
             self.delegate?.questionCellDidSelectAnswer(self, indexPath: indexPath)
             self.answer.type = self.item.type
         }
@@ -293,15 +293,9 @@ class ROLQuestionCell: UITableViewCell {
         
     }
     
-    func getRectWithStr(string: String, width: CGFloat, attributes: Dictionary<NSObject, AnyObject>) -> CGRect {
-        var str: NSString = string
-        var size = CGSize(width: width, height: CGFloat.max)
-        return str.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
-    }
-    
     func fixTooLongChoice(height: CGFloat) -> CGFloat {
         var attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(14) ]
-        var rect = self.getRectWithStr(self.choice1Label.text!, width: self.choice1Label.bounds.width, attributes: attributes)
+        var rect = ROLStringTool.getRectWithStr(self.choice1Label.text!, width: self.choice1Label.bounds.width, attributes: attributes)
         var tempH = height
         if rect.width > UIScreen.mainScreen().bounds.width / 2 {
             self.choice2Constraint.constant += rect.height + 5
@@ -316,7 +310,7 @@ class ROLQuestionCell: UITableViewCell {
         var height: CGFloat = 110
         
         var attributes = [ NSFontAttributeName: UIFont.systemFontOfSize(15) ]
-        var rect = self.getRectWithStr(self.titleLabel.text!, width: self.titleLabel.bounds.width, attributes: attributes)
+        var rect = ROLStringTool.getRectWithStr(self.titleLabel.text!, width: self.titleLabel.bounds.width, attributes: attributes)
         if rect.height > 17 {
             height += rect.height - 17
         }

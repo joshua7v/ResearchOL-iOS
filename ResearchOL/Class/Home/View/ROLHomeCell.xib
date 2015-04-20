@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,19 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职场匿名社交有奖问卷" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2X-Xn-GLW">
-                        <rect key="frame" x="10" y="10" width="150" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参与人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBj-cC-adc">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="参与人数：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBj-cC-adc">
                         <rect key="frame" x="280" y="11" width="70" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-4f-cc8">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-4f-cc8">
                         <rect key="frame" x="350" y="11" width="16" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -68,17 +62,24 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职场匿名社交有奖问卷" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2X-Xn-GLW">
+                        <rect key="frame" x="10" y="10" width="278" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="FyD-iW-wZS" secondAttribute="bottom" constant="5" id="4nJ-RR-Ngf"/>
-                    <constraint firstItem="EBj-cC-adc" firstAttribute="bottom" secondItem="X2X-Xn-GLW" secondAttribute="bottom" id="67b-ne-fDU"/>
                     <constraint firstItem="EBj-cC-adc" firstAttribute="bottom" secondItem="W4a-4f-cc8" secondAttribute="bottom" id="AIS-Uw-VeG"/>
                     <constraint firstAttribute="bottom" secondItem="FGE-Rr-qkY" secondAttribute="bottom" constant="5" id="DRO-PE-x9o"/>
                     <constraint firstAttribute="trailing" secondItem="k91-dd-gTZ" secondAttribute="trailing" constant="10" id="FPT-de-yAv"/>
                     <constraint firstAttribute="bottom" secondItem="k91-dd-gTZ" secondAttribute="bottom" constant="5" id="G97-d8-lz2"/>
                     <constraint firstItem="FyD-iW-wZS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mdh-hm-M6l"/>
                     <constraint firstItem="W4a-4f-cc8" firstAttribute="leading" secondItem="EBj-cC-adc" secondAttribute="trailing" id="Nup-Dh-w3G"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="X2X-Xn-GLW" secondAttribute="trailing" constant="80" id="Pni-cv-Ive"/>
                     <constraint firstItem="k91-dd-gTZ" firstAttribute="leading" secondItem="ftV-qM-LfV" secondAttribute="trailing" id="S8E-c7-REd"/>
+                    <constraint firstItem="X2X-Xn-GLW" firstAttribute="top" secondItem="EBj-cC-adc" secondAttribute="top" id="apQ-fS-gWe"/>
                     <constraint firstAttribute="centerX" secondItem="QLB-fu-XVP" secondAttribute="centerX" constant="-30" id="dfj-5r-xoT"/>
                     <constraint firstAttribute="bottom" secondItem="jpP-w8-aXh" secondAttribute="bottom" constant="5" id="gzB-ne-Gfo"/>
                     <constraint firstItem="jpP-w8-aXh" firstAttribute="leading" secondItem="FyD-iW-wZS" secondAttribute="trailing" constant="2" id="hJW-1y-j71"/>

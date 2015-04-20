@@ -12,6 +12,8 @@ class ROLHomeController: UIViewController {
     
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
     let segueId = "HOME2DETAIL"
+    var heightForCell = CGFloat()
+    var currentCell: ROLHomeCell = ROLHomeCell()
     
     lazy var questionares: [ROLQuestionare] = []
     var currentIndex = 0
@@ -52,6 +54,10 @@ class ROLHomeController: UIViewController {
         var dest = segue.destinationViewController as! ROLHomeDetailController
         dest.questionare = self.questionares[self.currentIndex]
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -64,6 +70,8 @@ extension ROLHomeController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = ROLHomeCell.cellWithTableView(tableView, indexPath: indexPath)
         cell.item = self.questionares[indexPath.row]
+        heightForCell = cell.heightForHomeCell()
+        currentCell = cell
         
         return cell
     }
@@ -72,12 +80,20 @@ extension ROLHomeController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension ROLHomeController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return ROLHomeCell.heightForHomeCell()
+        return heightForCell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.currentIndex = indexPath.row
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier(segueId, sender: nil)
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - ROLHomeDetailControllerDelegate
+extension ROLHomeController: ROLHomeDetailControllerDelegate {
+    func homeDetailControllerDidGetQuestions(homeDetailController: ROLHomeDetailController, questionare: ROLQuestionare) {
+        self.questionares[self.currentIndex] = questionare
     }
 }

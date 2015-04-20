@@ -40,7 +40,7 @@ class ROLQuestionManager: NSObject {
     
     // MARK: - public
     func getQuestionares(amount: UInt, success: () -> Void) {
-        var count: UInt = 1
+        var count: UInt = 0
         var flag: Bool = false
         
         questionaresRef.queryOrderedByKey().queryLimitedToFirst(amount).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
@@ -54,16 +54,22 @@ class ROLQuestionManager: NSObject {
             questionare.participant = snapshot.value["participant"] as! Int
             questionare.questionCount = snapshot.value["questionCount"] as! Int
             
+            self.questionares.append(questionare)
+            count = count + 1
+            if count == amount {
+                success()
+            }
             
-            self.getQuestions(questionare.questionCount, questionare: questionare, success: {
-                
-                count = count + 1
-                self.questionares.append(questionare)
-                
-                if count == amount {
-                    success()
-                }
-            })
+            
+//            self.getQuestions(questionare.questionCount, questionare: questionare, success: {
+//                
+//                count = count + 1
+//                self.questionares.append(questionare)
+//                
+//                if count == amount {
+//                    success()
+//                }
+//            })
         })
     }
     
