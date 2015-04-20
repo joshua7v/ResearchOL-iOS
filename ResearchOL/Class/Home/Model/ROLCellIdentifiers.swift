@@ -19,4 +19,14 @@ class ROLCellIdentifiers: NSObject {
             return "ROLQuestionCell"
         }
     }
+    class var ROLMeProfileCell: String {
+        get {
+            return "ROLMeProfileCell"
+        }
+    }
+    class var ROLNeedToLoginCell: String {
+        get {
+            return "ROLNeedToLoginCell"
+        }
+    }
 }

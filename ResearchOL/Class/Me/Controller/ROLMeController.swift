@@ -9,21 +9,23 @@
 import UIKit
 
 class ROLMeController: SESettingViewController {
-
-    struct TableViewCellIdentifiers {
-        static let ROLMeProfileCell = "ROLMeProfileCell"
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setup()
         self.setupGroup0()
         self.setupGroup1()
         self.setupHeaderView()
-        self.tableView.registerNib(UINib(nibName: TableViewCellIdentifiers.ROLMeProfileCell, bundle: nil), forCellReuseIdentifier: TableViewCellIdentifiers.ROLMeProfileCell)
+        self.tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLMeProfileCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLMeProfileCell)
+        self.tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLNeedToLoginCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLNeedToLoginCell)
     }
     
     // MARK: - setup
+    func setup() {
+        ROLUserInfoManager.sharedManager.isUserLogin()
+    }
+    
     // MARK: setup first group
     func setupGroup0() {
         var group = self.addGroup()
@@ -46,30 +48,52 @@ class ROLMeController: SESettingViewController {
 
 extension ROLMeController: UITableViewDataSource {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return super.numberOfSectionsInTableView(tableView)
+        if ROLUserInfoManager.sharedManager.isUserLogin() {
+            return super.numberOfSectionsInTableView(tableView)
+        } else {
+            return 1
+        }
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return super.tableView(tableView, numberOfRowsInSection: section)
+        if ROLUserInfoManager.sharedManager.isUserLogin() {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        } else {
+            return 1
+        }
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if (indexPath.section == 0) {
-            var cell: ROLMeProfileCell = tableView.dequeueReusableCellWithIdentifier(TableViewCellIdentifiers.ROLMeProfileCell, forIndexPath: indexPath) as! ROLMeProfileCell
+        if ROLUserInfoManager.sharedManager.isUserLogin() {
+            if (indexPath.section == 0) {
+            var cell: ROLMeProfileCell = tableView.dequeueReusableCellWithIdentifier(ROLCellIdentifiers.ROLMeProfileCell, forIndexPath: indexPath) as! ROLMeProfileCell
+                return cell
+            } else {
+                return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+            }
+        } else {
+            var cell = ROLNeedToLoginCell.cellWithTableView(tableView, indexPath: indexPath)
+            cell.delegate = self
+            
             return cell
         }
-        return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
     }
 }
 
 extension ROLMeController: UITableViewDelegate {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (indexPath.section == 0) {
-            return ROLMeProfileCell.heightForProfileCell()
+        if ROLUserInfoManager.sharedManager.isUserLogin() {
+            if (indexPath.section == 0) {
+                return ROLMeProfileCell.heightForProfileCell()
+            }
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        } else {
+            return ROLNeedToLoginCell.heightForNeedToLoginCel()
         }
-        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-    }
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20
     }
 }
 
+extension ROLMeController: ROLNeedToLoginCellDelegate {
+    func needToLoginCellLoginBtnDidClicked(cell: ROLNeedToLoginCell) {
+        self.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UIViewController, animated: true, completion: nil)
+    }
+}

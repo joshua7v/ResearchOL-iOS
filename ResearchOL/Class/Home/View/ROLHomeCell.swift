@@ -28,6 +28,11 @@ class ROLHomeCell: UITableViewCell {
     @IBOutlet weak var point: UILabel!
     
     // MARK: - public
+    // MARK: height
+    class func heightForHomeCell() -> CGFloat {
+        return 70
+    }
+    
     // MARK: override frame
     override var frame: CGRect {
         set {
@@ -51,9 +56,6 @@ class ROLHomeCell: UITableViewCell {
 
     }
     
-    // MARK: height
-    class func heightForHomeCell() -> CGFloat {
-        return 70
-    }
+    
     
 }

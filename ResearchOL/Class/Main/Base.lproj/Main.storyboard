@@ -206,7 +206,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggx-3b-ANP">
-                                        <rect key="frame" x="385" y="7" width="30" height="30"/>
+                                        <rect key="frame" x="185" y="7" width="30" height="30"/>
                                         <state key="normal" title="跳过">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -215,7 +215,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E82-0q-FGl">
-                                        <rect key="frame" x="185" y="7" width="30" height="30"/>
+                                        <rect key="frame" x="385" y="7" width="30" height="30"/>
                                         <state key="normal" title="完成">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -229,8 +229,8 @@
                                     <constraint firstAttribute="centerY" secondItem="ggx-3b-ANP" secondAttribute="centerY" id="2oF-rn-lCy"/>
                                     <constraint firstAttribute="centerY" secondItem="E82-0q-FGl" secondAttribute="centerY" id="7H7-im-yks"/>
                                     <constraint firstAttribute="height" constant="44" id="Pg8-Vj-5iT"/>
-                                    <constraint firstAttribute="centerX" secondItem="ggx-3b-ANP" secondAttribute="centerX" constant="-100" id="qr7-ng-cfP"/>
-                                    <constraint firstAttribute="centerX" secondItem="E82-0q-FGl" secondAttribute="centerX" constant="100" id="xV2-0I-elU"/>
+                                    <constraint firstAttribute="centerX" secondItem="ggx-3b-ANP" secondAttribute="centerX" constant="100" id="qr7-ng-cfP"/>
+                                    <constraint firstAttribute="centerX" secondItem="E82-0q-FGl" secondAttribute="centerX" constant="-100" id="xV2-0I-elU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKI-na-2iC">
