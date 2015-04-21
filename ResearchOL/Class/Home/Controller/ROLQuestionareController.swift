@@ -127,11 +127,11 @@ extension ROLQuestionareController: UITableViewDataSource {
         var title = UILabel(frame: CGRectMake(10, 3, 100, 20))
         let type = self.questions[section].type
         if type == 1 {
-            title.text = "\(section). " + "单选"
+            title.text = "\(section+1). " + "单选"
         } else if type == 2 {
-            title.text = "\(section). " + "多选"
+            title.text = "\(section+1). " + "多选"
         } else if type == 3 {
-            title.text = "\(section). " + "填写"
+            title.text = "\(section+1). " + "填写"
         }
         
         title.font = UIFont.systemFontOfSize(13)

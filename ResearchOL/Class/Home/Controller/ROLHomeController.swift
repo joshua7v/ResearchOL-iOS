@@ -22,7 +22,6 @@ class ROLHomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = SEColor(226, 226, 226)
         
 //        let questionaresRef = firebaseRef.childByAppendingPath("questionares")
 //        let questionare1 = ["title": "标题", "description": "描述"]
@@ -37,17 +36,22 @@ class ROLHomeController: UIViewController {
 //        questionareRef.setValue(question)
         
         self.setup()
-        
-        ROLQuestionManager.sharedManager.getQuestionares(6, success: { () -> Void in
-            self.questionares = ROLQuestionManager.sharedManager.questionares
-            self.tableView.reloadData()
-        })
-        
     }
     
     // MARK: - private
     func setup() {
         tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLHomeCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLHomeCell)
+        self.tableView.backgroundColor = SEColor(226, 226, 226)
+        
+        // setup data
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        ROLQuestionManager.sharedManager.getQuestionares(6, success: { () -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.questionares = ROLQuestionManager.sharedManager.questionares
+                self.tableView.reloadData()
+            })
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
