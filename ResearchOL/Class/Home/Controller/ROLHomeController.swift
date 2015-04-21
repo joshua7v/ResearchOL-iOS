@@ -41,7 +41,7 @@ class ROLHomeController: UIViewController {
     // MARK: - private
     func setup() {
         tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLHomeCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLHomeCell)
-        self.tableView.backgroundColor = SEColor(226, 226, 226)
+        self.tableView.backgroundColor = SEColor(231, 231, 236)
         
         // setup data
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true

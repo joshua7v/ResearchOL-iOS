@@ -52,7 +52,7 @@
     [super viewDidLoad];
     
     self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = SEColor(226, 226, 226);
+    self.tableView.backgroundColor = SEColor(231, 231, 236);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.sectionHeaderHeight = 5;
