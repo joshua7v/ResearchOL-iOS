@@ -1,6 +1,7 @@
 platform :ios, '8.0'
 inhibit_all_warnings!
 
+pod 'Toast', '~> 2.4'
 pod 'MJRefresh', '~> 1.4.5'
 pod 'MJExtension', '~> 1.0.0'
 pod 'Firebase', '~> 2.2.1'

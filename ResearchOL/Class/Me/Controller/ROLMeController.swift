@@ -10,6 +10,10 @@ import UIKit
 
 class ROLMeController: SESettingViewController {
     
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +27,7 @@ class ROLMeController: SESettingViewController {
     
     // MARK: - setup
     func setup() {
-        ROLUserInfoManager.sharedManager.isUserLogin()
+//        ROLUserInfoManager.sharedManager.isUserLogin
     }
     
     // MARK: setup first group
@@ -48,14 +52,14 @@ class ROLMeController: SESettingViewController {
 
 extension ROLMeController: UITableViewDataSource {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if ROLUserInfoManager.sharedManager.isUserLogin() {
+        if ROLUserInfoManager.sharedManager.isUserLogin {
             return super.numberOfSectionsInTableView(tableView)
         } else {
             return 1
         }
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ROLUserInfoManager.sharedManager.isUserLogin() {
+        if ROLUserInfoManager.sharedManager.isUserLogin {
             return super.tableView(tableView, numberOfRowsInSection: section)
         } else {
             return 1
@@ -63,7 +67,7 @@ extension ROLMeController: UITableViewDataSource {
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if ROLUserInfoManager.sharedManager.isUserLogin() {
+        if ROLUserInfoManager.sharedManager.isUserLogin {
             if (indexPath.section == 0) {
             var cell: ROLMeProfileCell = tableView.dequeueReusableCellWithIdentifier(ROLCellIdentifiers.ROLMeProfileCell, forIndexPath: indexPath) as! ROLMeProfileCell
                 return cell
@@ -81,7 +85,7 @@ extension ROLMeController: UITableViewDataSource {
 
 extension ROLMeController: UITableViewDelegate {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if ROLUserInfoManager.sharedManager.isUserLogin() {
+        if ROLUserInfoManager.sharedManager.isUserLogin {
             if (indexPath.section == 0) {
                 return ROLMeProfileCell.heightForProfileCell()
             }

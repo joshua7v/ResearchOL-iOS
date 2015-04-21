@@ -11,6 +11,10 @@
 		4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217B3581AE3A169000FA69B /* ROLAnswer.swift */; };
 		421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */; };
 		421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */; };
+		421AF7931AE615BD003B7AB7 /* ROLRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421AF7921AE615BD003B7AB7 /* ROLRegisterController.swift */; };
+		421AF7981AE62253003B7AB7 /* SEProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 421AF7951AE62253003B7AB7 /* SEProgressHUD.bundle */; };
+		421AF7991AE62253003B7AB7 /* SEProgressHUDTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 421AF7971AE62253003B7AB7 /* SEProgressHUDTool.m */; };
+		421AF79E1AE62E27003B7AB7 /* ROLMineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421AF79D1AE62E27003B7AB7 /* ROLMineController.swift */; };
 		4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */; };
 		422328A31AD8BDDF0008EB80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422328A11AD8BDDF0008EB80 /* Main.storyboard */; };
 		422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422328A41AD8BDDF0008EB80 /* Images.xcassets */; };
@@ -77,6 +81,11 @@
 		4217B3581AE3A169000FA69B /* ROLAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLAnswer.swift; sourceTree = "<group>"; };
 		421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeProfileCell.swift; sourceTree = "<group>"; };
 		421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLMeProfileCell.xib; sourceTree = "<group>"; };
+		421AF7921AE615BD003B7AB7 /* ROLRegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLRegisterController.swift; sourceTree = "<group>"; };
+		421AF7951AE62253003B7AB7 /* SEProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SEProgressHUD.bundle; sourceTree = "<group>"; };
+		421AF7961AE62253003B7AB7 /* SEProgressHUDTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEProgressHUDTool.h; sourceTree = "<group>"; };
+		421AF7971AE62253003B7AB7 /* SEProgressHUDTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEProgressHUDTool.m; sourceTree = "<group>"; };
+		421AF79D1AE62E27003B7AB7 /* ROLMineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMineController.swift; sourceTree = "<group>"; };
 		422328981AD8BDDF0008EB80 /* ResearchOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResearchOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4223289C1AD8BDDF0008EB80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4223289D1AD8BDDF0008EB80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +194,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		421AF7941AE62253003B7AB7 /* SEProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				421AF7951AE62253003B7AB7 /* SEProgressHUD.bundle */,
+				421AF7961AE62253003B7AB7 /* SEProgressHUDTool.h */,
+				421AF7971AE62253003B7AB7 /* SEProgressHUDTool.m */,
+			);
+			path = SEProgressHUD;
+			sourceTree = "<group>";
+		};
+		421AF79A1AE62D55003B7AB7 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				421AF79B1AE62D64003B7AB7 /* Controller */,
+				421AF79C1AE62D74003B7AB7 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		421AF79B1AE62D64003B7AB7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				421AF79D1AE62E27003B7AB7 /* ROLMineController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		421AF79C1AE62D74003B7AB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4223288F1AD8BDDF0008EB80 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +315,7 @@
 			children = (
 				429240901AD94D8900D4F152 /* SECommon.h */,
 				422586B51ADA2D6B009EC220 /* SECommon.swift */,
+				421AF7941AE62253003B7AB7 /* SEProgressHUD */,
 				429240711AD94CAE00D4F152 /* SESettings */,
 				4292404E1AD94CA700D4F152 /* SECategory */,
 			);
@@ -395,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				42B781341AE4E8820095DED5 /* ROLLoginController.swift */,
+				421AF7921AE615BD003B7AB7 /* ROLRegisterController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -470,6 +515,7 @@
 		42E3EFA11AD8BFDD0030ED16 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				421AF79A1AE62D55003B7AB7 /* Mine */,
 				42B7A9191ADF85B8001B4D25 /* Login */,
 				42B7A90D1ADF2F7A001B4D25 /* Home */,
 				422586BB1ADA9BB0009EC220 /* More */,
@@ -616,6 +662,7 @@
 				422328A51AD8BDDF0008EB80 /* Images.xcassets in Resources */,
 				42B7A9151ADF3060001B4D25 /* ROLHomeCell.xib in Resources */,
 				421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */,
+				421AF7981AE62253003B7AB7 /* SEProgressHUD.bundle in Resources */,
 				42B781321AE4E35F0095DED5 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421AF7991AE62253003B7AB7 /* SEProgressHUDTool.m in Sources */,
 				4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */,
 				4292406E1AD94CA700D4F152 /* UIImage+SE.m in Sources */,
 				4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */,
@@ -675,6 +723,7 @@
 				4297CABA1AE1E7E20023AA6A /* ROLHomeDetailController.swift in Sources */,
 				422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */,
 				429240661AD94CA700D4F152 /* Colours.m in Sources */,
+				421AF7931AE615BD003B7AB7 /* ROLRegisterController.swift in Sources */,
 				42B7A9141ADF3060001B4D25 /* ROLHomeCell.swift in Sources */,
 				429240861AD94CAE00D4F152 /* SESettingViewController.m in Sources */,
 				42B7A9101ADF2FB2001B4D25 /* ROLHomeController.swift in Sources */,
@@ -693,6 +742,7 @@
 				429240891AD94CAE00D4F152 /* SESettingGroup.m in Sources */,
 				421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */,
 				429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */,
+				421AF79E1AE62E27003B7AB7 /* ROLMineController.swift in Sources */,
 				4292408D1AD94CAE00D4F152 /* SEBadgeButton.m in Sources */,
 				4297CAC61AE241F70023AA6A /* ROLQuestion.swift in Sources */,
 				42FCF7B01ADC031E00E18089 /* ROLProfileDetailController.swift in Sources */,

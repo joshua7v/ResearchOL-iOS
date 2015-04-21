@@ -268,7 +268,7 @@
         <!--我的-->
         <scene sceneID="oGe-yO-QoD">
             <objects>
-                <viewController id="Yiq-mS-li2" sceneMemberID="viewController">
+                <viewController id="Yiq-mS-li2" customClass="ROLMineController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CaT-Jm-LV4"/>
                         <viewControllerLayoutGuide type="bottom" id="dIj-qg-8i7"/>
@@ -276,9 +276,29 @@
                     <view key="view" contentMode="scaleToFill" id="PpP-8k-nPv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bdO-H4-m4D">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yiq-mS-li2" id="iYF-mu-lvd"/>
+                                    <outlet property="delegate" destination="Yiq-mS-li2" id="ySx-0e-biB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bdO-H4-m4D" secondAttribute="trailing" id="BhV-zf-J7a"/>
+                            <constraint firstAttribute="bottom" secondItem="bdO-H4-m4D" secondAttribute="bottom" id="ZJN-04-4TG"/>
+                            <constraint firstItem="bdO-H4-m4D" firstAttribute="top" secondItem="PpP-8k-nPv" secondAttribute="top" id="hcd-0Q-5wc"/>
+                            <constraint firstItem="bdO-H4-m4D" firstAttribute="leading" secondItem="PpP-8k-nPv" secondAttribute="leading" id="q4c-2r-ijw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="我的" id="cjG-wT-kg5"/>
+                    <connections>
+                        <outlet property="tableView" destination="bdO-H4-m4D" id="h8f-me-wPE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nfi-vM-IhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
