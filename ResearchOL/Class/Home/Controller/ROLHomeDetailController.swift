@@ -34,8 +34,21 @@ class ROLHomeDetailController: UITableViewController {
         self.setup()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.setupData()
+    }
+    
     // MARK: - private
     func setup() {
+        self.navigationItem.title = "问卷详情"
+        titleLabel.text = questionare.title
+        descLabel.text = questionare.desc
+        participantLabel.text = String(format: "%d 人", questionare.participant)
+        pointLabel.text = String(format: "%d 积分", questionare.point)
+        requiredTimeLabel.text = String(format: "%d 分钟", 3)
+    }
+    
+    func setupData() {
         if questionare.questions.count == 0 {
             self.startBtn.enabled = false
             self.startBtn.setTitle("数据加载中", forState: .Normal)
@@ -47,6 +60,7 @@ class ROLHomeDetailController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.startBtn.setTitle("马上参与", forState: .Normal)
                     self.startBtn.enabled = true
+                    self.indicator.stopAnimating()
                     self.indicator.hidden = true
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 })
@@ -54,13 +68,13 @@ class ROLHomeDetailController: UITableViewController {
                     self.delegate?.homeDetailControllerDidGetQuestions(self, questionare: self.questionare)
                 }
             }
+        } else {
+            self.startBtn.setTitle("马上参与", forState: .Normal)
+            self.startBtn.enabled = true
+            self.indicator.stopAnimating()
+            self.indicator.hidden = true
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
-        self.navigationItem.title = "问卷详情"
-        titleLabel.text = questionare.title
-        descLabel.text = questionare.desc
-        participantLabel.text = String(format: "%d 人", questionare.participant)
-        pointLabel.text = String(format: "%d 积分", questionare.point)
-        requiredTimeLabel.text = String(format: "%d 分钟", 3)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
