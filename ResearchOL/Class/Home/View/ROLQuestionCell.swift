@@ -96,7 +96,6 @@ class ROLQuestionCell: UITableViewCell {
         
         self.hideAll()
         self.resetOvalSelection()
-        self.retriveBtnState()
         
         if self.item.type == 1 || self.item.type == 2 {
             switch item.choice.count {
@@ -108,9 +107,12 @@ class ROLQuestionCell: UITableViewCell {
                 self.choice4()
             case 5:
                 self.choice5()
+            case 5 ..< 99:
+                self.choiceGreaterThan5()
             default:
                 self.hideAll()
             }
+            self.retriveBtnState()
         } else if self.item.type == 3 {
             self.fillInBlanks()
         }
@@ -173,6 +175,39 @@ class ROLQuestionCell: UITableViewCell {
     
     func choiceGreaterThan5() {
         // TODO
+        choice5()
+        let count = self.item.choice.count - 5
+        
+        for i in 1 ... count {
+            var choiceoval = UIButton()
+            choiceoval.addTarget(self, action: "setSelectedState:", forControlEvents: UIControlEvents.TouchDown)
+            choiceoval.tag = (i + 4)
+            choiceoval.setTranslatesAutoresizingMaskIntoConstraints(false)
+            choiceoval.setImage(ovalPwhiteImg, forState: UIControlState.Normal)
+            //        choiceoval.center = CGPoint(x: 20, y: 20)
+            self.contentView.addSubview(choiceoval)
+            choiceoval.addConstraints([
+                NSLayoutConstraint(item: choiceoval, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 25),
+                NSLayoutConstraint(item: choiceoval, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 25)
+                ])
+            let constant: CGFloat = CGFloat(25 * (i-1)) + CGFloat(5 * i)
+            choiceoval.superview?.addConstraints([
+                NSLayoutConstraint(item: choiceoval, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.choice4oval, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0),
+                NSLayoutConstraint(item: choiceoval, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.choice8oval, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: constant)
+                ])
+            
+            var choicelabel = UILabel()
+            choicelabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+            choicelabel.font = UIFont.systemFontOfSize(14)
+            choicelabel.text = self.item.choice[i + 4]
+            choicelabel.numberOfLines = 0
+            self.contentView.addSubview(choicelabel)
+            self.contentView.addConstraints([
+                NSLayoutConstraint(item: choicelabel, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.contentView, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: -20),
+                NSLayoutConstraint(item: choicelabel, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: choiceoval, attribute: NSLayoutAttribute.Trailing, multiplier: 1.0, constant: 15),
+                NSLayoutConstraint(item: choicelabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: choiceoval, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0)
+                ])
+        }
     }
     
     func fillInBlanks() {
@@ -185,6 +220,10 @@ class ROLQuestionCell: UITableViewCell {
         for i: UIView in self.contentView.subviews as! [UIView] {
             if i.tag == 999 { // title should not be hide
                 continue
+            }
+            if i.tag > 6 && i.tag < 99 {
+//                println(i.tag)
+//                i.removeFromSuperview()
             }
             if i.isKindOfClass(UILabel.classForCoder()) {
                 var label = i as! UILabel
@@ -323,6 +362,8 @@ class ROLQuestionCell: UITableViewCell {
             return height + 85
         } else if self.item.choice.count == 5 {
             return height + 110
+        } else if self.item.choice.count > 5 {
+            return height + CGFloat(self.item.choice.count - 5) * 35 + 110
         }
         
         return height
