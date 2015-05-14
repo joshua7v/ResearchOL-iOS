@@ -19,4 +19,15 @@
 @property (assign, nonatomic) CGFloat height;
 @property (assign, nonatomic) CGSize size;
 @property (assign, nonatomic) CGPoint origin;
+
+@property (nonatomic) CGFloat top;
+@property (nonatomic) CGFloat left;
+@property (nonatomic) CGFloat bottom;
+@property (nonatomic) CGFloat right;
+
+@property (nonatomic, readonly) CGPoint middlePoint;
+@property (nonatomic, readonly) CGFloat middleX;
+@property (nonatomic, readonly) CGFloat middleY;
+
+- (UIImage *)screenshot;
 @end

@@ -1,0 +1,52 @@
+PODS:
+  - AFNetworking (2.2.4):
+    - AFNetworking/NSURLConnection (= 2.2.4)
+    - AFNetworking/NSURLSession (= 2.2.4)
+    - AFNetworking/Reachability (= 2.2.4)
+    - AFNetworking/Security (= 2.2.4)
+    - AFNetworking/Serialization (= 2.2.4)
+    - AFNetworking/UIKit (= 2.2.4)
+  - AFNetworking/NSURLConnection (2.2.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.4):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.4)
+  - AFNetworking/Security (2.2.4)
+  - AFNetworking/Serialization (2.2.4)
+  - AFNetworking/UIKit (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Firebase (2.2.2)
+  - FXKeychain (1.5.2)
+  - Masonry (0.6.1)
+  - MBProgressHUD (0.9.1)
+  - MJExtension (1.0.1)
+  - MJRefresh (1.4.6)
+  - NYXImagesKit (2.3)
+  - Toast (2.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.2.0)
+  - Firebase (~> 2.2.1)
+  - FXKeychain (~> 1.5)
+  - Masonry (~> 0.6.1)
+  - MBProgressHUD (~> 0.8)
+  - MJExtension (~> 1.0.0)
+  - MJRefresh (~> 1.4.5)
+  - NYXImagesKit (~> 2.3)
+  - Toast (~> 2.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: caca0799b310f0c3bf1fc1af45145fc96972bcab
+  Firebase: e35cdd2561bf4fea9c1e384e9400a9c173d19e47
+  FXKeychain: 1a711bddc04a2bd69850dcfe297b8a43027a9980
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJExtension: ca94f428536eab70287dad5c931dbcdc096d7576
+  MJRefresh: 2eaa3fd8f67fbb86497840fb0167446f7eb61dc7
+  NYXImagesKit: 8163e3335a40eaa173ca5bbbf81fafb57d3947eb
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+
+COCOAPODS: 0.36.4

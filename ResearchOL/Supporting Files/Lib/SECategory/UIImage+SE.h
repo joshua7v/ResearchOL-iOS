@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreImage/CoreImage.h>
+#import <Accelerate/Accelerate.h>
 
 @interface UIImage (SE)
 /**
@@ -29,4 +32,9 @@
  *  截图
  */
 + (instancetype)captureWithView:(UIView *)view;
+
+- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
+
+- (UIImage *)imageForCurrentTheme;
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor;
 @end

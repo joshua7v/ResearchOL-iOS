@@ -16,6 +16,7 @@
 #import <Toast/UIView+Toast.h>
 #import "SECategory.h"
 #import "SESettings.h"
+#import "SESideMenu.h"
 #import "SECommon.h"
 #import "SEProgressHUDTool.h"
 

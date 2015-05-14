@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4204D13E1AE1316300CF19E6 /* NSDate+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4204D13D1AE1316300CF19E6 /* NSDate+SE.m */; };
 		4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217B3581AE3A169000FA69B /* ROLAnswer.swift */; };
 		421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */; };
 		421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */; };
@@ -22,16 +21,23 @@
 		422328B41AD8BDDF0008EB80 /* ResearchOLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */; };
 		422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586B51ADA2D6B009EC220 /* SECommon.swift */; };
 		422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */; };
-		429240661AD94CA700D4F152 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240501AD94CA700D4F152 /* Colours.m */; };
-		429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240541AD94CA700D4F152 /* NSArray+SELog.m */; };
-		429240691AD94CA700D4F152 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240561AD94CA700D4F152 /* NSString+Hash.m */; };
-		4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240581AD94CA700D4F152 /* NSString+SE.m */; };
-		4292406B1AD94CA700D4F152 /* UIBarButtonItem+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292405B1AD94CA700D4F152 /* UIBarButtonItem+SE.m */; };
-		4292406C1AD94CA700D4F152 /* UIButton+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292405D1AD94CA700D4F152 /* UIButton+SE.m */; };
-		4292406D1AD94CA700D4F152 /* UIColor+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292405F1AD94CA700D4F152 /* UIColor+SE.m */; };
-		4292406E1AD94CA700D4F152 /* UIImage+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240611AD94CA700D4F152 /* UIImage+SE.m */; };
-		4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240631AD94CA700D4F152 /* UITextField+SE.m */; };
-		429240701AD94CA700D4F152 /* UIView+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240651AD94CA700D4F152 /* UIView+SE.m */; };
+		42826F811B044F1A00DB8491 /* SESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7B1B044F1A00DB8491 /* SESideMenu.m */; };
+		42826F821B044F1A00DB8491 /* SESideMenuSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7E1B044F1A00DB8491 /* SESideMenuSection.m */; };
+		42826F831B044F1A00DB8491 /* SESideMenuSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F801B044F1A00DB8491 /* SESideMenuSectionCell.m */; };
+		42826F9E1B044F5500DB8491 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F861B044F5500DB8491 /* Colours.m */; };
+		42826F9F1B044F5500DB8491 /* NSArray+SELog.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F881B044F5500DB8491 /* NSArray+SELog.m */; };
+		42826FA01B044F5500DB8491 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F8A1B044F5500DB8491 /* NSString+Hash.m */; };
+		42826FA11B044F5500DB8491 /* NSString+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F8C1B044F5500DB8491 /* NSString+SE.m */; };
+		42826FA21B044F5500DB8491 /* ScrollViewFrameAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F8E1B044F5500DB8491 /* ScrollViewFrameAccessor.m */; };
+		42826FA31B044F5500DB8491 /* UIBarButtonItem+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F911B044F5500DB8491 /* UIBarButtonItem+SE.m */; };
+		42826FA41B044F5500DB8491 /* UIButton+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F931B044F5500DB8491 /* UIButton+SE.m */; };
+		42826FA51B044F5500DB8491 /* UIColor+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F951B044F5500DB8491 /* UIColor+SE.m */; };
+		42826FA61B044F5500DB8491 /* UIImage+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F971B044F5500DB8491 /* UIImage+SE.m */; };
+		42826FA71B044F5500DB8491 /* UIScreen+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F991B044F5500DB8491 /* UIScreen+SE.m */; };
+		42826FA81B044F5500DB8491 /* UITextField+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F9B1B044F5500DB8491 /* UITextField+SE.m */; };
+		42826FA91B044F5500DB8491 /* UIView+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F9D1B044F5500DB8491 /* UIView+SE.m */; };
+		42826FAC1B044FC200DB8491 /* NSDate+SE.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826FAB1B044FC200DB8491 /* NSDate+SE.m */; };
+		42826FB11B047F1E00DB8491 /* SESideMenu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 42826FB01B047F1E00DB8491 /* SESideMenu.bundle */; };
 		429240861AD94CAE00D4F152 /* SESettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240741AD94CAE00D4F152 /* SESettingViewController.m */; };
 		429240871AD94CAE00D4F152 /* imageAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 429240751AD94CAE00D4F152 /* imageAssets.bundle */; };
 		429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 429240781AD94CAE00D4F152 /* SESettingArrowItem.m */; };
@@ -76,8 +82,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4204D13C1AE1316300CF19E6 /* NSDate+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SE.h"; sourceTree = "<group>"; };
-		4204D13D1AE1316300CF19E6 /* NSDate+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SE.m"; sourceTree = "<group>"; };
 		4217B3581AE3A169000FA69B /* ROLAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLAnswer.swift; sourceTree = "<group>"; };
 		421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeProfileCell.swift; sourceTree = "<group>"; };
 		421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLMeProfileCell.xib; sourceTree = "<group>"; };
@@ -97,28 +101,42 @@
 		422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchOLTests.swift; sourceTree = "<group>"; };
 		422586B51ADA2D6B009EC220 /* SECommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SECommon.swift; path = ../SECommon.swift; sourceTree = "<group>"; };
 		422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMoreController.swift; sourceTree = "<group>"; };
+		42826F7A1B044F1A00DB8491 /* SESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenu.h; sourceTree = "<group>"; };
+		42826F7B1B044F1A00DB8491 /* SESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESideMenu.m; sourceTree = "<group>"; };
+		42826F7C1B044F1A00DB8491 /* SESideMenuCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenuCommon.h; sourceTree = "<group>"; };
+		42826F7D1B044F1A00DB8491 /* SESideMenuSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenuSection.h; sourceTree = "<group>"; };
+		42826F7E1B044F1A00DB8491 /* SESideMenuSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESideMenuSection.m; sourceTree = "<group>"; };
+		42826F7F1B044F1A00DB8491 /* SESideMenuSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenuSectionCell.h; sourceTree = "<group>"; };
+		42826F801B044F1A00DB8491 /* SESideMenuSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESideMenuSectionCell.m; sourceTree = "<group>"; };
+		42826F851B044F5500DB8491 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		42826F861B044F5500DB8491 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
+		42826F871B044F5500DB8491 /* NSArray+SELog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SELog.h"; sourceTree = "<group>"; };
+		42826F881B044F5500DB8491 /* NSArray+SELog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SELog.m"; sourceTree = "<group>"; };
+		42826F891B044F5500DB8491 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		42826F8A1B044F5500DB8491 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		42826F8B1B044F5500DB8491 /* NSString+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SE.h"; sourceTree = "<group>"; };
+		42826F8C1B044F5500DB8491 /* NSString+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SE.m"; sourceTree = "<group>"; };
+		42826F8D1B044F5500DB8491 /* ScrollViewFrameAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewFrameAccessor.h; sourceTree = "<group>"; };
+		42826F8E1B044F5500DB8491 /* ScrollViewFrameAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewFrameAccessor.m; sourceTree = "<group>"; };
+		42826F8F1B044F5500DB8491 /* SECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECategory.h; sourceTree = "<group>"; };
+		42826F901B044F5500DB8491 /* UIBarButtonItem+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SE.h"; sourceTree = "<group>"; };
+		42826F911B044F5500DB8491 /* UIBarButtonItem+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SE.m"; sourceTree = "<group>"; };
+		42826F921B044F5500DB8491 /* UIButton+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SE.h"; sourceTree = "<group>"; };
+		42826F931B044F5500DB8491 /* UIButton+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SE.m"; sourceTree = "<group>"; };
+		42826F941B044F5500DB8491 /* UIColor+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SE.h"; sourceTree = "<group>"; };
+		42826F951B044F5500DB8491 /* UIColor+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SE.m"; sourceTree = "<group>"; };
+		42826F961B044F5500DB8491 /* UIImage+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SE.h"; sourceTree = "<group>"; };
+		42826F971B044F5500DB8491 /* UIImage+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SE.m"; sourceTree = "<group>"; };
+		42826F981B044F5500DB8491 /* UIScreen+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+SE.h"; sourceTree = "<group>"; };
+		42826F991B044F5500DB8491 /* UIScreen+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+SE.m"; sourceTree = "<group>"; };
+		42826F9A1B044F5500DB8491 /* UITextField+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SE.h"; sourceTree = "<group>"; };
+		42826F9B1B044F5500DB8491 /* UITextField+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SE.m"; sourceTree = "<group>"; };
+		42826F9C1B044F5500DB8491 /* UIView+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SE.h"; sourceTree = "<group>"; };
+		42826F9D1B044F5500DB8491 /* UIView+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SE.m"; sourceTree = "<group>"; };
+		42826FAA1B044FC200DB8491 /* NSDate+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SE.h"; sourceTree = "<group>"; };
+		42826FAB1B044FC200DB8491 /* NSDate+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SE.m"; sourceTree = "<group>"; };
+		42826FB01B047F1E00DB8491 /* SESideMenu.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SESideMenu.bundle; sourceTree = "<group>"; };
 		4292404B1AD94B7100D4F152 /* ResearchOL-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResearchOL-Bridging-Header.h"; sourceTree = "<group>"; };
-		4292404F1AD94CA700D4F152 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
-		429240501AD94CA700D4F152 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
-		429240531AD94CA700D4F152 /* NSArray+SELog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SELog.h"; sourceTree = "<group>"; };
-		429240541AD94CA700D4F152 /* NSArray+SELog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SELog.m"; sourceTree = "<group>"; };
-		429240551AD94CA700D4F152 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
-		429240561AD94CA700D4F152 /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
-		429240571AD94CA700D4F152 /* NSString+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SE.h"; sourceTree = "<group>"; };
-		429240581AD94CA700D4F152 /* NSString+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SE.m"; sourceTree = "<group>"; };
-		429240591AD94CA700D4F152 /* SECategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SECategory.h; sourceTree = "<group>"; };
-		4292405A1AD94CA700D4F152 /* UIBarButtonItem+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SE.h"; sourceTree = "<group>"; };
-		4292405B1AD94CA700D4F152 /* UIBarButtonItem+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SE.m"; sourceTree = "<group>"; };
-		4292405C1AD94CA700D4F152 /* UIButton+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SE.h"; sourceTree = "<group>"; };
-		4292405D1AD94CA700D4F152 /* UIButton+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SE.m"; sourceTree = "<group>"; };
-		4292405E1AD94CA700D4F152 /* UIColor+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SE.h"; sourceTree = "<group>"; };
-		4292405F1AD94CA700D4F152 /* UIColor+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SE.m"; sourceTree = "<group>"; };
-		429240601AD94CA700D4F152 /* UIImage+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SE.h"; sourceTree = "<group>"; };
-		429240611AD94CA700D4F152 /* UIImage+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SE.m"; sourceTree = "<group>"; };
-		429240621AD94CA700D4F152 /* UITextField+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SE.h"; sourceTree = "<group>"; };
-		429240631AD94CA700D4F152 /* UITextField+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SE.m"; sourceTree = "<group>"; };
-		429240641AD94CA700D4F152 /* UIView+SE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SE.h"; sourceTree = "<group>"; };
-		429240651AD94CA700D4F152 /* UIView+SE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SE.m"; sourceTree = "<group>"; };
 		429240731AD94CAE00D4F152 /* SESettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingViewController.h; sourceTree = "<group>"; };
 		429240741AD94CAE00D4F152 /* SESettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingViewController.m; sourceTree = "<group>"; };
 		429240751AD94CAE00D4F152 /* imageAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = imageAssets.bundle; sourceTree = "<group>"; };
@@ -301,6 +319,62 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		428132B91B032C320001BE9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42826F791B044F1A00DB8491 /* SESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				42826FB01B047F1E00DB8491 /* SESideMenu.bundle */,
+				42826F7A1B044F1A00DB8491 /* SESideMenu.h */,
+				42826F7B1B044F1A00DB8491 /* SESideMenu.m */,
+				42826F7C1B044F1A00DB8491 /* SESideMenuCommon.h */,
+				42826F7D1B044F1A00DB8491 /* SESideMenuSection.h */,
+				42826F7E1B044F1A00DB8491 /* SESideMenuSection.m */,
+				42826F7F1B044F1A00DB8491 /* SESideMenuSectionCell.h */,
+				42826F801B044F1A00DB8491 /* SESideMenuSectionCell.m */,
+			);
+			path = SESideMenu;
+			sourceTree = "<group>";
+		};
+		42826F841B044F5500DB8491 /* SECategory */ = {
+			isa = PBXGroup;
+			children = (
+				42826FAA1B044FC200DB8491 /* NSDate+SE.h */,
+				42826FAB1B044FC200DB8491 /* NSDate+SE.m */,
+				42826F851B044F5500DB8491 /* Colours.h */,
+				42826F861B044F5500DB8491 /* Colours.m */,
+				42826F871B044F5500DB8491 /* NSArray+SELog.h */,
+				42826F881B044F5500DB8491 /* NSArray+SELog.m */,
+				42826F891B044F5500DB8491 /* NSString+Hash.h */,
+				42826F8A1B044F5500DB8491 /* NSString+Hash.m */,
+				42826F8B1B044F5500DB8491 /* NSString+SE.h */,
+				42826F8C1B044F5500DB8491 /* NSString+SE.m */,
+				42826F8D1B044F5500DB8491 /* ScrollViewFrameAccessor.h */,
+				42826F8E1B044F5500DB8491 /* ScrollViewFrameAccessor.m */,
+				42826F8F1B044F5500DB8491 /* SECategory.h */,
+				42826F901B044F5500DB8491 /* UIBarButtonItem+SE.h */,
+				42826F911B044F5500DB8491 /* UIBarButtonItem+SE.m */,
+				42826F921B044F5500DB8491 /* UIButton+SE.h */,
+				42826F931B044F5500DB8491 /* UIButton+SE.m */,
+				42826F941B044F5500DB8491 /* UIColor+SE.h */,
+				42826F951B044F5500DB8491 /* UIColor+SE.m */,
+				42826F961B044F5500DB8491 /* UIImage+SE.h */,
+				42826F971B044F5500DB8491 /* UIImage+SE.m */,
+				42826F981B044F5500DB8491 /* UIScreen+SE.h */,
+				42826F991B044F5500DB8491 /* UIScreen+SE.m */,
+				42826F9A1B044F5500DB8491 /* UITextField+SE.h */,
+				42826F9B1B044F5500DB8491 /* UITextField+SE.m */,
+				42826F9C1B044F5500DB8491 /* UIView+SE.h */,
+				42826F9D1B044F5500DB8491 /* UIView+SE.m */,
+			);
+			path = SECategory;
+			sourceTree = "<group>";
+		};
 		4292404C1AD94C5D00D4F152 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,41 +389,12 @@
 			children = (
 				429240901AD94D8900D4F152 /* SECommon.h */,
 				422586B51ADA2D6B009EC220 /* SECommon.swift */,
+				42826F841B044F5500DB8491 /* SECategory */,
+				42826F791B044F1A00DB8491 /* SESideMenu */,
 				421AF7941AE62253003B7AB7 /* SEProgressHUD */,
 				429240711AD94CAE00D4F152 /* SESettings */,
-				4292404E1AD94CA700D4F152 /* SECategory */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		4292404E1AD94CA700D4F152 /* SECategory */ = {
-			isa = PBXGroup;
-			children = (
-				4292404F1AD94CA700D4F152 /* Colours.h */,
-				429240501AD94CA700D4F152 /* Colours.m */,
-				429240531AD94CA700D4F152 /* NSArray+SELog.h */,
-				429240541AD94CA700D4F152 /* NSArray+SELog.m */,
-				429240551AD94CA700D4F152 /* NSString+Hash.h */,
-				429240561AD94CA700D4F152 /* NSString+Hash.m */,
-				429240571AD94CA700D4F152 /* NSString+SE.h */,
-				429240581AD94CA700D4F152 /* NSString+SE.m */,
-				429240591AD94CA700D4F152 /* SECategory.h */,
-				4292405A1AD94CA700D4F152 /* UIBarButtonItem+SE.h */,
-				4292405B1AD94CA700D4F152 /* UIBarButtonItem+SE.m */,
-				4292405C1AD94CA700D4F152 /* UIButton+SE.h */,
-				4292405D1AD94CA700D4F152 /* UIButton+SE.m */,
-				4292405E1AD94CA700D4F152 /* UIColor+SE.h */,
-				4292405F1AD94CA700D4F152 /* UIColor+SE.m */,
-				429240601AD94CA700D4F152 /* UIImage+SE.h */,
-				429240611AD94CA700D4F152 /* UIImage+SE.m */,
-				429240621AD94CA700D4F152 /* UITextField+SE.h */,
-				429240631AD94CA700D4F152 /* UITextField+SE.m */,
-				429240641AD94CA700D4F152 /* UIView+SE.h */,
-				429240651AD94CA700D4F152 /* UIView+SE.m */,
-				4204D13C1AE1316300CF19E6 /* NSDate+SE.h */,
-				4204D13D1AE1316300CF19E6 /* NSDate+SE.m */,
-			);
-			path = SECategory;
 			sourceTree = "<group>";
 		};
 		429240711AD94CAE00D4F152 /* SESettings */ = {
@@ -538,6 +583,7 @@
 		42E3EFA31AD8BFFA0030ED16 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				428132B91B032C320001BE9F /* View */,
 				42B781361AE4F53D0095DED5 /* Tool */,
 				42B781291AE4D7590095DED5 /* Manager */,
 				4292404C1AD94C5D00D4F152 /* Controller */,
@@ -656,6 +702,7 @@
 			files = (
 				429240871AD94CAE00D4F152 /* imageAssets.bundle in Resources */,
 				4297CAC21AE22DA90023AA6A /* ROLQuestionCell.xib in Resources */,
+				42826FB11B047F1E00DB8491 /* SESideMenu.bundle in Resources */,
 				422328A31AD8BDDF0008EB80 /* Main.storyboard in Resources */,
 				422328A81AD8BDDF0008EB80 /* LaunchScreen.xib in Resources */,
 				42B7812F1AE4DB2E0095DED5 /* ROLNeedToLoginCell.xib in Resources */,
@@ -714,40 +761,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42826FA41B044F5500DB8491 /* UIButton+SE.m in Sources */,
 				421AF7991AE62253003B7AB7 /* SEProgressHUDTool.m in Sources */,
+				42826FA21B044F5500DB8491 /* ScrollViewFrameAccessor.m in Sources */,
+				42826FAC1B044FC200DB8491 /* NSDate+SE.m in Sources */,
 				4223289E1AD8BDDF0008EB80 /* AppDelegate.swift in Sources */,
-				4292406E1AD94CA700D4F152 /* UIImage+SE.m in Sources */,
-				4292406F1AD94CA700D4F152 /* UITextField+SE.m in Sources */,
 				42B7A9181ADF850A001B4D25 /* ROLQuestionare.swift in Sources */,
-				4292406A1AD94CA700D4F152 /* NSString+SE.m in Sources */,
 				4297CABA1AE1E7E20023AA6A /* ROLHomeDetailController.swift in Sources */,
 				422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */,
-				429240661AD94CA700D4F152 /* Colours.m in Sources */,
+				42826FA51B044F5500DB8491 /* UIColor+SE.m in Sources */,
 				421AF7931AE615BD003B7AB7 /* ROLRegisterController.swift in Sources */,
 				42B7A9141ADF3060001B4D25 /* ROLHomeCell.swift in Sources */,
+				42826FA01B044F5500DB8491 /* NSString+Hash.m in Sources */,
 				429240861AD94CAE00D4F152 /* SESettingViewController.m in Sources */,
+				42826F811B044F1A00DB8491 /* SESideMenu.m in Sources */,
+				42826F831B044F1A00DB8491 /* SESideMenuSectionCell.m in Sources */,
 				42B7A9101ADF2FB2001B4D25 /* ROLHomeController.swift in Sources */,
 				4297CAC11AE22DA90023AA6A /* ROLQuestionCell.swift in Sources */,
-				4204D13E1AE1316300CF19E6 /* NSDate+SE.m in Sources */,
 				42B781351AE4E8820095DED5 /* ROLLoginController.swift in Sources */,
+				42826F9F1B044F5500DB8491 /* NSArray+SELog.m in Sources */,
 				422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */,
-				429240691AD94CA700D4F152 /* NSString+Hash.m in Sources */,
-				4292406D1AD94CA700D4F152 /* UIColor+SE.m in Sources */,
-				4292406C1AD94CA700D4F152 /* UIButton+SE.m in Sources */,
-				4292406B1AD94CA700D4F152 /* UIBarButtonItem+SE.m in Sources */,
+				42826FA71B044F5500DB8491 /* UIScreen+SE.m in Sources */,
 				42B7812E1AE4DB2E0095DED5 /* ROLNeedToLoginCell.swift in Sources */,
-				429240701AD94CA700D4F152 /* UIView+SE.m in Sources */,
 				4292408E1AD94CAE00D4F152 /* SESettingCell.m in Sources */,
+				42826FA61B044F5500DB8491 /* UIImage+SE.m in Sources */,
 				42B7A91C1ADFA8FF001B4D25 /* ROLQuestionManager.swift in Sources */,
 				429240891AD94CAE00D4F152 /* SESettingGroup.m in Sources */,
 				421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */,
 				429240941AD94E1F00D4F152 /* ROLTabBarController.swift in Sources */,
 				421AF79E1AE62E27003B7AB7 /* ROLMineController.swift in Sources */,
 				4292408D1AD94CAE00D4F152 /* SEBadgeButton.m in Sources */,
+				42826F9E1B044F5500DB8491 /* Colours.m in Sources */,
+				42826FA81B044F5500DB8491 /* UITextField+SE.m in Sources */,
+				42826FA31B044F5500DB8491 /* UIBarButtonItem+SE.m in Sources */,
 				4297CAC61AE241F70023AA6A /* ROLQuestion.swift in Sources */,
 				42FCF7B01ADC031E00E18089 /* ROLProfileDetailController.swift in Sources */,
+				42826FA91B044F5500DB8491 /* UIView+SE.m in Sources */,
 				42B781381AE4F57D0095DED5 /* ROLStringTool.swift in Sources */,
-				429240681AD94CA700D4F152 /* NSArray+SELog.m in Sources */,
 				4297CABC1AE2003A0023AA6A /* ROLQuestionareController.swift in Sources */,
 				4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */,
 				4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */,
@@ -755,9 +805,11 @@
 				42B7812B1AE4D78C0095DED5 /* ROLUserInfoManager.swift in Sources */,
 				4297CAC41AE22DE90023AA6A /* ROLCellIdentifiers.swift in Sources */,
 				429240961AD94E3700D4F152 /* ROLNavigationController.swift in Sources */,
+				42826FA11B044F5500DB8491 /* NSString+SE.m in Sources */,
 				4292408B1AD94CAE00D4F152 /* SESettingLabelItem.m in Sources */,
 				4292408A1AD94CAE00D4F152 /* SESettingItem.m in Sources */,
 				4292408C1AD94CAE00D4F152 /* SESettingSwitchItem.m in Sources */,
+				42826F821B044F1A00DB8491 /* SESideMenuSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

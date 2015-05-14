@@ -10,6 +10,16 @@
 
 @implementation UIView (SE)
 
+- (CGFloat)minX
+{
+    return CGRectGetMinX(self.frame);
+}
+
+- (CGFloat)minY
+{
+    return CGRectGetMinY(self.frame);
+}
+
 - (void)setMaxX:(CGFloat)maxX
 {
     self.x = maxX - self.width;
@@ -124,6 +134,88 @@
 - (CGPoint)origin
 {
     return self.frame.origin;
+}
+
+
+- (CGFloat)left
+{
+    return self.x;
+}
+
+- (void)setLeft:(CGFloat)left
+{
+    self.x = left;
+}
+
+- (CGFloat)right
+{
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+- (void)setRight:(CGFloat)right
+{
+    self.x = right - self.width;
+}
+
+- (CGFloat)top
+{
+    return self.y;
+}
+
+- (void)setTop:(CGFloat)top
+{
+    self.y = top;
+}
+
+- (CGFloat)bottom
+{
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setBottom:(CGFloat)bottom
+{
+    self.y = bottom - self.height;
+}
+
+- (CGPoint)middlePoint
+{
+    return CGPointMake(self.middleX, self.middleY);
+}
+
+- (CGFloat)middleX
+{
+    return self.width / 2;
+}
+
+- (CGFloat)middleY
+{
+    return self.height / 2;
+}
+
+
+- (UIImage *)screenshot
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
+    
+    if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        
+        NSInvocation* invoc = [NSInvocation invocationWithMethodSignature:
+                               [self methodSignatureForSelector:
+                                @selector(drawViewHierarchyInRect:afterScreenUpdates:)]];
+        [invoc setTarget:self];
+        [invoc setSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)];
+        CGRect arg2 = self.bounds;
+        BOOL arg3 = YES;
+        [invoc setArgument:&arg2 atIndex:2];
+        [invoc setArgument:&arg3 atIndex:3];
+        [invoc invoke];
+    } else {
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 @end
