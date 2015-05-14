@@ -130,6 +130,9 @@ static CGFloat const kAvatarHeight = 70.0f;
 
 - (void)avatarBtnDidClicked:(UIButton *)avatarBtn {
     NSLog(@"-- avatarBtnDidClicked: -- ");
+    if (self.avatarBtnDidClickedBlock) {
+        self.avatarBtnDidClickedBlock();
+    }
 }
 
 - (void)layoutSubviews {

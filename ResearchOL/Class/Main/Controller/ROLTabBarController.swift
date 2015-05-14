@@ -14,13 +14,76 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     let kMenuWidth: CGFloat = 240
     let coverView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.width(), height: UIScreen.height()))
 //    var edgePanRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "handleEdgePanRecognizer:")
+    let storyboardIdForMe = "ROLMeController"
+    let storyboardIdForMore = "ROLMoreController"
+    
+    var currentIndex = 0
+    var edgePanRecognizer: UIScreenEdgePanGestureRecognizer?
+    var coverTapRecognizer: UITapGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configueBlocks()
         self.configueGestrues()
         self.configueViews()
 //        self.setBlurredScreenShoot()
+    }
+    
+    private func configueBlocks() {
+        self.sideMenu.avatarBtnDidClickedBlock = {
+            UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
+                self.setMenuOffset(0)
+                self.coverView.hidden = true
+            })
+            self.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UINavigationController, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
+        self.sideMenu.didSelectedIndexBlock = { (index) -> Void in
+            UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
+                self.setMenuOffset(0)
+                self.coverView.hidden = true
+            })
+            self.showControllerWithIndex(index)
+        }
+    }
+    
+    private func showControllerWithIndex(index: NSInteger) {
+        if currentIndex == index { return }
+        self.sideMenu.removeFromSuperview()
+        self.coverView.removeFromSuperview()
+        
+        var nextController: UIViewController? = nil
+        switch index {
+        case 0:
+            nextController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ROLTabBarController
+            self.currentIndex = 0
+        case 1:
+            nextController = UITableViewController()
+            self.currentIndex = 1
+        case 2:
+            nextController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForMore) as! ROLNavigationController
+            self.currentIndex = 2
+        default:
+            nextController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ROLTabBarController
+            self.currentIndex = 0
+        }
+        
+        if !nextController!.isKindOfClass(ROLTabBarController.classForCoder()) {
+            nextController?.view.addGestureRecognizer(self.edgePanRecognizer!)
+            nextController?.view.addSubview(self.coverView)
+            nextController?.view.subviews.last!.addGestureRecognizer(self.coverTapRecognizer!)
+            nextController?.view.addSubview(self.sideMenu)
+        }
+        
+        UIApplication.sharedApplication().keyWindow?.rootViewController = nextController
+//        self.view.window?.rootViewController = nextController
+    }
+    
+    deinit {
+        println("--------deinit-----")
     }
     
     private func configueViews() {
@@ -36,10 +99,12 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         var edgePanRecognizer      = UIScreenEdgePanGestureRecognizer(target: self, action: "handleEdgePanRecognizer:")
         edgePanRecognizer.edges    = UIRectEdge.Left
         edgePanRecognizer.delegate = self
+        self.edgePanRecognizer = edgePanRecognizer
         self.view.addGestureRecognizer(edgePanRecognizer)
 
         var coverTapRecognizer      = UITapGestureRecognizer(target: self, action: "handleCoverTapRecognizer:")
         coverTapRecognizer.delegate = self
+        self.coverTapRecognizer = coverTapRecognizer
         self.coverView.addGestureRecognizer(coverTapRecognizer)
     }
     

@@ -10,6 +10,7 @@
 
 @interface SESideMenu : UIView
 @property (nonatomic, copy) void (^didSelectedIndexBlock)(NSInteger index);
+@property (nonatomic, copy) void (^avatarBtnDidClickedBlock)();
 @property (nonatomic, strong) UIImage *blurredImage;
 
 + (SESideMenu *)sideMenuWithSize:(CGSize)size;

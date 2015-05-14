@@ -70,7 +70,6 @@
         if (weakSelf.didSelectedIndexBlock) {
             weakSelf.didSelectedIndexBlock(index);
         }
-        
     }];
     
 }
@@ -122,6 +121,13 @@
     
     self.backgroundImageView.image = self.blurredImage;
     
+}
+
+- (void)setAvatarBtnDidClickedBlock:(void (^)())avatarBtnDidClickedBlock
+{
+    _avatarBtnDidClickedBlock = avatarBtnDidClickedBlock;
+    
+    self.sectionView.avatarBtnDidClickedBlock = avatarBtnDidClickedBlock;
 }
 
 //- (void)didReceiveThemeChangeNotification {

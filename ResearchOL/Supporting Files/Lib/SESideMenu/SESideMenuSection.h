@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, copy) void (^didSelectedIndexBlock)(NSInteger index);
+@property (nonatomic, copy) void (^avatarBtnDidClickedBlock)();
 
 - (void)setDidSelectedIndexBlock:(void (^)(NSInteger index))didSelectedIndexBlock;
 
