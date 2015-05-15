@@ -33,14 +33,20 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     
     private func configueBlocks() {
         self.sideMenu.avatarBtnDidClickedBlock = {
-            UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
-                self.setMenuOffset(0)
-                self.coverView.hidden = true
-            })
-        
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UINavigationController, animated: true, completion: { () -> Void in
+            if ROLUserInfoManager.sharedManager.isUserLogin {
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForMe) as! ROLNavigationController, animated: true, completion: { () -> Void in
+                    
+                })
+            } else {
+                UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
+                    self.setMenuOffset(0)
+                    self.coverView.hidden = true
+                })
                 
-            })
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UINavigationController, animated: true, completion: { () -> Void in
+                    
+                })
+            }
         }
         
         self.sideMenu.didSelectedIndexBlock = { (index) -> Void in

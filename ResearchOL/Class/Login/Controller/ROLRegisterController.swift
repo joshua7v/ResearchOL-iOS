@@ -12,6 +12,7 @@ class ROLRegisterController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,17 +21,28 @@ class ROLRegisterController: UIViewController {
 
     // MARK: - private
     // MARK: setup
-    func setup() {
+    private func setup() {
         self.usernameTextField.textAlignment = NSTextAlignment.Center
         self.usernameTextField.textColor = UIColor.black50PercentColor()
         self.usernameTextField.font = UIFont.systemFontOfSize(18)
-        self.usernameTextField.attributedPlaceholder = NSAttributedString(string: "用户名: 邮箱", attributes: [NSForegroundColorAttributeName: UIColor(white: 0.836, alpha: 1), NSFontAttributeName: UIFont.italicSystemFontOfSize(18)])
+        self.usernameTextField.attributedPlaceholder = NSAttributedString(string: "用户名", attributes: [NSForegroundColorAttributeName: UIColor(white: 0.836, alpha: 1), NSFontAttributeName: UIFont.italicSystemFontOfSize(18)])
         self.usernameTextField.keyboardType = UIKeyboardType.EmailAddress
         self.usernameTextField.returnKeyType = UIReturnKeyType.Next
         self.usernameTextField.autocapitalizationType = UITextAutocapitalizationType.None
         self.usernameTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         self.usernameTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         self.usernameTextField.rightViewMode = UITextFieldViewMode.WhileEditing
+        
+        self.emailTextField.textAlignment = NSTextAlignment.Center
+        self.emailTextField.textColor = UIColor.black50PercentColor()
+        self.emailTextField.font = UIFont.systemFontOfSize(18)
+        self.emailTextField.attributedPlaceholder = NSAttributedString(string: "邮箱", attributes: [NSForegroundColorAttributeName: UIColor(white: 0.836, alpha: 1), NSFontAttributeName: UIFont.italicSystemFontOfSize(18)])
+        self.emailTextField.keyboardType = UIKeyboardType.EmailAddress
+        self.emailTextField.returnKeyType = UIReturnKeyType.Next
+        self.emailTextField.autocapitalizationType = UITextAutocapitalizationType.None
+        self.emailTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        self.emailTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        self.emailTextField.rightViewMode = UITextFieldViewMode.WhileEditing
         
         self.passwordTextField.textAlignment = NSTextAlignment.Center
         self.passwordTextField.font = UIFont.systemFontOfSize(18)
@@ -95,18 +107,27 @@ class ROLRegisterController: UIViewController {
         self.view.endEditing(true)
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         SEProgressHUDTool.showMessage("注册中...", toView: self.view)
-        ROLUserInfoManager.sharedManager.registerUser(self.usernameTextField.text, password: self.passwordTextField.text, success: { () -> Void in
+        
+        ROLUserInfoManager.sharedManager.registerUser(self.usernameTextField.text, password: self.passwordTextField.text, email: self.emailTextField.text, success: { () -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 SEProgressHUDTool.hideHUDForView(self.view)
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
-        }) { () -> Void in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                SEProgressHUDTool.hideHUDForView(self.view)
-                self.view.makeToast("请检查邮箱是否正确", duration: 3, position: CSToastPositionBottom, title: "注册失败")
-            })
+        }) { (code) -> Void in
+            if code == 202 {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    SEProgressHUDTool.hideHUDForView(self.view)
+                    self.view.makeToast("该用户名已经被使用", duration: 3, position: CSToastPositionBottom, title: "注册失败")
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    SEProgressHUDTool.hideHUDForView(self.view)
+                    self.view.makeToast("请检查邮箱是否正确", duration: 3, position: CSToastPositionBottom, title: "注册失败")
+                })
+            }
         }
     }
 

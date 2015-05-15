@@ -10,6 +10,9 @@ import UIKit
 
 class ROLMeController: SESettingViewController {
     
+    @IBAction func cancelBtnDidClicked(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
     }

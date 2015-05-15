@@ -25,28 +25,49 @@ class ROLUserInfoManager: NSObject {
     }
     
     // MARK: - public    
-    func registerUser(email: String, password: String, success: () -> Void, failure: () -> Void) {
-        firebaseRef.createUser(email, password: password) { (error, result) -> Void in
-            if error != nil {
-                println(error)
-                failure()
-            } else {
-                self.isUserLogin = true
+    func registerUser(username: String, password: String, email: String, success: () -> Void, failure: (code: Int) -> Void) {
+//        firebaseRef.createUser(email, password: password) { (error, result) -> Void in
+//            if error != nil {
+//                println(error)
+//                failure()
+//            } else {
+//                self.isUserLogin = true
+//                success()
+//                println("register success")
+//            }
+//        }
+        
+        var user = AVUser()
+        user.username = username
+        user.email = email
+        user.password = password
+        user.signUpInBackgroundWithBlock { (succeeded, error) -> Void in
+            if succeeded {
                 success()
-                println("register success")
+            } else {
+                failure(code: error.code)
             }
         }
     }
     
-    func authUser(email: String, password: String, success: () -> Void, failure: () -> Void) {
-        firebaseRef.authUser(email, password: password) { (error, result) -> Void in
-            if error != nil {
-                println(error)
-                failure()
-            } else {
+    func authUser(username: String, password: String, success: () -> Void, failure: () -> Void) {
+//        firebaseRef.authUser(email, password: password) { (error, result) -> Void in
+//            if error != nil {
+//                println(error)
+//                failure()
+//            } else {
+//                self.isUserLogin = true
+//                success()
+//                println("login success")
+//            }
+//        }
+        
+        AVUser.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
+            if user != nil {
                 self.isUserLogin = true
                 success()
-                println("login success")
+            } else {
+                failure()
             }
         }
     }

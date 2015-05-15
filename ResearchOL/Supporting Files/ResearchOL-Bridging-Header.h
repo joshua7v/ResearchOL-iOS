@@ -14,6 +14,7 @@
 #import <Firebase/Firebase.h>
 #import <MJExtension/MJExtension.h>
 #import <Toast/UIView+Toast.h>
+#import <AVOSCloud/AVOSCloud.h>
 #import "SECategory.h"
 #import "SESettings.h"
 #import "SESideMenu.h"

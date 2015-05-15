@@ -383,7 +383,13 @@
                             <outlet property="delegate" destination="WYQ-4L-4Up" id="5L1-0M-FGI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="我" id="yQp-MF-LFD"/>
+                    <navigationItem key="navigationItem" title="我" id="yQp-MF-LFD">
+                        <barButtonItem key="leftBarButtonItem" title="关闭" id="wUb-nW-q41">
+                            <connections>
+                                <action selector="cancelBtnDidClicked:" destination="WYQ-4L-4Up" id="cnN-Qv-3Jf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoA-kr-gRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

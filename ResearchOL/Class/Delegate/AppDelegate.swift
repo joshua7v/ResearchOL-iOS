@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UITabBarController
         self.window?.makeKeyAndVisible()
         
+        AVOSCloud.setApplicationId("rvff27zmaugnw1yhdg32nvz5itth29fa1bjff27iwyp5isiv", clientKey: "z10xoqcsvz9u9wkkfxkcuaobr4jl1kxswpx7aylb91rf1rd0")
+
+        
         return true
     }
 
