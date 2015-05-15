@@ -42,6 +42,7 @@ class ROLQuestionManager: NSObject {
     func getQuestionares(amount: UInt, success: () -> Void) {
         var count: UInt = 0
         var flag: Bool = false
+        self.questionares = []
         
         questionaresRef.queryOrderedByKey().queryLimitedToFirst(amount).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
             var questionare = ROLQuestionare()

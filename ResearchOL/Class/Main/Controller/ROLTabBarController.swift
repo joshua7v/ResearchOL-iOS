@@ -17,6 +17,7 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     let storyboardIdForMe = "ROLMeController"
     let storyboardIdForMore = "ROLMoreController"
     
+    var progress: CGFloat = 0
     var currentIndex = 0
     var edgePanRecognizer: UIScreenEdgePanGestureRecognizer?
     var coverTapRecognizer: UITapGestureRecognizer?
@@ -36,7 +37,8 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
                 self.setMenuOffset(0)
                 self.coverView.hidden = true
             })
-            self.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UINavigationController, animated: true, completion: { () -> Void in
+        
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UINavigationController, animated: true, completion: { () -> Void in
                 
             })
         }
@@ -119,6 +121,12 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         })
     }
     
+    @objc private func leftBarButtonItemDidClicked() {
+        UIView.animateWithDuration(NSTimeInterval((1 - progress) / 1.5), delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 3.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.setMenuOffset(self.kMenuWidth)
+            }, completion: nil)
+    }
+    
     @objc private func handleCoverTapRecognizer(recognizer: UITapGestureRecognizer) {
         UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
             self.setMenuOffset(0)
@@ -130,6 +138,7 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         var translation = recognizer.translationInView(self.view)
         var progress = translation.x / kMenuWidth
         progress = min(1.0, max(0.0, progress))
+        self.progress = progress
         
         if recognizer.state == UIGestureRecognizerState.Began {
             self.coverView.hidden = false
