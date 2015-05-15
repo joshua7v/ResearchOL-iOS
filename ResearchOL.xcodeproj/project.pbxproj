@@ -21,6 +21,7 @@
 		422328B41AD8BDDF0008EB80 /* ResearchOLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */; };
 		422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586B51ADA2D6B009EC220 /* SECommon.swift */; };
 		422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */; };
+		424D619A1B060B4800A10147 /* ROLNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61991B060B4800A10147 /* ROLNotifications.swift */; };
 		42826F811B044F1A00DB8491 /* SESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7B1B044F1A00DB8491 /* SESideMenu.m */; };
 		42826F821B044F1A00DB8491 /* SESideMenuSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7E1B044F1A00DB8491 /* SESideMenuSection.m */; };
 		42826F831B044F1A00DB8491 /* SESideMenuSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F801B044F1A00DB8491 /* SESideMenuSectionCell.m */; };
@@ -101,6 +102,7 @@
 		422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchOLTests.swift; sourceTree = "<group>"; };
 		422586B51ADA2D6B009EC220 /* SECommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SECommon.swift; path = ../SECommon.swift; sourceTree = "<group>"; };
 		422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMoreController.swift; sourceTree = "<group>"; };
+		424D61991B060B4800A10147 /* ROLNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLNotifications.swift; sourceTree = "<group>"; };
 		42826F7A1B044F1A00DB8491 /* SESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenu.h; sourceTree = "<group>"; };
 		42826F7B1B044F1A00DB8491 /* SESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESideMenu.m; sourceTree = "<group>"; };
 		42826F7C1B044F1A00DB8491 /* SESideMenuCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenuCommon.h; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				42B781371AE4F57D0095DED5 /* ROLStringTool.swift */,
+				424D61991B060B4800A10147 /* ROLNotifications.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				42B781351AE4E8820095DED5 /* ROLLoginController.swift in Sources */,
 				42826F9F1B044F5500DB8491 /* NSArray+SELog.m in Sources */,
 				422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */,
+				424D619A1B060B4800A10147 /* ROLNotifications.swift in Sources */,
 				42826FA71B044F5500DB8491 /* UIScreen+SE.m in Sources */,
 				42B7812E1AE4DB2E0095DED5 /* ROLNeedToLoginCell.swift in Sources */,
 				4292408E1AD94CAE00D4F152 /* SESettingCell.m in Sources */,

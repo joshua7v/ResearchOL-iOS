@@ -107,6 +107,8 @@ class ROLLoginController: UIViewController {
                 SEProgressHUDTool.hideHUDForView(self.view)
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 self.dismissViewControllerAnimated(true, completion: nil)
+                
+                NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userLoginNotification, object: nil)
             })
         }) { () -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in

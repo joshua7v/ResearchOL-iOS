@@ -9,6 +9,8 @@
 #import "SESideMenuSection.h"
 #import "SESideMenuSectionCell.h"
 #import "SECategory.h"
+#import "ResearchOL-Swift.h"
+
 static CGFloat const kAvatarHeight = 70.0f;
 @interface SESideMenuSection () <UITableViewDelegate, UITableViewDataSource>
 
@@ -16,6 +18,7 @@ static CGFloat const kAvatarHeight = 70.0f;
 @property (nonatomic, strong) UIButton    *avatarButton;
 @property (nonatomic, strong) UIImageView *divideImageView;
 @property (nonatomic, strong) UILabel     *usernameLabel;
+@property (nonatomic, strong) UILabel *pointsLabel;
 
 //@property (nonatomic, strong) SCActionSheet      *actionSheet;
 
@@ -45,9 +48,14 @@ static CGFloat const kAvatarHeight = 70.0f;
         
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
         //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUpdateCheckInBadgeNotification) name:kUpdateCheckInBadgeNotification object:nil];
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserDidLoginNotification) name:[ROLNotifications userLoginNotification] object:nil];
     }
     return self;
+}
+
+- (void)handleUserDidLoginNotification {
+    self.usernameLabel.text = [AVUser currentUser].username;
+    self.pointsLabel.text = @"积分: 200";
 }
 
 - (void)configureTableView {
@@ -65,34 +73,59 @@ static CGFloat const kAvatarHeight = 70.0f;
 
 
 - (void)configureProfileView {
-    
-    self.avatarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SESideMenu.bundle/avatar_default"]];
-    self.avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.avatarImageView.clipsToBounds = YES;
-    self.avatarImageView.layer.cornerRadius = 5; //kAvatarHeight / 2.0;
-    self.avatarImageView.layer.borderColor = [UIColor colorFromHexString:@"8a8a8a"].CGColor;
-    self.avatarImageView.layer.borderWidth = 1.0f;
-    [self addSubview:self.avatarImageView];
-    
+    if (!self.avatarImageView) {
+        self.avatarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SESideMenu.bundle/avatar_default"]];
+        self.avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.avatarImageView.clipsToBounds = YES;
+        self.avatarImageView.layer.cornerRadius = 5; //kAvatarHeight / 2.0;
+        self.avatarImageView.layer.borderColor = [UIColor colorFromHexString:@"8a8a8a"].CGColor;
+        self.avatarImageView.layer.borderWidth = 1.0f;
+        [self addSubview:self.avatarImageView];
+        
+        self.avatarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:self.avatarButton];
+        
+        self.divideImageView = [[UIImageView alloc] init];
+        self.divideImageView.backgroundColor = [UIColor colorFromHexString:@"dbdbdb"];
+        self.divideImageView.contentMode = UIViewContentModeScaleAspectFill;
+        //    self.divideImageView.image = [UIImage imageNamed:@"section_divide"];
+        self.divideImageView.clipsToBounds = YES;
+        [self addSubview:self.divideImageView];
+        // Handles
+        [self.avatarButton addTarget:self action:@selector(avatarBtnDidClicked:) forControlEvents:UIControlEventTouchDown];
+    }
 //    self.avatarImageView.alpha = kSetting.imageViewAlphaForCurrentTheme;
     
-//    if ([V2DataManager manager].user.isLogin) {
+    if ([ROLUserInfoManager sharedManager].isUserLogin) {
 //        [self.avatarImageView setImageWithURL:[NSURL URLWithString:[V2DataManager manager].user.member.memberAvatarLarge] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
 //        self.avatarImageView.layer.borderColor = [UIColor colorWithHexString:@"8a8a8a"] alpha:0.1].CGColor;
-//    }
+        UILabel *username = [[UILabel alloc] init];
+        username.text = [AVUser currentUser].username;
+        username.font = [UIFont systemFontOfSize:15];
+        username.tintColor = [UIColor blackColor];
+        self.usernameLabel = username;
+        [self addSubview:username];
+        
+        self.pointsLabel = [[UILabel alloc] init];
+        self.pointsLabel.font = [UIFont systemFontOfSize:12];
+        self.pointsLabel.tintColor = [UIColor black75PercentColor];
+        self.pointsLabel.text = @"积分: 200";
+        [self addSubview:self.pointsLabel];
+    } else {
+        UILabel *username = [[UILabel alloc] init];
+        username.text = @"游客";
+        username.font = [UIFont systemFontOfSize:15];
+        username.tintColor = [UIColor blackColor];
+        self.usernameLabel = username;
+        [self addSubview:username];
+        
+        self.pointsLabel = [[UILabel alloc] init];
+        self.pointsLabel.font = [UIFont systemFontOfSize:12];
+        self.pointsLabel.tintColor = [UIColor black75PercentColor];
+        self.pointsLabel.text = @"登录以获取积分";
+        [self addSubview:self.pointsLabel];
+    }
     
-    self.avatarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self addSubview:self.avatarButton];
-    
-    self.divideImageView = [[UIImageView alloc] init];
-    self.divideImageView.backgroundColor = [UIColor colorFromHexString:@"dbdbdb"];
-    self.divideImageView.contentMode = UIViewContentModeScaleAspectFill;
-    //    self.divideImageView.image = [UIImage imageNamed:@"section_divide"];
-    self.divideImageView.clipsToBounds = YES;
-    [self addSubview:self.divideImageView];
-    
-    // Handles
-    [self.avatarButton addTarget:self action:@selector(avatarBtnDidClicked:) forControlEvents:UIControlEventTouchDown];
 //    [self.avatarButton bk_addEventHandler:^(id sender) {
 //        
 //        if (![V2DataManager manager].user.isLogin) {
@@ -144,6 +177,10 @@ static CGFloat const kAvatarHeight = 70.0f;
     self.divideImageView.frame = (CGRect){-self.width, kAvatarHeight + 50, self.width * 2, 0.5};
     self.tableView.frame = (CGRect){0, 0, self.width, self.height};
     
+    self.usernameLabel.frame = CGRectMake(self.avatarImageView.maxX + 10, self.avatarImageView.minY, 100, 20);
+    
+    self.pointsLabel.frame = CGRectMake(self.avatarImageView.maxX + 10, self.avatarImageView.maxY - 20, 100, 20);
+    
 //    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[V2SettingManager manager].selectedSectionIndex inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
@@ -165,6 +202,10 @@ static CGFloat const kAvatarHeight = 70.0f;
     
     self.avatarImageView.y = 30 - (scrollView.contentInsetTop - offsetY) / 1.7;
     self.avatarButton.frame = self.avatarImageView.frame;
+    
+    self.usernameLabel.y = 30 - (scrollView.contentInsetTop - offsetY) / 1.7;
+    self.pointsLabel.y = 30 - (scrollView.contentInsetTop - offsetY) / 1.7 + self.avatarImageView.height - self.pointsLabel.height;
+
     
     self.divideImageView.y = self.avatarImageView.y + kAvatarHeight + (offsetY - (self.avatarImageView.y + kAvatarHeight)) / 2.0 + fabs(offsetY - self.tableView.contentInsetTop)/self.tableView.contentInsetTop * 8.0 + 10;
     
