@@ -16,7 +16,7 @@ class ROLMineController: UIViewController {
 
 //        self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 44, right: 0)
         self.tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLNeedToLoginCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLNeedToLoginCell)
-        self.tableView.backgroundColor = SEColor(226, 226, 226)
+        self.tableView.backgroundColor = ROLColors.coolGrayColor
     }
 
     override func didReceiveMemoryWarning() {

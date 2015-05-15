@@ -22,6 +22,9 @@
 		422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586B51ADA2D6B009EC220 /* SECommon.swift */; };
 		422586BE1ADA9BE5009EC220 /* ROLMoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */; };
 		424D619A1B060B4800A10147 /* ROLNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61991B060B4800A10147 /* ROLNotifications.swift */; };
+		424D619E1B06218700A10147 /* ROLAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D619D1B06218700A10147 /* ROLAboutController.swift */; };
+		424D61A21B06290A00A10147 /* ROLFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61A11B06290A00A10147 /* ROLFeedbackController.swift */; };
+		424D61A41B062A8200A10147 /* ROLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61A31B062A8200A10147 /* ROLColors.swift */; };
 		42826F811B044F1A00DB8491 /* SESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7B1B044F1A00DB8491 /* SESideMenu.m */; };
 		42826F821B044F1A00DB8491 /* SESideMenuSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7E1B044F1A00DB8491 /* SESideMenuSection.m */; };
 		42826F831B044F1A00DB8491 /* SESideMenuSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F801B044F1A00DB8491 /* SESideMenuSectionCell.m */; };
@@ -103,6 +106,9 @@
 		422586B51ADA2D6B009EC220 /* SECommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SECommon.swift; path = ../SECommon.swift; sourceTree = "<group>"; };
 		422586BD1ADA9BE5009EC220 /* ROLMoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMoreController.swift; sourceTree = "<group>"; };
 		424D61991B060B4800A10147 /* ROLNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLNotifications.swift; sourceTree = "<group>"; };
+		424D619D1B06218700A10147 /* ROLAboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLAboutController.swift; sourceTree = "<group>"; };
+		424D61A11B06290A00A10147 /* ROLFeedbackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLFeedbackController.swift; sourceTree = "<group>"; };
+		424D61A31B062A8200A10147 /* ROLColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLColors.swift; sourceTree = "<group>"; };
 		42826F7A1B044F1A00DB8491 /* SESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenu.h; sourceTree = "<group>"; };
 		42826F7B1B044F1A00DB8491 /* SESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESideMenu.m; sourceTree = "<group>"; };
 		42826F7C1B044F1A00DB8491 /* SESideMenuCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenuCommon.h; sourceTree = "<group>"; };
@@ -321,6 +327,38 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		424D619B1B06216000A10147 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				424D619C1B06216E00A10147 /* Controller */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		424D619C1B06216E00A10147 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				424D619D1B06218700A10147 /* ROLAboutController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		424D619F1B0628D900A10147 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				424D61A01B0628EB00A10147 /* Controller */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		424D61A01B0628EB00A10147 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				424D61A11B06290A00A10147 /* ROLFeedbackController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		428132B91B032C320001BE9F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +534,7 @@
 			children = (
 				42B781371AE4F57D0095DED5 /* ROLStringTool.swift */,
 				424D61991B060B4800A10147 /* ROLNotifications.swift */,
+				424D61A31B062A8200A10147 /* ROLColors.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -563,6 +602,8 @@
 		42E3EFA11AD8BFDD0030ED16 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				424D619F1B0628D900A10147 /* Feedback */,
+				424D619B1B06216000A10147 /* About */,
 				421AF79A1AE62D55003B7AB7 /* Mine */,
 				42B7A9191ADF85B8001B4D25 /* Login */,
 				42B7A90D1ADF2F7A001B4D25 /* Home */,
@@ -780,6 +821,8 @@
 				42826F811B044F1A00DB8491 /* SESideMenu.m in Sources */,
 				42826F831B044F1A00DB8491 /* SESideMenuSectionCell.m in Sources */,
 				42B7A9101ADF2FB2001B4D25 /* ROLHomeController.swift in Sources */,
+				424D61A21B06290A00A10147 /* ROLFeedbackController.swift in Sources */,
+				424D619E1B06218700A10147 /* ROLAboutController.swift in Sources */,
 				4297CAC11AE22DA90023AA6A /* ROLQuestionCell.swift in Sources */,
 				42B781351AE4E8820095DED5 /* ROLLoginController.swift in Sources */,
 				42826F9F1B044F5500DB8491 /* NSArray+SELog.m in Sources */,
@@ -802,6 +845,7 @@
 				42FCF7B01ADC031E00E18089 /* ROLProfileDetailController.swift in Sources */,
 				42826FA91B044F5500DB8491 /* UIView+SE.m in Sources */,
 				42B781381AE4F57D0095DED5 /* ROLStringTool.swift in Sources */,
+				424D61A41B062A8200A10147 /* ROLColors.swift in Sources */,
 				4297CABC1AE2003A0023AA6A /* ROLQuestionareController.swift in Sources */,
 				4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */,
 				4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */,

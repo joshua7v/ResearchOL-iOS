@@ -16,6 +16,8 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
 //    var edgePanRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "handleEdgePanRecognizer:")
     let storyboardIdForMe = "ROLMeController"
     let storyboardIdForMore = "ROLMoreController"
+    let storyboardIdForAbout = "ROLAboutController"
+    let storyboardIdForFeedback = "ROLFeedbackController"
     
     var progress: CGFloat = 0
     var currentIndex = 0
@@ -34,9 +36,11 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     private func configueBlocks() {
         self.sideMenu.avatarBtnDidClickedBlock = {
             if ROLUserInfoManager.sharedManager.isUserLogin {
-                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForMe) as! ROLNavigationController, animated: true, completion: { () -> Void in
-                    
+                UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
+                    self.setMenuOffset(0)
+                    self.coverView.hidden = true
                 })
+                self.showControllerWithIndex(5)
             } else {
                 UIView.animateWithDuration(NSTimeInterval(0.3), animations: { () -> Void in
                     self.setMenuOffset(0)
@@ -74,6 +78,15 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         case 2:
             nextController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForMore) as! ROLNavigationController
             self.currentIndex = 2
+        case 3:
+            nextController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForFeedback) as! ROLNavigationController
+            self.currentIndex = 3
+        case 4:
+            nextController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForAbout) as! ROLNavigationController
+            self.currentIndex = 4
+        case 5:
+            nextController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForMe) as! ROLNavigationController
+            self.currentIndex = 5
         default:
             nextController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ROLTabBarController
             self.currentIndex = 0
