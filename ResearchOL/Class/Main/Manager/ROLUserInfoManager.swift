@@ -37,10 +37,29 @@ class ROLUserInfoManager: NSObject {
 //            }
 //        }
         
+//        NSData *imageData = UIImagePNGRepresentation(image);
+//        AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
+//        [imageFile save];
+//        
+//        AVObject *userPhoto = [AVObject objectWithClassName:@"UserPhoto"];
+//        [userPhoto setObject:@"My trip to Hawaii!" forKey:@"imageName"];
+//        [userPhoto setObject:imageFile             forKey:@"imageFile"];
+//        [userPhoto save];
+        
         var user = AVUser()
         user.username = username
         user.email = email
         user.password = password
+        
+        var avatarData = UIImagePNGRepresentation(UIImage(named: "SESideMenu.bundle/avatar_default"))
+        var avatarFile: AnyObject! = AVFile.fileWithName("\(ROLUserKeys.kUserAvatarKey).png", data: avatarData)
+        avatarFile.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+            if succeeded {
+                user.setObject(avatarFile, forKey: ROLUserKeys.kUserAvatarKey)
+                user.saveInBackground()
+            }
+        }
+        
         user.signUpInBackgroundWithBlock { (succeeded, error) -> Void in
             if succeeded {
                 success()
@@ -68,6 +87,29 @@ class ROLUserInfoManager: NSObject {
                 success()
             } else {
                 failure()
+            }
+        }
+    }
+    
+    func saveAvatarForCurrentUser(imageData: NSData) {
+        var user = AVUser.currentUser()
+        var file: AnyObject! = AVFile.fileWithName("\(ROLUserKeys.kUserAvatarKey).jpeg", data: imageData)
+        user.setObject(file, forKey: ROLUserKeys.kUserAvatarKey)
+        user.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+            if succeeded {
+                NSNotificationCenter.defaultCenter().postNotificationName("avatarDidChangedNotification", object: UIImage(data: imageData), userInfo: nil)
+            }
+        }
+    }
+    
+    func getThumbnailAvatarForCurrentUser(success: (image: UIImage) -> Void, failure: (error: NSError) -> Void) {
+        var user = AVUser.currentUser()
+        var file = user.objectForKey(ROLUserKeys.kUserAvatarKey) as! AVFile
+        file.getThumbnail(true, width: 180, height: 180) { (image, error) -> Void in
+            if (image != nil) {
+                success(image: image)
+            } else {
+                failure(error: error)
             }
         }
     }

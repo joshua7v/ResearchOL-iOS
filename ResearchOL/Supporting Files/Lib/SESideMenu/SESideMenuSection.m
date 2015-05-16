@@ -10,6 +10,7 @@
 #import "SESideMenuSectionCell.h"
 #import "SECategory.h"
 #import "ResearchOL-Swift.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 static CGFloat const kAvatarHeight = 70.0f;
 @interface SESideMenuSection () <UITableViewDelegate, UITableViewDataSource>
@@ -31,6 +32,11 @@ static CGFloat const kAvatarHeight = 70.0f;
 
 @implementation SESideMenuSection
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:[ROLNotifications userLoginNotification] object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AvatarDidChoseNotification" object:nil];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -49,13 +55,27 @@ static CGFloat const kAvatarHeight = 70.0f;
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
         //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUpdateCheckInBadgeNotification) name:kUpdateCheckInBadgeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserDidLoginNotification) name:[ROLNotifications userLoginNotification] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAvatarDidChoseNotification:) name:@"AvatarDidChoseNotification" object:nil];
     }
     return self;
+}
+
+- (void)handleAvatarDidChoseNotification:(NSNotification *)noti {
+    self.avatarImageView.image = (UIImage *)noti.object;
 }
 
 - (void)handleUserDidLoginNotification {
     self.usernameLabel.text = [AVUser currentUser].username;
     self.pointsLabel.text = @"积分: 200";
+    [[ROLUserInfoManager sharedManager] getThumbnailAvatarForCurrentUser:^(UIImage *image) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.avatarImageView.image = image;
+        });
+    } failure:^(NSError *error) {
+        
+    }];
+    
+//    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:avatar.url] placeholderImage:[UIImage imageNamed:@"SESideMenu.bundle/avatar_default"]];
 }
 
 - (void)configureTableView {
@@ -75,6 +95,7 @@ static CGFloat const kAvatarHeight = 70.0f;
 - (void)configureProfileView {
     if (!self.avatarImageView) {
         self.avatarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SESideMenu.bundle/avatar_default"]];
+//        self.avatarImageView = [[UIImageView alloc] init];
         self.avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
         self.avatarImageView.clipsToBounds = YES;
         self.avatarImageView.layer.cornerRadius = 5; //kAvatarHeight / 2.0;
@@ -93,10 +114,17 @@ static CGFloat const kAvatarHeight = 70.0f;
         [self addSubview:self.divideImageView];
         // Handles
         [self.avatarButton addTarget:self action:@selector(avatarBtnDidClicked:) forControlEvents:UIControlEventTouchDown];
+        
     }
 //    self.avatarImageView.alpha = kSetting.imageViewAlphaForCurrentTheme;
     
-    if ([ROLUserInfoManager sharedManager].isUserLogin) {
+    if ([ROLUserInfoManager sharedManager].isUserLogin) {        [[ROLUserInfoManager sharedManager] getThumbnailAvatarForCurrentUser:^(UIImage *image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.avatarImageView.image = image;
+            });
+        } failure:^(NSError *error) {
+            
+        }];
 //        [self.avatarImageView setImageWithURL:[NSURL URLWithString:[V2DataManager manager].user.member.memberAvatarLarge] placeholderImage:[UIImage imageNamed:@"avatar_default"]];
 //        self.avatarImageView.layer.borderColor = [UIColor colorWithHexString:@"8a8a8a"] alpha:0.1].CGColor;
         UILabel *username = [[UILabel alloc] init];
@@ -162,7 +190,6 @@ static CGFloat const kAvatarHeight = 70.0f;
 }
 
 - (void)avatarBtnDidClicked:(UIButton *)avatarBtn {
-    NSLog(@"-- avatarBtnDidClicked: -- ");
     if (self.avatarBtnDidClickedBlock) {
         self.avatarBtnDidClickedBlock();
     }

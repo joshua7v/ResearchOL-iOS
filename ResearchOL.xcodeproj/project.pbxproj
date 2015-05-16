@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42077EF01B06ED9400DE2A79 /* ROLUserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42077EEF1B06ED9400DE2A79 /* ROLUserKeys.swift */; };
 		4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217B3581AE3A169000FA69B /* ROLAnswer.swift */; };
 		421A3B991ADB61AB00F9A4A8 /* ROLMeProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */; };
 		421A3B9A1ADB61AB00F9A4A8 /* ROLMeProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42077EEF1B06ED9400DE2A79 /* ROLUserKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLUserKeys.swift; sourceTree = "<group>"; };
 		4217B3581AE3A169000FA69B /* ROLAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLAnswer.swift; sourceTree = "<group>"; };
 		421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLMeProfileCell.swift; sourceTree = "<group>"; };
 		421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLMeProfileCell.xib; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 			children = (
 				42B781331AE4E8610095DED5 /* Controller */,
 				42B781301AE4E3380095DED5 /* View */,
+				42077EEF1B06ED9400DE2A79 /* ROLUserKeys.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -847,6 +850,7 @@
 				42B781381AE4F57D0095DED5 /* ROLStringTool.swift in Sources */,
 				424D61A41B062A8200A10147 /* ROLColors.swift in Sources */,
 				4297CABC1AE2003A0023AA6A /* ROLQuestionareController.swift in Sources */,
+				42077EF01B06ED9400DE2A79 /* ROLUserKeys.swift in Sources */,
 				4292409A1AD94E8800D4F152 /* ROLMeController.swift in Sources */,
 				4217B3591AE3A169000FA69B /* ROLAnswer.swift in Sources */,
 				429240881AD94CAE00D4F152 /* SESettingArrowItem.m in Sources */,

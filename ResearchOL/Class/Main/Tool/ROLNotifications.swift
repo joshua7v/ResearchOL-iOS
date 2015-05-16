@@ -11,4 +11,5 @@ import UIKit
 class ROLNotifications: NSObject {
     static let userLoginNotification: String = "UserLoginNotification"
     static let showMenuNotification: String = "ShowMenuNotification"
+    static let avatarDidChangedNotification: String = "AvatarDidChangedNotification"
 }

@@ -1,6 +1,7 @@
 platform :ios, '8.0'
 inhibit_all_warnings!
 
+pod 'SDWebImage', '~> 3.7.2'
 pod 'AVOSCloud'
 pod 'Toast', '~> 2.4'
 pod 'MJRefresh', '~> 1.4.5'

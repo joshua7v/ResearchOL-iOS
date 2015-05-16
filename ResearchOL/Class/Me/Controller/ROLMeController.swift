@@ -10,8 +10,6 @@ import UIKit
 
 class ROLMeController: SESettingViewController {
     
-    let items = [[]]
-    
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
     }
@@ -127,7 +125,21 @@ extension ROLMeController: ROLNeedToLoginCellDelegate {
 
 extension ROLMeController: ROLMeProfileCellDelegate {
     func meProfileCellAvatarDidClicked(cell: ROLMeProfileCell) {
-        let imagePicker = UIImagePickerController()
+        
+        var imagePicker = UIImagePickerController()
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+//        imagePicker.allowsEditing = false
+        imagePicker.delegate = self
         self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+}
+
+extension ROLMeController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        NSNotificationCenter.defaultCenter().postNotificationName("AvatarDidChoseNotification", object: image, userInfo: nil)
+        
+        var imageData = UIImageJPEGRepresentation(image, 0.5)
+        ROLUserInfoManager.sharedManager.saveAvatarForCurrentUser(imageData)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

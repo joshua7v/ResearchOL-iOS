@@ -190,7 +190,6 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
                 UIView.animateWithDuration(NSTimeInterval((1 - progress) / 1.5), delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 3.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                     self.setMenuOffset(self.kMenuWidth)
                     self.coverView.alpha = self.coverViewAlpha
-                    println(self.coverView.alpha)
                 }, completion: nil)
             } else {
                 UIView.animateWithDuration(NSTimeInterval(progress / 3), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in

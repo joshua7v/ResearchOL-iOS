@@ -16,13 +16,13 @@ class ROLNavigationController: UINavigationController {
     // MARK: initialize
     override class func initialize() {
         var appearance = UINavigationBar.appearance()
+        var item = UIBarButtonItem.appearance()
         appearance.barTintColor = UIColor.whiteColor()
+        item.tintColor = UIColor.blackColor()
     }
     
     override func awakeFromNib() {
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "")
-        self.navigationItem.title = "哈哈"
     }
     
     override func viewDidLoad() {

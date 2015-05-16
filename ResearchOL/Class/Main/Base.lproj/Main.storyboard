@@ -383,7 +383,9 @@
                             <outlet property="delegate" destination="WYQ-4L-4Up" id="5L1-0M-FGI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="我" id="yQp-MF-LFD"/>
+                    <navigationItem key="navigationItem" title="我" id="yQp-MF-LFD">
+                        <barButtonItem key="rightBarButtonItem" image="logout" id="Ywq-X8-8kW"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoA-kr-gRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -570,6 +572,7 @@
     </scenes>
     <resources>
         <image name="icon180" width="60" height="60"/>
+        <image name="logout" width="20" height="20"/>
         <image name="tabbar_home" width="17" height="18"/>
         <image name="tabbar_me" width="18" height="20"/>
         <image name="tabbar_mine" width="17" height="18"/>
