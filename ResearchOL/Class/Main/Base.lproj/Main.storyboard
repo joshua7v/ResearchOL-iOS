@@ -467,7 +467,6 @@
         <!--关于-->
         <scene sceneID="mjA-zf-bjX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kj8-29-HIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="eyz-hf-PJc" customClass="ROLAboutController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="09b-yu-6dG"/>
@@ -520,6 +519,7 @@
                         <outlet property="iconView" destination="xl8-Iw-Dyo" id="XOW-ro-4uB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kj8-29-HIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2050" y="1870"/>
         </scene>

@@ -18,6 +18,7 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     let storyboardIdForMore = "ROLMoreController"
     let storyboardIdForAbout = "ROLAboutController"
     let storyboardIdForFeedback = "ROLFeedbackController"
+    let coverViewAlpha: CGFloat = 0.25
     
     var progress: CGFloat = 0
     var currentIndex = 0
@@ -30,7 +31,22 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         self.configueBlocks()
         self.configueGestrues()
         self.configueViews()
+        self.configueNotifications()
 //        self.setBlurredScreenShoot()
+    }
+    
+    private func configueNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sideMenuWillShow", name: ROLNotifications.showMenuNotification, object: nil)
+    }
+    
+    @objc private func sideMenuWillShow() {
+        self.coverView.hidden = false
+        self.coverView.alpha = 0
+        UIView.animateWithDuration(NSTimeInterval(0.5), delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 3.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                self.coverView.alpha = self.coverViewAlpha
+                self.setMenuOffset(self.kMenuWidth)
+            }) { (finished) -> Void in
+        }
     }
     
     private func configueBlocks() {
@@ -66,6 +82,7 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         if currentIndex == index { return }
         self.sideMenu.removeFromSuperview()
         self.coverView.removeFromSuperview()
+        self.coverView.hidden = true
         
         var nextController: UIViewController? = nil
         switch index {
@@ -105,11 +122,13 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     
     deinit {
         println("--------deinit-----")
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ROLNotifications.showMenuNotification, object: nil)
     }
     
     private func configueViews() {
-        self.coverView.backgroundColor = UIColor(hexString: "000000", alpha: 0.5)
+        self.coverView.backgroundColor = UIColor(hexString: "000000")
         self.coverView.hidden          = true
+        self.coverView.alpha = self.coverViewAlpha
         self.view.addSubview(self.coverView)
 
         self.sideMenu.frame            = CGRect(x: -kMenuWidth, y: 0, width: kMenuWidth, height: UIScreen.height())
@@ -132,7 +151,7 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     private func setBlurredScreenShoot() {
         var screenShot = self.view.screenshot()
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            var blurColor = UIColor(white: 0.970, alpha: 0.5)
+            var blurColor = UIColor(white: 0.970, alpha: self.coverViewAlpha)
             screenShot = screenShot.applyBlurWithRadius(12.0, tintColor: blurColor, saturationDeltaFactor: 1, maskImage: nil)
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.sideMenu.blurredImage = screenShot
@@ -161,20 +180,21 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
         
         if recognizer.state == UIGestureRecognizerState.Began {
             self.coverView.hidden = false
-            self.coverView.alpha = 0.5 * progress
+            self.coverView.alpha = self.coverViewAlpha * progress
         } else if recognizer.state == UIGestureRecognizerState.Changed {
             self.setMenuOffset(kMenuWidth * progress)
-            self.coverView.alpha = 0.5 * progress
+            self.coverView.alpha = self.coverViewAlpha * progress
         } else if recognizer.state == UIGestureRecognizerState.Ended || recognizer.state == UIGestureRecognizerState.Cancelled {
             var velocity = recognizer.velocityInView(self.view).x
             if velocity > 20 || progress > 0.5 {
                 UIView.animateWithDuration(NSTimeInterval((1 - progress) / 1.5), delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 3.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                     self.setMenuOffset(self.kMenuWidth)
+                    self.coverView.alpha = self.coverViewAlpha
+                    println(self.coverView.alpha)
                 }, completion: nil)
             } else {
                 UIView.animateWithDuration(NSTimeInterval(progress / 3), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                     self.setMenuOffset(0)
-                    self.coverView.alpha = 0.5
                     self.coverView.hidden = true
                 }, completion: { (finished) -> Void in
                 })
