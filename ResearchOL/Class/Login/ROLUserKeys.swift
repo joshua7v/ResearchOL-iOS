@@ -9,5 +9,7 @@
 import UIKit
 
 class ROLUserKeys: NSObject {
-   static let kUserAvatarKey = "avatar"
+    static let kUserAvatarKey = "avatar"
+    static let kUserPointsKey = "points"
+    static let kUserAnsweredQuestionaresNumberKey = "answeredQuestionaresNumber"
 }

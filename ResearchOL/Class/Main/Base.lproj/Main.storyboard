@@ -384,7 +384,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我" id="yQp-MF-LFD">
-                        <barButtonItem key="rightBarButtonItem" image="logout" id="Ywq-X8-8kW"/>
+                        <barButtonItem key="rightBarButtonItem" image="logout" id="Ywq-X8-8kW">
+                            <connections>
+                                <action selector="logoutBtnDidClicked:" destination="WYQ-4L-4Up" id="YhX-oh-iD6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoA-kr-gRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,6 +529,49 @@
             </objects>
             <point key="canvasLocation" x="2050" y="1870"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="xe4-FK-NkT">
+            <objects>
+                <tableViewController id="ckJ-m1-FkE" customClass="ROLEditController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="W9n-nl-1hm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W78-uI-xEl">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W78-uI-xEl" id="RYv-oG-RCo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ckJ-m1-FkE" id="OmQ-5e-jSQ"/>
+                            <outlet property="delegate" destination="ckJ-m1-FkE" id="k1z-Ln-01L"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="dF2-IT-9CS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kOm-68-AeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069" y="2576"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vPu-cO-hTS">
+            <objects>
+                <navigationController storyboardIdentifier="ROLEditController" id="Ao7-De-7n7" customClass="ROLNavigationController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iyw-yA-W19">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ckJ-m1-FkE" kind="relationship" relationship="rootViewController" id="ovT-7r-Q46"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FrG-xR-PqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="2576"/>
+        </scene>
         <!--更多-->
         <scene sceneID="cKV-2k-iEy">
             <objects>
@@ -572,7 +619,7 @@
     </scenes>
     <resources>
         <image name="icon180" width="60" height="60"/>
-        <image name="logout" width="20" height="20"/>
+        <image name="logout" width="17" height="17"/>
         <image name="tabbar_home" width="17" height="18"/>
         <image name="tabbar_me" width="18" height="20"/>
         <image name="tabbar_mine" width="17" height="18"/>

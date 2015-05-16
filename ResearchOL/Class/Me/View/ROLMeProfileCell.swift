@@ -53,6 +53,8 @@ class ROLMeProfileCell: UITableViewCell {
     }
     
     @objc private func handleUserLoginNotification(noti: NSNotification) {
+        self.pointsLabel.text = String(ROLUserInfoManager.sharedManager.getPointsForCurrentUser())
+        self.answeredQuestionaresLabel.text = String(ROLUserInfoManager.sharedManager.getAnsweredQuestionaresNumberForCurrentUser())
         ROLUserInfoManager.sharedManager.getThumbnailAvatarForCurrentUser({ (image) -> Void in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.avatar.image = image
@@ -74,6 +76,8 @@ class ROLMeProfileCell: UITableViewCell {
         self.avatar.layer.borderWidth = 1.0
         
         if ROLUserInfoManager.sharedManager.isUserLogin {
+            self.pointsLabel.text = String(ROLUserInfoManager.sharedManager.getPointsForCurrentUser())
+            self.answeredQuestionaresLabel.text = String(ROLUserInfoManager.sharedManager.getAnsweredQuestionaresNumberForCurrentUser())
             ROLUserInfoManager.sharedManager.getThumbnailAvatarForCurrentUser({ (image) -> Void in
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.avatar.image = image

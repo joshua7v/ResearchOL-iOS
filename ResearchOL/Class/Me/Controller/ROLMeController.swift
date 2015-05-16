@@ -9,6 +9,17 @@
 import UIKit
 
 class ROLMeController: SESettingViewController {
+    let storyboardIdForEdit = "ROLEditController"
+    
+    var editController: ROLNavigationController {
+        get {
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForEdit) as! ROLNavigationController
+        }
+    }
+    
+    @IBAction func logoutBtnDidClicked(sender: UIBarButtonItem) {
+        ROLUserInfoManager.sharedManager.resignUser()
+    }
     
     override func viewWillAppear(animated: Bool) {
         self.tableView.reloadData()
@@ -42,24 +53,142 @@ class ROLMeController: SESettingViewController {
     // MARK: setup second group
     private func setupGroup1() {
         var group = self.addGroup()
-//        var phoneNumber = SESettingArrowItem(icon: nil, title: "手机号", destVcClass: ROLProfileDetailController.classForCoder())
-        var phoneNumber = SESettingLabelItem(title: "手机号", text: "未填写")
+        var phoneNumber = SESettingLabelArrowItem(icon: nil, title: "手机号", text: "未填写", destVcClass: nil)
         phoneNumber.operation = {
-            self.navigationController?.pushViewController(UIViewController(), animated: true)
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "手机号"
+            item.type = 2
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
         }
-        var gender = SESettingArrowItem(icon: nil, title: "性别", destVcClass: ROLProfileDetailController.classForCoder())
-        var age = SESettingArrowItem(icon: nil, title: "年龄", destVcClass: ROLProfileDetailController.classForCoder())
-        var hobby = SESettingArrowItem(icon: nil, title: "爱好", destVcClass: ROLProfileDetailController.classForCoder())
-        var location = SESettingArrowItem(icon: nil, title: "地区", destVcClass: ROLProfileDetailController.classForCoder())
+        
+        var gender = SESettingLabelArrowItem(icon: nil, title: "性别", text: "未填写", destVcClass: nil)
+        gender.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "性别"
+            item.choices = ["男", "女"]
+            item.type = 1
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        var age = SESettingLabelArrowItem(icon: nil, title: "年龄", text: "未填写", destVcClass: nil)
+        age.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "年龄"
+            item.type = 2
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
+        var hobby = SESettingLabelArrowItem(icon: nil, title: "爱好", text: "未填写", destVcClass: nil)
+        hobby.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "爱好"
+            item.choices = ["逛街", "游戏", "阅读", "旅行", "艺术"]
+            item.type = 1
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
+        var location = SESettingLabelArrowItem(icon: nil, title: "地区", text: "未填写", destVcClass: nil)
+        location.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "地区"
+            item.type = 2
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
         group.items = [phoneNumber, gender, age, hobby, location]
     }
     
     private func setupGroup2() {
         var group = self.addGroup()
-        var income = SESettingArrowItem(icon: nil, title: "年收入", destVcClass: ROLProfileDetailController.classForCoder())
-        var job = SESettingArrowItem(icon: nil, title: "就业状态", destVcClass: ROLProfileDetailController.classForCoder())
-        var edu = SESettingArrowItem(icon: nil, title: "教育程度", destVcClass: ROLProfileDetailController.classForCoder())
-        var marriage = SESettingArrowItem(icon: nil, title: "婚姻状况", destVcClass: ROLProfileDetailController.classForCoder())
+        var income = SESettingLabelArrowItem(icon: nil, title: "月收入", text: "未填写", destVcClass: nil)
+        income.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "月收入"
+            item.choices = ["0 ~ 1999", "2000 ~ 3999", "4000 ~ 6999", "7000 ~ 9999", "10000 ~ 19999", "20000 以上"]
+            item.type = 1
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
+        var job = SESettingLabelArrowItem(icon: nil, title: "就业状态", text: "未填写", destVcClass: nil)
+        job.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "就业状态"
+            item.choices = ["未参加工作", "工作中", "待业中", "已退休"]
+            item.type = 1
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
+        var edu = SESettingLabelArrowItem(icon: nil, title: "教育程度", text: "未填写", destVcClass: nil)
+        edu.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "教育程度"
+            item.choices = ["小学", "初中", "高中", "大学", "硕士", "博士"]
+            item.type = 1
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
+        var marriage = SESettingLabelArrowItem(icon: nil, title: "婚姻状况", text: "未填写", destVcClass: nil)
+        marriage.operation = {
+            var item: ROLEditItem = ROLEditItem()
+            item.title = "婚姻状况"
+            item.choices = ["未婚", "已婚", "离异"]
+            item.type = 1
+            var editNavVC = self.editController
+            var editVC = editNavVC.viewControllers.first as! ROLEditController
+            editVC.item = item
+            editVC.delegate = self
+            self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
+                
+            })
+        }
+        
         group.items = [income, job, edu, marriage]
     }
     
@@ -141,5 +270,11 @@ extension ROLMeController: UINavigationControllerDelegate, UIImagePickerControll
         var imageData = UIImageJPEGRepresentation(image, 0.5)
         ROLUserInfoManager.sharedManager.saveAvatarForCurrentUser(imageData)
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension ROLMeController: ROLEditControllerDelegate {
+    func editControllerSaveButtonDidClicked(editController: ROLEditController) {
+        
     }
 }

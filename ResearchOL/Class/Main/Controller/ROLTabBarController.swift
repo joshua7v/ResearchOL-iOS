@@ -37,6 +37,11 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     
     private func configueNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "sideMenuWillShow", name: ROLNotifications.showMenuNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserLogoutNotification", name: ROLNotifications.userLogoutNotification, object: nil)
+    }
+    
+    @objc private func handleUserLogoutNotification() {
+        self.showControllerWithIndex(0)
     }
     
     @objc private func sideMenuWillShow() {
@@ -123,9 +128,11 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     deinit {
         println("--------deinit-----")
         NSNotificationCenter.defaultCenter().removeObserver(self, name: ROLNotifications.showMenuNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: ROLNotifications.userLogoutNotification, object: nil)
     }
     
     private func configueViews() {
+        self.tabBar.tintColor = UIColor.blackColor()
         self.coverView.backgroundColor = UIColor(hexString: "000000")
         self.coverView.hidden          = true
         self.coverView.alpha = self.coverViewAlpha

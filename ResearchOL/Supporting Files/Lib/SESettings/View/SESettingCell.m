@@ -13,6 +13,8 @@
 #import "SESettingArrowItem.h"
 #import "SESettingSwitchItem.h"
 #import "SESettingLabelItem.h"
+#import "SESettingLabelArrowItem.h"
+#import "SESettingTextFieldItem.h"
 #import "SEBadgeButton.h"
 #import "SECommon.h"
 
@@ -29,6 +31,9 @@
  *  文字
  */
 @property (strong, nonatomic) UILabel *labelView;
+
+@property (nonatomic, strong) UIView *labelAndArrow;
+@property (nonatomic, strong) UITextField *textField;
 /**
  *  提醒数字
  */
@@ -152,6 +157,16 @@
         SESettingLabelItem *item = (SESettingLabelItem *)self.item;
         self.labelView.text = item.text;
         self.accessoryView = self.labelView;
+    } else if ([self.item isKindOfClass:[SESettingLabelArrowItem class]]) { // 文字加箭头
+        SESettingLabelArrowItem *item = (SESettingLabelArrowItem *)self.item;
+        UILabel *label = self.labelAndArrow.subviews.lastObject;
+        label.text = item.text;
+        self.accessoryView = self.labelAndArrow;
+    } else if ([self.item isKindOfClass:[SESettingTextFieldItem class]]) { // 输入框
+        SESettingTextFieldItem *item = (SESettingTextFieldItem *)self.item;
+        self.textField.placeholder = item.placeholder;
+        [self.textField becomeFirstResponder];
+        [self addSubview:self.textField];
     } else { // 右边没有东西
         self.accessoryView = nil;
     }
@@ -192,6 +207,43 @@
         _badgeButton = [[SEBadgeButton alloc] init];
     }
     return _badgeButton;
+}
+
+- (UIView *)labelAndArrow
+{
+    if (_labelAndArrow == nil) {
+        _labelAndArrow = [[UIView alloc] init];
+        _labelAndArrow.frame = CGRectMake(0, 0, 150, 30);
+        
+        UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"imageAssets.bundle/push_arrow"]];
+        arrow.maxX = _labelAndArrow.width;
+        arrow.centerY = _labelAndArrow.centerY;
+        [_labelAndArrow addSubview:arrow];
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.y = _labelAndArrow.y + _labelAndArrow.height / 2 - _labelAndArrow.height / 2;
+        label.width = 100;
+        label.x = _labelAndArrow.width - arrow.width - label.width - 10;
+        label.height = _labelAndArrow.height;
+        label.textAlignment = NSTextAlignmentRight;
+        label.font = [UIFont systemFontOfSize:13];
+        label.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        [_labelAndArrow addSubview:label];
+        
+    }
+    return _labelAndArrow;
+}
+
+- (UITextField *)textField
+{
+    if (_textField == nil) {
+        _textField = [[UITextField alloc] init];
+        _textField.textColor = [UIColor black50PercentColor];
+        _textField.keyboardType = UIKeyboardTypeNumberPad;
+        _textField.frame = CGRectMake(20, 0, self.width, 44);
+        _textField.returnKeyType = UIReturnKeyDone;
+    }
+    return _textField;
 }
 
 @end

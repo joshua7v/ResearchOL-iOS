@@ -66,7 +66,7 @@ static CGFloat const kAvatarHeight = 70.0f;
 
 - (void)handleUserDidLoginNotification {
     self.usernameLabel.text = [AVUser currentUser].username;
-    self.pointsLabel.text = @"积分: 200";
+    self.pointsLabel.text = [NSString stringWithFormat:@"积分: %ld", (long)[[ROLUserInfoManager sharedManager]getPointsForCurrentUser]];
     [[ROLUserInfoManager sharedManager] getThumbnailAvatarForCurrentUser:^(UIImage *image) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.avatarImageView.image = image;
@@ -118,7 +118,8 @@ static CGFloat const kAvatarHeight = 70.0f;
     }
 //    self.avatarImageView.alpha = kSetting.imageViewAlphaForCurrentTheme;
     
-    if ([ROLUserInfoManager sharedManager].isUserLogin) {        [[ROLUserInfoManager sharedManager] getThumbnailAvatarForCurrentUser:^(UIImage *image) {
+    if ([ROLUserInfoManager sharedManager].isUserLogin) {
+        [[ROLUserInfoManager sharedManager] getThumbnailAvatarForCurrentUser:^(UIImage *image) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.avatarImageView.image = image;
             });
@@ -137,7 +138,7 @@ static CGFloat const kAvatarHeight = 70.0f;
         self.pointsLabel = [[UILabel alloc] init];
         self.pointsLabel.font = [UIFont systemFontOfSize:12];
         self.pointsLabel.tintColor = [UIColor black75PercentColor];
-        self.pointsLabel.text = @"积分: 200";
+        self.pointsLabel.text = [NSString stringWithFormat:@"积分: %ld", (long)[[ROLUserInfoManager sharedManager]getPointsForCurrentUser]];
         [self addSubview:self.pointsLabel];
     } else {
         UILabel *username = [[UILabel alloc] init];

@@ -18,6 +18,7 @@ class ROLNavigationController: UINavigationController {
         var appearance = UINavigationBar.appearance()
         var item = UIBarButtonItem.appearance()
         appearance.barTintColor = UIColor.whiteColor()
+        appearance.tintColor = UIColor.blackColor()
         item.tintColor = UIColor.blackColor()
     }
     
@@ -36,6 +37,8 @@ class ROLNavigationController: UINavigationController {
     }
     
     override func pushViewController(viewController: UIViewController, animated: Bool) {
+        viewController.navigationItem.backBarButtonItem?.tintColor = UIColor.blackColor()
+        viewController.navigationItem.leftBarButtonItem?.tintColor = UIColor.blackColor()
         super.pushViewController(viewController, animated: animated)
     }
 }

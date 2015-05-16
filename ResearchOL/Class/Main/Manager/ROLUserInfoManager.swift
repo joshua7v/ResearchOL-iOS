@@ -12,6 +12,11 @@ class ROLUserInfoManager: NSObject {
     
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
     var isUserLogin: Bool = false
+    var currentUser: AVUser {
+        get {
+            return AVUser.currentUser()
+        }
+    }
     
     class var sharedManager: ROLUserInfoManager {
         struct Static {
@@ -55,6 +60,8 @@ class ROLUserInfoManager: NSObject {
         var avatarFile: AnyObject! = AVFile.fileWithName("\(ROLUserKeys.kUserAvatarKey).png", data: avatarData)
         avatarFile.saveInBackgroundWithBlock { (succeeded, error) -> Void in
             if succeeded {
+                user.setObject(0, forKey: ROLUserKeys.kUserPointsKey)
+                user.setObject(0, forKey: ROLUserKeys.kUserAnsweredQuestionaresNumberKey)
                 user.setObject(avatarFile, forKey: ROLUserKeys.kUserAvatarKey)
                 user.saveInBackground()
             }
@@ -67,6 +74,11 @@ class ROLUserInfoManager: NSObject {
                 failure(code: error.code)
             }
         }
+    }
+    
+    func resignUser() {
+        self.isUserLogin = false
+        NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userLogoutNotification, object: nil, userInfo: nil)
     }
     
     func authUser(username: String, password: String, success: () -> Void, failure: () -> Void) {
@@ -112,5 +124,13 @@ class ROLUserInfoManager: NSObject {
                 failure(error: error)
             }
         }
+    }
+    
+    func getPointsForCurrentUser() -> Int {
+        return self.currentUser.objectForKey(ROLUserKeys.kUserPointsKey) as! Int
+    }
+    
+    func getAnsweredQuestionaresNumberForCurrentUser() -> Int {
+        return self.currentUser.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresNumberKey) as! Int
     }
 }
