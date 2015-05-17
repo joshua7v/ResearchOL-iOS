@@ -18,6 +18,10 @@ class ROLMeProfileCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var answeredQuestionaresLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var signinBtn: UIButton!
+    @IBAction func signinBtnDidClicked(sender: UIButton) {
+        sender.setTitle("签到中...", forState: .Normal)
+    }
     
     @IBAction func avatarDidClicked(sender: UIButton) {
         if (self.delegate?.respondsToSelector("meProfileCellAvatarDidClicked:") != nil) {
@@ -74,6 +78,9 @@ class ROLMeProfileCell: UITableViewCell {
         self.avatar.layer.cornerRadius = 5; //kAvatarHeight / 2.0;
         self.avatar.layer.borderColor = UIColor(fromHexString: "8A8A8A").CGColor;
         self.avatar.layer.borderWidth = 1.0
+        self.signinBtn.layer.borderWidth = 1
+        self.signinBtn.layer.cornerRadius = 5
+        self.signinBtn.layer.masksToBounds = true
         
         if ROLUserInfoManager.sharedManager.isUserLogin {
             self.pointsLabel.text = String(ROLUserInfoManager.sharedManager.getPointsForCurrentUser())

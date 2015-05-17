@@ -32,6 +32,10 @@ class ROLHomeDetailController: UITableViewController {
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var requiredTimeLabel: UILabel!
     @IBAction func watchBtnDIdClicked(sender: UIButton) {
+        if !ROLUserInfoManager.sharedManager.isUserLogin {
+            SEProgressHUDTool.showError("需要登录", toView: self.navigationController?.view, yOffset: 200)
+            return
+        }
         if !self.watch {
             sender.enabled = false
             sender.setTitle("关注中...", forState: .Normal)
@@ -45,6 +49,9 @@ class ROLHomeDetailController: UITableViewController {
                 sender.setTitleColor(self.sysBtnColor, forState: .Normal)
                 sender.enabled = true
                 self.watch = false
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    SEProgressHUDTool.showError("请检查网络", toView: self.view)
+                })
             })
         } else {
             sender.enabled = false
@@ -59,6 +66,9 @@ class ROLHomeDetailController: UITableViewController {
                     sender.setTitleColor(UIColor.coolGrayColor(), forState: .Normal)
                     sender.enabled = true
                     self.watch = true
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        SEProgressHUDTool.showError("请检查网络", toView: self.view)
+                    })
             })
         }
     }

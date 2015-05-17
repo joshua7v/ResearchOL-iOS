@@ -20,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UITabBarController
         self.window?.makeKeyAndVisible()
         
+        
+//        FXKeychain.defaultKeychain().removeObjectForKey(ROLUserKeys.kUserTokenKey)
+//        FXKeychain.defaultKeychain().removeObjectForKey(ROLUserKeys.kUserIdKey)
+//        FXKeychain.defaultKeychain().removeObjectForKey([ROLUserKeys.kUserTokenKey])
+//        FXKeychain.defaultKeychain().removeObjectForKey([ROLUserKeys.kUserIdKey])
+        println(FXKeychain.defaultKeychain()[ROLUserKeys.kUserTokenKey])
+        let token = FXKeychain.defaultKeychain()[ROLUserKeys.kUserTokenKey] as? String
+        if token != nil && token! == ROLUserKeys.kUserTokenSecretKey.md5String {
+            ROLUserInfoManager.sharedManager.isUserLogin = true
+            NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userLoginNotification, object: nil)
+        }
+        
         AVOSCloud.setApplicationId("rvff27zmaugnw1yhdg32nvz5itth29fa1bjff27iwyp5isiv", clientKey: "z10xoqcsvz9u9wkkfxkcuaobr4jl1kxswpx7aylb91rf1rd0")
 
         

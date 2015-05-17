@@ -13,7 +13,7 @@
 @interface SEProgressHUDTool : NSObject
 + (void)showSuccess:(NSString *)success toView:(UIView *)view;
 + (void)showError:(NSString *)error toView:(UIView *)view;
-
++ (void)showError:(NSString *)error toView:(UIView *)view yOffset:(CGFloat)yOffset;
 + (SEProgressHUD *)showMessage:(NSString *)message toView:(UIView *)view;
 
 + (void)hideHUDForView:(UIView *)view;

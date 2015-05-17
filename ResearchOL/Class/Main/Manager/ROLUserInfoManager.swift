@@ -12,8 +12,16 @@ class ROLUserInfoManager: NSObject {
     
     let firebaseRef = Firebase(url: "https://researchol.firebaseio.com")
     var isUserLogin: Bool = false
-    var currentUser: AVUser {
+    var currentUser: AVUser? {
         get {
+            if AVUser.currentUser() == nil {
+                var userId = FXKeychain.defaultKeychain()[ROLUserKeys.kUserIdKey] as? String
+                if userId == nil { return nil }
+                var query = AVQuery(className: "user")
+                var user = query.getObjectWithId(FXKeychain.defaultKeychain()[ROLUserKeys.kUserIdKey] as! String) as? AVUser
+                println(user)
+                return user
+            }
             return AVUser.currentUser()
         }
     }
@@ -74,6 +82,11 @@ class ROLUserInfoManager: NSObject {
                 watchList.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
                     user.setObject(watchList, forKey: ROLUserKeys.kUserWatchListKey)
                     user.saveInBackground()
+//                    self.authUser(user.username, password: user.password, success: { () -> Void in
+//                        
+//                    }, failure: { () -> Void in
+//                        
+//                    })
                 })
             }
         }
@@ -89,6 +102,8 @@ class ROLUserInfoManager: NSObject {
     
     func resignUser() {
         self.isUserLogin = false
+        FXKeychain.defaultKeychain().removeObjectForKey(ROLUserKeys.kUserTokenKey)
+        FXKeychain.defaultKeychain().removeObjectForKey(ROLUserKeys.kUserIdKey)
         NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userLogoutNotification, object: nil, userInfo: nil)
     }
     
@@ -107,6 +122,9 @@ class ROLUserInfoManager: NSObject {
         AVUser.logInWithUsernameInBackground(username, password: password) { (user, error) -> Void in
             if user != nil {
                 self.isUserLogin = true
+                FXKeychain.defaultKeychain().setObject(ROLUserKeys.kUserTokenSecretKey.md5String, forKey: ROLUserKeys.kUserTokenKey)
+                FXKeychain.defaultKeychain().setObject(user.objectId, forKey: ROLUserKeys.kUserIdKey)
+                NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userLoginNotification, object: nil)
                 success()
             } else {
                 failure()
@@ -115,6 +133,9 @@ class ROLUserInfoManager: NSObject {
     }
     
     func saveAvatarForCurrentUser(imageData: NSData) {
+        if self.currentUser == nil {
+            return
+        }
         var user = AVUser.currentUser()
         var file: AnyObject! = AVFile.fileWithName("\(ROLUserKeys.kUserAvatarKey).jpeg", data: imageData)
         user.setObject(file, forKey: ROLUserKeys.kUserAvatarKey)
@@ -126,8 +147,12 @@ class ROLUserInfoManager: NSObject {
     }
     
     func getThumbnailAvatarForCurrentUser(success: (image: UIImage) -> Void, failure: (error: NSError) -> Void) {
-        var user = AVUser.currentUser()
-        var file = user.objectForKey(ROLUserKeys.kUserAvatarKey) as! AVFile
+        if self.currentUser == nil {
+            success(image: UIImage(named: "SESideMenu.bundle/avatar_default")!)
+            return
+        }
+        var user = self.currentUser
+        var file = user!.objectForKey(ROLUserKeys.kUserAvatarKey) as! AVFile
         file.getThumbnail(true, width: 180, height: 180) { (image, error) -> Void in
             if (image != nil) {
                 success(image: image)
@@ -138,17 +163,24 @@ class ROLUserInfoManager: NSObject {
     }
     
     func getPointsForCurrentUser() -> Int {
-        return self.currentUser.objectForKey(ROLUserKeys.kUserPointsKey) as! Int
+        if self.currentUser == nil {
+            return 0
+        }
+        return self.currentUser!.objectForKey(ROLUserKeys.kUserPointsKey) as! Int
     }
     
     func getAnsweredQuestionaresNumberForCurrentUser() -> Int {
-        return self.currentUser.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresNumberKey) as! Int
+        if self.currentUser == nil {
+            return 0
+        }
+        return self.currentUser!.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresNumberKey) as! Int
     }
     
     func watchQuestionareForCurrentUser(questionareId: String,success: () -> Void, failure: () -> Void) {
-        var watch: AVObject = self.currentUser.objectForKey(ROLUserKeys.kUserWatchListKey) as! AVObject
+        if self.currentUser == nil { return }
+        var watch: AVObject = self.currentUser!.objectForKey(ROLUserKeys.kUserWatchListKey) as! AVObject
 //        watch.addUniqueObject([], forKey: self.currentUser.objectId)
-        watch.addUniqueObject(questionareId, forKey: self.currentUser.objectId)
+        watch.addUniqueObject(questionareId, forKey: self.currentUser!.objectId)
         watch.saveInBackgroundWithBlock { (finished, error) -> Void in
             if finished {
                 success()
@@ -159,8 +191,9 @@ class ROLUserInfoManager: NSObject {
     }
     
     func unWatchQuestionareForCurrentUser(questionareId: String,success: () -> Void, failure: () -> Void) {
-        var watch: AVObject = self.currentUser.objectForKey(ROLUserKeys.kUserWatchListKey) as! AVObject
-        watch.removeObject(questionareId, forKey: self.currentUser.objectId)
+        if self.currentUser == nil { return }
+        var watch: AVObject = self.currentUser!.objectForKey(ROLUserKeys.kUserWatchListKey) as! AVObject
+        watch.removeObject(questionareId, forKey: self.currentUser!.objectId)
         watch.saveInBackgroundWithBlock { (finished, error) -> Void in
             if finished {
                 success()

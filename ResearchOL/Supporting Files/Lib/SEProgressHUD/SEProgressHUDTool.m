@@ -28,9 +28,35 @@
     [hud hide:YES afterDelay:1.0];
 }
 
++ (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view yOffset:(CGFloat)yOffset
+{
+    if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
+    // 快速显示一个提示信息
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.labelText = text;
+    // 设置图片
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"SEProgressHUD.bundle/%@", icon]]];
+    // 再设置模式
+    hud.mode = MBProgressHUDModeCustomView;
+    
+    // 隐藏时候从父控件中移除
+    hud.removeFromSuperViewOnHide = YES;
+    
+    hud.yOffset = yOffset;
+    
+    // 1秒之后再消失
+    [hud hide:YES afterDelay:1.0];
+}
+
 #pragma mark 显示错误信息
-+ (void)showError:(NSString *)error toView:(UIView *)view{
++ (void)showError:(NSString *)error toView:(UIView *)view
+{
     [self show:error icon:@"error.png" view:view];
+}
+
++ (void)showError:(NSString *)error toView:(UIView *)view yOffset:(CGFloat)yOffset
+{
+    [self show:error icon:@"error.png" view:view yOffset:yOffset];
 }
 
 + (void)showSuccess:(NSString *)success toView:(UIView *)view

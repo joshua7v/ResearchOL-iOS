@@ -13,4 +13,10 @@ class ROLUserKeys: NSObject {
     static let kUserPointsKey = "points"
     static let kUserAnsweredQuestionaresNumberKey = "answeredQuestionaresNumber"
     static let kUserWatchListKey = "watchList"
+    static let kUserNameKey = "username"
+    static let kUserPasswdKey = "password"
+    static let kUserTokenSecretKey = "secret"
+    static let kUserTokenKey = "Token"
+    static let kUserIdKey = "userId"
+    static var userId = ""
 }
