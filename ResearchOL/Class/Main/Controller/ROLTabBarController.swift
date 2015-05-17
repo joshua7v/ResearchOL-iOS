@@ -133,6 +133,10 @@ class ROLTabBarController: UITabBarController, UIGestureRecognizerDelegate {
     
     private func configueViews() {
         self.tabBar.tintColor = UIColor.blackColor()
+        var home = self.tabBar.items?.first as! UITabBarItem
+        home.selectedImage = UIImage(named: "tabbar_home_highlighted")
+        var mine = self.tabBar.items?.last as! UITabBarItem
+        mine.selectedImage = UIImage(named: "tabbar_mine_highlighted")
         self.coverView.backgroundColor = UIColor(hexString: "000000")
         self.coverView.hidden          = true
         self.coverView.alpha = self.coverViewAlpha

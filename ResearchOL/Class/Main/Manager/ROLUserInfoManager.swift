@@ -56,14 +56,25 @@ class ROLUserInfoManager: NSObject {
         user.email = email
         user.password = password
         
-        var avatarData = UIImagePNGRepresentation(UIImage(named: "SESideMenu.bundle/avatar_default"))
-        var avatarFile: AnyObject! = AVFile.fileWithName("\(ROLUserKeys.kUserAvatarKey).png", data: avatarData)
+        var avatarData = UIImageJPEGRepresentation(UIImage(named: "SESideMenu.bundle/avatar_default"), 0.5)
+        var avatarFile: AnyObject! = AVFile.fileWithName("\(ROLUserKeys.kUserAvatarKey).jpeg", data: avatarData)
         avatarFile.saveInBackgroundWithBlock { (succeeded, error) -> Void in
             if succeeded {
+                var query = AVQuery(className: ROLUserKeys.kUserWatchListKey)
+                var watchList = query.getFirstObject()
+                if watchList == nil {
+                    var watch = AVObject(className: ROLUserKeys.kUserWatchListKey)
+                    watchList = watch
+                }
+                
                 user.setObject(0, forKey: ROLUserKeys.kUserPointsKey)
                 user.setObject(0, forKey: ROLUserKeys.kUserAnsweredQuestionaresNumberKey)
                 user.setObject(avatarFile, forKey: ROLUserKeys.kUserAvatarKey)
-                user.saveInBackground()
+                
+                watchList.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                    user.setObject(watchList, forKey: ROLUserKeys.kUserWatchListKey)
+                    user.saveInBackground()
+                })
             }
         }
         
@@ -132,5 +143,30 @@ class ROLUserInfoManager: NSObject {
     
     func getAnsweredQuestionaresNumberForCurrentUser() -> Int {
         return self.currentUser.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresNumberKey) as! Int
+    }
+    
+    func watchQuestionareForCurrentUser(questionareId: String,success: () -> Void, failure: () -> Void) {
+        var watch: AVObject = self.currentUser.objectForKey(ROLUserKeys.kUserWatchListKey) as! AVObject
+//        watch.addUniqueObject([], forKey: self.currentUser.objectId)
+        watch.addUniqueObject(questionareId, forKey: self.currentUser.objectId)
+        watch.saveInBackgroundWithBlock { (finished, error) -> Void in
+            if finished {
+                success()
+            } else {
+                failure()
+            }
+        }
+    }
+    
+    func unWatchQuestionareForCurrentUser(questionareId: String,success: () -> Void, failure: () -> Void) {
+        var watch: AVObject = self.currentUser.objectForKey(ROLUserKeys.kUserWatchListKey) as! AVObject
+        watch.removeObject(questionareId, forKey: self.currentUser.objectId)
+        watch.saveInBackgroundWithBlock { (finished, error) -> Void in
+            if finished {
+                success()
+            } else {
+                failure()
+            }
+        }
     }
 }

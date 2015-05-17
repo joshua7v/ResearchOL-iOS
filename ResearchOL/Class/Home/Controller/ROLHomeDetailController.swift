@@ -16,7 +16,14 @@ class ROLHomeDetailController: UITableViewController {
     
     var questionare: ROLQuestionare = ROLQuestionare()
     var delegate: ROLHomeDetailControllerDelegate?
+    var watch = false
+    var sysBtnColor: UIColor {
+        get {
+            return UIButton().tintColor!
+        }
+    }
     
+    @IBOutlet weak var watchBtn: UIButton!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,8 +31,39 @@ class ROLHomeDetailController: UITableViewController {
     @IBOutlet weak var participantLabel: UILabel!
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var requiredTimeLabel: UILabel!
+    @IBAction func watchBtnDIdClicked(sender: UIButton) {
+        if !self.watch {
+            sender.enabled = false
+            sender.setTitle("关注中...", forState: .Normal)
+            ROLUserInfoManager.sharedManager.watchQuestionareForCurrentUser(self.questionare.uuid, success: { () -> Void in
+                sender.setTitleColor(UIColor.coolGrayColor(), forState: .Normal)
+                sender.setTitle("已关注 √", forState: .Normal)
+                sender.enabled = true
+                self.watch = true
+            }, failure: { () -> Void in
+                sender.setTitle("关注问卷", forState: .Normal)
+                sender.setTitleColor(self.sysBtnColor, forState: .Normal)
+                sender.enabled = true
+                self.watch = false
+            })
+        } else {
+            sender.enabled = false
+            sender.setTitle("取消关注中...", forState: .Normal)
+            ROLUserInfoManager.sharedManager.unWatchQuestionareForCurrentUser(self.questionare.uuid, success: { () -> Void in
+                sender.setTitleColor(self.sysBtnColor, forState: .Normal)
+                sender.setTitle("关注问卷", forState: .Normal)
+                sender.enabled = true
+                self.watch = false
+                }, failure: { () -> Void in
+                    sender.setTitle("已关注 √", forState: .Normal)
+                    sender.setTitleColor(UIColor.coolGrayColor(), forState: .Normal)
+                    sender.enabled = true
+                    self.watch = true
+            })
+        }
+    }
     @IBAction func startBtnClicked() {
-        
+    
     }
     
     override func viewDidLoad() {
@@ -46,6 +84,8 @@ class ROLHomeDetailController: UITableViewController {
         participantLabel.text = String(format: "%d 人", questionare.participant)
         pointLabel.text = String(format: "%d 积分", questionare.point)
         requiredTimeLabel.text = String(format: "%d 分钟", 3)
+        
+        self.watchBtn.enabled = false
     }
     
     func setupData() {
@@ -59,7 +99,9 @@ class ROLHomeDetailController: UITableViewController {
                 println("get questions success -- ")
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.startBtn.setTitle("马上参与", forState: .Normal)
+                    self.watchBtn.setTitle("关注问卷", forState: .Normal)
                     self.startBtn.enabled = true
+                    self.watchBtn.enabled = true
                     self.indicator.stopAnimating()
                     self.indicator.hidden = true
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -71,6 +113,7 @@ class ROLHomeDetailController: UITableViewController {
         } else {
             self.startBtn.setTitle("马上参与", forState: .Normal)
             self.startBtn.enabled = true
+            self.watchBtn.enabled = true
             self.indicator.stopAnimating()
             self.indicator.hidden = true
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false

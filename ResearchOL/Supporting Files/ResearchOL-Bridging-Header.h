@@ -16,6 +16,7 @@
 #import <Toast/UIView+Toast.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <M13Checkbox/M13Checkbox.h>
 #import "SECategory.h"
 #import "SESettings.h"
 #import "SESideMenu.h"

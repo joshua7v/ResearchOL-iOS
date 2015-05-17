@@ -15,9 +15,12 @@ class ROLQuestionareController: UIViewController {
     var selectedIndexPath: NSIndexPath?
     var heightForCell = CGFloat()
     var answeredQuestions: NSMutableArray = NSMutableArray()
+    var anonymousCheckbox = M13Checkbox()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var finishBtn: UIButton!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var titleView: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,17 @@ class ROLQuestionareController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "beginEditing:", name: "beginEditing", object: nil)
+        
+        var checkbox = M13Checkbox(title: "匿名")
+        checkbox.checkAlignment = M13CheckboxAlignmentLeft
+        checkbox.centerY = self.titleView.centerY
+        checkbox.right = UIScreen.width() - 10
+        checkbox.checkColor = UIColor.blackColor()
+        checkbox.strokeColor = UIColor.blackColor()
+        checkbox.radius = 30
+        checkbox.titleLabel.font = UIFont.systemFontOfSize(14)
+        self.anonymousCheckbox = checkbox
+        self.topView.addSubview(checkbox)
     }
     
     func setFinishBtn() {
