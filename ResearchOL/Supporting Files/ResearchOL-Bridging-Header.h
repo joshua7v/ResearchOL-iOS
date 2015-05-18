@@ -18,6 +18,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <M13Checkbox/M13Checkbox.h>
 #import <FXKeychain/FXKeychain.h>
+#import <AMSmoothAlert/AMSmoothAlertView.h>
 #import "SECategory.h"
 #import "SESettings.h"
 #import "SESideMenu.h"

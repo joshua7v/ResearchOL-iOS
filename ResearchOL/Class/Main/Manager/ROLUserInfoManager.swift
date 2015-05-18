@@ -202,4 +202,13 @@ class ROLUserInfoManager: NSObject {
             }
         }
     }
+    
+    func getWatchListForCurrentUser() -> [String] {
+        if self.currentUser == nil { return [] }
+        var query = AVQuery(className: ROLUserKeys.kUserWatchListKey)
+        var watchList = query.getFirstObject()
+        var watchArray = watchList.objectForKey(self.currentUser!.objectId) as? [String]
+        if watchArray == nil { return [] }
+        return watchArray!
+    }
 }

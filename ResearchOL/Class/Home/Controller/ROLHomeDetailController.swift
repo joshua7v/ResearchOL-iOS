@@ -72,8 +72,45 @@ class ROLHomeDetailController: UITableViewController {
             })
         }
     }
-    @IBAction func startBtnClicked() {
     
+    @IBAction func startBtnClicked() {
+        if !ROLUserInfoManager.sharedManager.isUserLogin {
+            var alert = AMSmoothAlertView(dropAlertWithTitle: "提示", andText: "未登陆无法获得奖励哦", andCancelButton: true, forAlertType: AlertType.Info, andColor: UIColor.blackColor(), withCompletionHandler: { (alertView, button) -> Void in
+                if button == alertView.defaultButton {
+                    self.presentViewController(UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as! UINavigationController, animated: true, completion: { () -> Void in
+                        
+                    })
+                } else {
+                    var dest = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ROLQuestionareController") as! ROLQuestionareController
+                    dest.questions = self.questionare.questions
+                    dest.questionareID = self.questionare.uuid
+                    dest.isAnonymous = true
+                    // reset answers in memory
+                    ROLQuestionManager.sharedManager.resetAnswers()
+                    self.presentViewController(dest, animated: true) { () -> Void in
+                        
+                    }
+                }
+            })
+            alert.defaultButton.setTitle("去登录", forState: .Normal)
+            alert.cancelButton.setTitle("匿名答题", forState: .Normal)
+            alert.defaultButton.titleLabel?.font = UIFont.systemFontOfSize(13)
+            alert.cancelButton.titleLabel?.font = UIFont.systemFontOfSize(13)
+            alert.cornerRadius = 5
+            alert.show()
+            
+            return
+        }
+        
+        
+        var dest = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ROLQuestionareController") as! ROLQuestionareController
+        dest.questions = self.questionare.questions
+        dest.questionareID = self.questionare.uuid
+        // reset answers in memory
+        ROLQuestionManager.sharedManager.resetAnswers()
+        self.presentViewController(dest, animated: true) { () -> Void in
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -122,12 +159,26 @@ class ROLHomeDetailController: UITableViewController {
             }
         } else {
             self.startBtn.setTitle("马上参与", forState: .Normal)
+            self.watchBtn.setTitle("关注问卷", forState: .Normal)
             self.startBtn.enabled = true
             self.watchBtn.enabled = true
             self.indicator.stopAnimating()
             self.indicator.hidden = true
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
+        
+        var watchList = ROLUserInfoManager.sharedManager.getWatchListForCurrentUser()
+        for i in watchList {
+            if self.questionare.uuid == i {
+                self.watchBtn.setTitle("已关注 √", forState: .Normal)
+                self.watchBtn.setTitleColor(UIColor.coolGrayColor(), forState: .Normal)
+                self.watch = true
+                return
+            }
+        }
+        self.watchBtn.setTitle("关注问卷", forState: .Normal)
+        self.watchBtn.setTitleColor(self.sysBtnColor, forState: .Normal)
+        self.watch = false
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

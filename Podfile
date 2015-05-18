@@ -1,6 +1,7 @@
 platform :ios, '8.0'
 inhibit_all_warnings!
 
+pod 'AMSmoothAlert', '~> 1.0'
 pod 'M13Checkbox', '~> 1.1.2'
 pod 'SDWebImage', '~> 3.7.2'
 pod 'AVOSCloud'

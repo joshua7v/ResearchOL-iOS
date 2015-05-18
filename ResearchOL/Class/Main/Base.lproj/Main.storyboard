@@ -115,7 +115,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="startBtnClicked" destination="Rmd-7J-F7P" eventType="touchDown" id="iCC-bY-qxx"/>
-                                                        <segue destination="FKU-jm-C7w" kind="presentation" id="Umi-dq-KgO"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1O-Es-Z2M">
@@ -205,7 +204,7 @@
         <!--Questionare Controller-->
         <scene sceneID="RwG-tQ-Jhp">
             <objects>
-                <viewController id="FKU-jm-C7w" customClass="ROLQuestionareController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ROLQuestionareController" id="FKU-jm-C7w" customClass="ROLQuestionareController" customModule="ResearchOL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ojV-16-gek"/>
                         <viewControllerLayoutGuide type="bottom" id="fSm-3V-hgd"/>

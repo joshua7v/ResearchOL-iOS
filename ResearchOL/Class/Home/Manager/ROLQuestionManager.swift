@@ -107,9 +107,10 @@ class ROLQuestionManager: NSObject {
         return array.copy() as! NSArray
     }
     
-    func setAnswerSheetToServer(questionareID: String, success: () -> Void) {
+    func setAnswerSheetToServer(user: AVUser, questionareID: String, success: () -> Void) {
         let answersRef = questionaresRef.childByAppendingPath(questionareID).childByAppendingPath("answers")
         let answerRef = answersRef.childByAutoId()
+        var dictionary: NSMutableDictionary = NSMutableDictionary()
         var array: NSMutableArray = NSMutableArray()
         var answers: NSArray = self.sortedAnswer()
         for (var x = 0; x < answers.count; x++) {
@@ -124,7 +125,10 @@ class ROLQuestionManager: NSObject {
             }
             array.addObject(ans)
         }
-        answerRef.setValue(array, withCompletionBlock: { (error:NSError?, ref:Firebase!) -> Void in
+        dictionary.setValue(array, forKey: "answer")
+        if user.username == "anonymous" { dictionary.setValue(user.username, forKey: "author") }
+        else { dictionary.setValue(user.objectId, forKey: "author") }
+        answerRef.setValue(dictionary, withCompletionBlock: { (error:NSError?, ref:Firebase!) -> Void in
             success()
         })
     }

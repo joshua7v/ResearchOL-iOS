@@ -16,6 +16,7 @@ class ROLQuestionareController: UIViewController {
     var heightForCell = CGFloat()
     var answeredQuestions: NSMutableArray = NSMutableArray()
     var anonymousCheckbox = M13Checkbox()
+    var isAnonymous = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var finishBtn: UIButton!
@@ -47,6 +48,13 @@ class ROLQuestionareController: UIViewController {
         checkbox.strokeColor = UIColor.blackColor()
         checkbox.radius = 30
         checkbox.titleLabel.font = UIFont.systemFontOfSize(14)
+        if self.isAnonymous {
+            checkbox.checkState = M13CheckboxStateChecked
+            checkbox.enabled = false
+        } else {
+            checkbox.checkState = M13CheckboxStateUnchecked
+            checkbox.enabled = true
+        }
         self.anonymousCheckbox = checkbox
         self.topView.addSubview(checkbox)
     }
@@ -71,10 +79,18 @@ class ROLQuestionareController: UIViewController {
     }
     
     @IBAction func finishBtnClicked(sender: UIButton) {
-        ROLQuestionManager.sharedManager.setAnswerSheetToServer(self.questionareID, success: { () -> Void in
-            println("save to server - success")
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
+        if self.anonymousCheckbox.checkState.value == M13CheckboxStateUnchecked.value {
+            ROLQuestionManager.sharedManager.setAnswerSheetToServer(ROLUserInfoManager.sharedManager.currentUser!, questionareID: self.questionareID, success: { () -> Void in
+                println("save to server - success")
+            })
+        } else if self.anonymousCheckbox.checkState.value == M13CheckboxStateChecked.value {
+            var user = AVUser()
+            user.username = "anonymous"
+            ROLQuestionManager.sharedManager.setAnswerSheetToServer(user, questionareID: self.questionareID, success: { () -> Void in
+                println("save to server - success")
+            })
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: notification
