@@ -14,6 +14,7 @@ class ROLQuestionManager: NSObject {
     let questionaresRef = Firebase(url: "https://researchol.firebaseio.com/questionares")
     var questionares: [ROLQuestionare] = []
     var answers: [Int: ROLAnswer] = Dictionary()
+    var answerDict: [String: [Int: ROLAnswer]] = Dictionary()
     
     
 //        let questionaresRef = fireBaseRef.childByAppendingPath("questionares")
@@ -39,6 +40,34 @@ class ROLQuestionManager: NSObject {
     // MARK: - private
     
     // MARK: - public
+    func getWatchListQuestionaresForCurrentUser(success: (questionares: [ROLQuestionare]) -> Void) {
+        if (ROLUserInfoManager.sharedManager.currentUser != nil) {
+            var list = ROLUserInfoManager.sharedManager.getWatchListForCurrentUser()
+            var array: [ROLQuestionare] = []
+            var count = 0
+            for i in list {
+                questionaresRef.queryOrderedByKey().queryEqualToValue(i).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
+                    var questionare = ROLQuestionare()
+                    questionare.uuid = snapshot.key as String
+                    questionare.title = snapshot.value["title"] as! String
+                    questionare.desc = snapshot.value["description"] as! String
+                    questionare.fireDate = snapshot.value["fireDate"] as! String
+                    questionare.endDate = snapshot.value["endDate"] as! String
+                    questionare.point = snapshot.value["point"] as! Int
+                    questionare.participant = snapshot.value["participant"] as! Int
+                    questionare.questionCount = snapshot.value["questionCount"] as! Int
+                    
+                    array.append(questionare)
+                    count = count + 1
+                    
+                    if count == list.count {
+                        success(questionares: array)
+                    }
+                })
+            }
+        }
+    }
+    
     func getQuestionares(amount: UInt, success: () -> Void) {
         var count: UInt = 0
         var flag: Bool = false
@@ -155,8 +184,11 @@ class ROLQuestionManager: NSObject {
             array.addObject(ans)
         }
         dictionary.setValue(array, forKey: "answer")
-        if user.username == "anonymous" { dictionary.setValue(user.username, forKey: "author") }
-        else { dictionary.setValue(user.objectId, forKey: "author") }
+        if user.username == "anonymous" {
+            dictionary.setValue(user.username, forKey: "author")
+        } else {
+            dictionary.setValue(user.objectId, forKey: "author")
+        }
         answerRef.setValue(dictionary, withCompletionBlock: { (error:NSError?, ref:Firebase!) -> Void in
             success()
         })
@@ -181,5 +213,10 @@ class ROLQuestionManager: NSObject {
     
     func resetAnswers() {
         self.answers.removeAll(keepCapacity: true)
+    }
+    
+    func saveAswerToMemoryWithQuestionareID(questionareID: String) {
+        self.answerDict[questionareID] = self.answers
+        println(self.answerDict)
     }
 }

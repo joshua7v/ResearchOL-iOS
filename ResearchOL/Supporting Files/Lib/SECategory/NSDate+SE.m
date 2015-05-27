@@ -69,4 +69,26 @@
     return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
 }
 
+- (NSDateComponents *)deltaWithDate:(NSDate *)date
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    return [calendar components:unit fromDate:self toDate:date options:0];
+}
+
++ (NSTimeInterval)timeIntervalTo24
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyyMMddHHmmss";
+    NSDate *today = [NSDate date];
+    NSString *todayStr = [fmt stringFromDate:today];
+    NSString *today24Str = [[todayStr substringToIndex:8] stringByAppendingString:@"000000"];
+    NSDate *today24 = [fmt dateFromString:today24Str];
+    
+//    NSTimeInterval nowInterval = [today timeIntervalSince1970];
+    NSTimeInterval today24Interval = [today24 timeIntervalSince1970] + 24 * 60 * 60;
+    
+    return today24Interval;
+}
+
 @end

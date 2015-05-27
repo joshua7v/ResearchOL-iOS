@@ -21,6 +21,19 @@ class ROLMeProfileCell: UITableViewCell {
     @IBOutlet weak var signinBtn: UIButton!
     @IBAction func signinBtnDidClicked(sender: UIButton) {
         sender.setTitle("签到中...", forState: .Normal)
+        ROLUserInfoManager.sharedManager.addPointsForCurrentUser(5, success: { () -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                sender.setTitle("已签到", forState: .Normal)
+                sender.enabled = false
+//                var dict = [ROLUserInfoManager.sharedManager.currentUser?.objectId : NSDate.timeIntervalTo24()]
+                var dict = NSMutableDictionary()
+                dict.setObject(NSDate.timeIntervalTo24(), forKey: ROLUserInfoManager.sharedManager.currentUser!.objectId)
+                NSUserDefaults.standardUserDefaults().setObject(dict, forKey: ROLUserKeys.kSignInTimeKey)
+                NSUserDefaults.standardUserDefaults().synchronize()
+            })
+        }) { () -> Void in
+                sender.setTitle("签到", forState: .Normal)
+        }
     }
     
     @IBAction func avatarDidClicked(sender: UIButton) {
@@ -92,6 +105,21 @@ class ROLMeProfileCell: UITableViewCell {
             }, failure: { (error) -> Void in
                 
             })
+        }
+    
+        var today = NSDate()
+        var nowInterval = today.timeIntervalSince1970
+        var dict = NSUserDefaults.standardUserDefaults().objectForKey(ROLUserKeys.kSignInTimeKey) as? NSMutableDictionary
+        var interval = dict?.objectForKey(ROLUserInfoManager.sharedManager.currentUser!.objectId) as? NSTimeInterval
+        if interval == nil { return }
+        if nowInterval > interval {
+            // enable signin
+            self.signinBtn.setTitle("签到", forState: .Normal)
+            self.signinBtn.enabled = true
+        } else {
+            // unenable signin
+            self.signinBtn.setTitle("已签到", forState: .Normal)
+            self.signinBtn.enabled = false
         }
     }
 

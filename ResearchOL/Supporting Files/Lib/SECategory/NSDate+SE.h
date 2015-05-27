@@ -14,4 +14,6 @@
 - (BOOL)isThisYear;
 - (NSDate *)dateWithYMD;
 - (NSDateComponents *)deltaWithNow;
+- (NSDateComponents *)deltaWithDate:(NSDate *)date;
++ (NSTimeInterval)timeIntervalTo24;
 @end

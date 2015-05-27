@@ -25,6 +25,11 @@ class ROLQuestionCell: UITableViewCell {
             self.setup()
         }
     }
+    var cachedAnswer: ROLAnswer = ROLAnswer() {
+        didSet {
+            println(cachedAnswer)
+        }
+    }
     
     @IBAction func choice1BtnClicked(sender: UIButton) {
         self.setSelectedState(sender)
@@ -89,6 +94,12 @@ class ROLQuestionCell: UITableViewCell {
         view.frame = CGRectMake(0, 0, 10, self.answerTextField.frame.size.height)
         self.answerTextField.leftView = view
         self.answerTextField.leftViewMode = UITextFieldViewMode.Always
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+//        self.retriveCachedAnswer()
     }
     
     
@@ -278,6 +289,22 @@ class ROLQuestionCell: UITableViewCell {
             }
         }
     }
+    
+//    func retriveCachedAnswer() {
+//        if self.cachedAnswer.type == 0 { return }
+//        var answer = self.cachedAnswer
+//        if answer.type == 1 {
+//            for i in self.contentView.subviews {
+//                if i.isKindOfClass(UIButton.classForCoder()) {
+//                    var btn = i as! UIButton
+//                    if btn.tag == answer.choice {
+//                        self.setSelectedState(btn)
+//                    }
+//                }
+//                println(i)
+//            }
+//        }
+//    }
     
     func retriveBtnState() {
         var answer = ROLQuestionManager.sharedManager.getAnswerWithIndex(self.index)

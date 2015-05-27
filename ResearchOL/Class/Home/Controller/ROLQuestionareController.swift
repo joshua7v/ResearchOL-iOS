@@ -75,6 +75,7 @@ class ROLQuestionareController: UIViewController {
     
     // MARK: action
     @IBAction func skipBtnClicked() {
+        ROLQuestionManager.sharedManager.saveAswerToMemoryWithQuestionareID(self.questionareID)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -147,6 +148,15 @@ extension ROLQuestionareController: UITableViewDataSource {
         cell.delegate = self
         cell.index = indexPath.section
         cell.item = self.questions[indexPath.section]
+        
+//        var dict = ROLQuestionManager.sharedManager.answerDict[self.questionareID]
+//        if dict != nil {
+//            var answer = dict![indexPath.section]
+//            if answer != nil {
+//                cell.cachedAnswer = answer!
+//            }
+//        }
+        
         heightForCell = cell.heightForQuestionCell()
         
         return cell

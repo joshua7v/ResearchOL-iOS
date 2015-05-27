@@ -19,4 +19,5 @@ class ROLUserKeys: NSObject {
     static let kUserTokenKey = "Token"
     static let kUserIdKey = "userId"
     static var userId = ""
+    static var kSignInTimeKey = "singInTime"
 }

@@ -23,8 +23,16 @@ class ROLMineController: UIViewController {
         self.configueUnderLineWithBtn(sender)
     }
     @IBAction func watchBtnDidClicked(sender: UIButton) {
+        self.configueWatchData()
         self.configueUnderLineWithBtn(sender)
     }
+    
+    let segueId = "HOME2DETAIL"
+    var heightForCell = CGFloat()
+    var currentCell: ROLHomeCell = ROLHomeCell()
+    
+    lazy var questionares: [ROLQuestionare] = []
+    var currentIndex = 0
     
     private func configueUnderLineWithBtn(btn: UIButton) {
         UIView.animateWithDuration(NSTimeInterval(0.7), delay: 0, usingSpringWithDamping: 5.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
@@ -49,7 +57,15 @@ class ROLMineController: UIViewController {
         self.todoBtnDidClicked(self.todoBtn)
     }
     
+    private func configueWatchData() {
+        ROLQuestionManager.sharedManager.getWatchListQuestionaresForCurrentUser { (questionares) -> Void in
+            self.questionares = questionares
+            self.tableView.reloadData()
+        }
+    }
+    
     private func configueViews() {
+        tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLHomeCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLHomeCell)
         
 //        self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 44, right: 0)
         self.tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLNeedToLoginCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLNeedToLoginCell)
@@ -57,6 +73,7 @@ class ROLMineController: UIViewController {
         
         if ROLUserInfoManager.sharedManager.isUserLogin {
             self.navView.hidden = false
+            self.tableView.contentInset = UIEdgeInsets(top: 54, left: 0, bottom: 0, right: 0)
         } else {
             self.navView.hidden = true
         }
@@ -89,14 +106,14 @@ class ROLMineController: UIViewController {
 extension ROLMineController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if ROLUserInfoManager.sharedManager.isUserLogin {
-            return 0
+            return 1
         } else {
             return 1
         }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if ROLUserInfoManager.sharedManager.isUserLogin {
-            return 0
+            return self.questionares.count
         } else {
             return 1
         }
@@ -104,7 +121,12 @@ extension ROLMineController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if ROLUserInfoManager.sharedManager.isUserLogin {
-            return UITableViewCell()
+            var cell = ROLHomeCell.cellWithTableView(tableView, indexPath: indexPath)
+            cell.item = self.questionares[indexPath.row]
+            heightForCell = cell.heightForHomeCell()
+            currentCell = cell
+            
+            return cell
         } else {
             var cell = ROLNeedToLoginCell.cellWithTableView(tableView, indexPath: indexPath)
             cell.delegate = self
@@ -117,10 +139,14 @@ extension ROLMineController: UITableViewDataSource {
 extension ROLMineController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if ROLUserInfoManager.sharedManager.isUserLogin {
-            return ROLMeProfileCell.heightForProfileCell()
+            return heightForCell
         } else {
             return ROLNeedToLoginCell.heightForNeedToLoginCel()
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 

@@ -248,4 +248,20 @@ class ROLUserInfoManager: NSObject {
                     "婚姻状况": "marriageState"]
         return map[title]!
     }
+    
+    func addPointsForCurrentUser(points: Int, success: () -> Void, failure: () -> Void) {
+        if !self.isUserLogin { return }
+        if self.currentUser == nil { return }
+        var user = self.currentUser!
+        var point = user.objectForKey(ROLUserKeys.kUserPointsKey) as! Int
+        point = point + points
+        user.setObject(point, forKey: ROLUserKeys.kUserPointsKey)
+        user.saveInBackgroundWithBlock { (finished, error) -> Void in
+            if finished {
+                success()
+            } else {
+                failure()
+            }
+        }
+    }
 }

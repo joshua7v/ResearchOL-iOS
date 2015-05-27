@@ -54,6 +54,7 @@ class ROLHomeController: UIViewController {
                     self.tableView.reloadData()
                     self.tableView.legendHeader.endRefreshing()
                     self.tableView.legendFooter.resetNoMoreData()
+                    self.tableView.legendFooter.hidden = false
                 })
             })
         }
@@ -77,6 +78,7 @@ class ROLHomeController: UIViewController {
         
         self.tableView.legendFooter.automaticallyRefresh = false
         self.tableView.legendFooter.setTitle("上拉加载更多", forState: MJRefreshFooterStateIdle)
+        self.tableView.legendFooter.hidden = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
