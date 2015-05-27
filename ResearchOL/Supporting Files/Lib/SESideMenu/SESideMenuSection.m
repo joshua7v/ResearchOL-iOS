@@ -43,9 +43,9 @@ static CGFloat const kAvatarHeight = 70.0f;
     if (self) {
         
         
-        self.sectionImageNameArray = @[@"SESideMenu.bundle/section_questionare", @"SESideMenu.bundle/section_notification", @"SESideMenu.bundle/section_setting", @"SESideMenu.bundle/section_feedback", @"SESideMenu.bundle/section_about"];
+        self.sectionImageNameArray = @[@"SESideMenu.bundle/section_questionare", @"SESideMenu.bundle/section_setting", @"SESideMenu.bundle/section_feedback", @"SESideMenu.bundle/section_about"];
         //        self.sectionTitleArray = @[@"Latest", @"Categories", @"Nodes", @"Favorite", @"Notification", @"Profile"];
-        self.sectionTitleArray = @[@"问卷", @"提醒", @"设置", @"反馈", @"关于"];
+        self.sectionTitleArray = @[@"问卷", @"设置", @"反馈", @"关于"];
         
         [self configureTableView];
         [self configureProfileView];

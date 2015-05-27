@@ -17,5 +17,6 @@
 #import "SESettingLabelArrowItem.h"
 #import "SESettingTextFieldItem.h"
 #import "SESettingSwitchItem.h"
+#import "SESettingCheckboxItem.h"
 
 #endif

@@ -7,12 +7,14 @@
 //
 
 #import "SESettingTextFieldItem.h"
+#import <UIKit/UIKit.h>
 
 @implementation SESettingTextFieldItem
 
 + (instancetype)itemWithPlaceholder:(NSString *)placeholder
 {
     SESettingTextFieldItem *item = [self itemWithIcon:nil title:nil];
+    item.textField = [[UITextField alloc] init];
     item.placeholder = placeholder;
     return item;
 }

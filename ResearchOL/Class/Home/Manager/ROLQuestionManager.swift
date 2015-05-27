@@ -74,6 +74,35 @@ class ROLQuestionManager: NSObject {
         })
     }
     
+    func getMoreQuestionaresWithID(questionID: String, amount: UInt, success: () -> Void, failure: () -> Void) {
+        var count: UInt = 0
+        var flag: Bool = false
+        questionaresRef.queryOrderedByKey().queryStartingAtValue(questionID).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
+            var questionare = ROLQuestionare()
+            questionare.uuid = snapshot.key as String
+            questionare.title = snapshot.value["title"] as! String
+            questionare.desc = snapshot.value["description"] as! String
+            questionare.fireDate = snapshot.value["fireDate"] as! String
+            questionare.endDate = snapshot.value["endDate"] as! String
+            questionare.point = snapshot.value["point"] as! Int
+            questionare.participant = snapshot.value["participant"] as! Int
+            questionare.questionCount = snapshot.value["questionCount"] as! Int
+            
+            if questionare.uuid != questionID {
+                self.questionares.append(questionare)
+            }
+            
+            count = count + 1
+            if count == amount {
+                success()
+            }
+            
+            if questionare.uuid == questionID && count == 1 {
+                failure()
+            }
+        })
+    }
+    
     func getQuestions(amount: Int, questionare: ROLQuestionare, success: () -> Void) {
         var count = 0
         let questionsRef = questionaresRef.childByAppendingPath(questionare.uuid).childByAppendingPath("questions")

@@ -36,6 +36,7 @@ class ROLHomeController: UIViewController {
 //        questionareRef.setValue(question)
         
         self.setup()
+        self.tableView.legendHeader.beginRefreshing()
     }
     
     // MARK: - private
@@ -43,15 +44,39 @@ class ROLHomeController: UIViewController {
         tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLHomeCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLHomeCell)
         self.tableView.backgroundColor = ROLColors.coolGrayColor
         
-        // setup data
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        ROLQuestionManager.sharedManager.getQuestionares(6, success: { () -> Void in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                self.questionares = ROLQuestionManager.sharedManager.questionares
-                self.tableView.reloadData()
+        self.tableView.addLegendHeaderWithRefreshingBlock { () -> Void in            
+            // setup data
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            ROLQuestionManager.sharedManager.getQuestionares(10, success: { () -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    self.questionares = ROLQuestionManager.sharedManager.questionares
+                    self.tableView.reloadData()
+                    self.tableView.legendHeader.endRefreshing()
+                    self.tableView.legendFooter.resetNoMoreData()
+                })
             })
-        })
+        }
+        
+        self.tableView.addLegendFooterWithRefreshingBlock { () -> Void in
+            // setup data
+            var last = self.questionares.last
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            ROLQuestionManager.sharedManager.getMoreQuestionaresWithID(last!.uuid, amount: 3, success: { () -> Void in
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    self.questionares = ROLQuestionManager.sharedManager.questionares
+                    self.tableView.reloadData()
+                    self.tableView.legendFooter.endRefreshing()
+                })
+            }, failure: { () -> Void in
+                self.tableView.legendFooter.noticeNoMoreData()
+            })
+        }
+        
+        self.tableView.legendFooter.automaticallyRefresh = false
+        self.tableView.legendFooter.setTitle("上拉加载更多", forState: MJRefreshFooterStateIdle)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

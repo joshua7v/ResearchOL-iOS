@@ -71,7 +71,7 @@ class ROLMineController: UIViewController {
         self.navView.hidden = false
     }
     
-    @objc private func handleUserLogoutnNotification() {
+    @objc private func handleUserLogoutNotification() {
         self.navView.hidden = true
     }
 

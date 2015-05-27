@@ -104,6 +104,7 @@ class ROLMeController: SESettingViewController {
             var editNavVC = self.editController
             var editVC = editNavVC.viewControllers.first as! ROLEditController
             editVC.item = item
+            editVC.isSingleChoice = false
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
                 

@@ -17,6 +17,8 @@
 #import "SESettingTextFieldItem.h"
 #import "SEBadgeButton.h"
 #import "SECommon.h"
+#import "SESettingCheckboxItem.h"
+//#import <M13Checkbox/M13Checkbox.h>
 
 @interface SESettingCell()
 /**
@@ -33,7 +35,8 @@
 @property (strong, nonatomic) UILabel *labelView;
 
 @property (nonatomic, strong) UIView *labelAndArrow;
-@property (nonatomic, strong) UITextField *textField;
+//@property (nonatomic, strong) UITextField *textField;
+//@property (nonatomic, strong) M13Checkbox *checkbox;
 /**
  *  提醒数字
  */
@@ -164,9 +167,17 @@
         self.accessoryView = self.labelAndArrow;
     } else if ([self.item isKindOfClass:[SESettingTextFieldItem class]]) { // 输入框
         SESettingTextFieldItem *item = (SESettingTextFieldItem *)self.item;
-        self.textField.placeholder = item.placeholder;
-        [self.textField becomeFirstResponder];
-        [self addSubview:self.textField];
+        item.textField.placeholder = item.placeholder;
+        item.textField.textColor = [UIColor black50PercentColor];
+        item.textField.keyboardType = UIKeyboardTypeNumberPad;
+        item.textField.frame = CGRectMake(20, 0, self.width, 44);
+        item.textField.returnKeyType = UIReturnKeyDone;
+        
+        [item.textField becomeFirstResponder];
+        [self addSubview:item.textField];
+    } else if ([self.item isKindOfClass:[SESettingCheckboxItem class]]) {
+        SESettingCheckboxItem *item = (SESettingCheckboxItem *)self.item;
+        self.accessoryView = item.checkbox;
     } else { // 右边没有东西
         self.accessoryView = nil;
     }
@@ -234,16 +245,27 @@
     return _labelAndArrow;
 }
 
-- (UITextField *)textField
-{
-    if (_textField == nil) {
-        _textField = [[UITextField alloc] init];
-        _textField.textColor = [UIColor black50PercentColor];
-        _textField.keyboardType = UIKeyboardTypeNumberPad;
-        _textField.frame = CGRectMake(20, 0, self.width, 44);
-        _textField.returnKeyType = UIReturnKeyDone;
-    }
-    return _textField;
-}
+//- (UITextField *)textField
+//{
+//    if (_textField == nil) {
+//        _textField = [[UITextField alloc] init];
+//        _textField.textColor = [UIColor black50PercentColor];
+//        _textField.keyboardType = UIKeyboardTypeNumberPad;
+//        _textField.frame = CGRectMake(20, 0, self.width, 44);
+//        _textField.returnKeyType = UIReturnKeyDone;
+//    }
+//    return _textField;
+//}
+
+//- (M13Checkbox *)checkbox
+//{
+//    if (_checkbox == nil) {
+//        _checkbox = [[M13Checkbox alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+//        _checkbox.radius = 15;
+//        _checkbox.strokeColor = [UIColor blackColor];
+//        _checkbox.checkColor = [UIColor blackColor];
+//    }
+//    return _checkbox;
+//}
 
 @end

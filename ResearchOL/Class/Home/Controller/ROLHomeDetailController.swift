@@ -117,10 +117,10 @@ class ROLHomeDetailController: UITableViewController {
         super.viewDidLoad()
         
         self.setup()
+        self.setupData()
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.setupData()
     }
     
     // MARK: - private

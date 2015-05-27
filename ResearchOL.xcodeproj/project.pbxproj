@@ -26,6 +26,7 @@
 		424D619E1B06218700A10147 /* ROLAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D619D1B06218700A10147 /* ROLAboutController.swift */; };
 		424D61A21B06290A00A10147 /* ROLFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61A11B06290A00A10147 /* ROLFeedbackController.swift */; };
 		424D61A41B062A8200A10147 /* ROLColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61A31B062A8200A10147 /* ROLColors.swift */; };
+		4262DEE51B0EB401009B9D0E /* SESettingCheckboxItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4262DEE41B0EB401009B9D0E /* SESettingCheckboxItem.m */; };
 		42826F811B044F1A00DB8491 /* SESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7B1B044F1A00DB8491 /* SESideMenu.m */; };
 		42826F821B044F1A00DB8491 /* SESideMenuSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F7E1B044F1A00DB8491 /* SESideMenuSection.m */; };
 		42826F831B044F1A00DB8491 /* SESideMenuSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42826F801B044F1A00DB8491 /* SESideMenuSectionCell.m */; };
@@ -115,6 +116,8 @@
 		424D619D1B06218700A10147 /* ROLAboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLAboutController.swift; sourceTree = "<group>"; };
 		424D61A11B06290A00A10147 /* ROLFeedbackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLFeedbackController.swift; sourceTree = "<group>"; };
 		424D61A31B062A8200A10147 /* ROLColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLColors.swift; sourceTree = "<group>"; };
+		4262DEE31B0EB401009B9D0E /* SESettingCheckboxItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingCheckboxItem.h; sourceTree = "<group>"; };
+		4262DEE41B0EB401009B9D0E /* SESettingCheckboxItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingCheckboxItem.m; sourceTree = "<group>"; };
 		42826F7A1B044F1A00DB8491 /* SESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenu.h; sourceTree = "<group>"; };
 		42826F7B1B044F1A00DB8491 /* SESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESideMenu.m; sourceTree = "<group>"; };
 		42826F7C1B044F1A00DB8491 /* SESideMenuCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESideMenuCommon.h; sourceTree = "<group>"; };
@@ -177,11 +180,11 @@
 		4297CABB1AE2003A0023AA6A /* ROLQuestionareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLQuestionareController.swift; sourceTree = "<group>"; };
 		4297CABF1AE22DA90023AA6A /* ROLQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLQuestionCell.swift; sourceTree = "<group>"; };
 		4297CAC01AE22DA90023AA6A /* ROLQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLQuestionCell.xib; sourceTree = "<group>"; };
-		4297CAC31AE22DE90023AA6A /* ROLCellIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLCellIdentifiers.swift; sourceTree = "<group>"; };
+		4297CAC31AE22DE90023AA6A /* ROLCellIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ROLCellIdentifiers.swift; path = ../../Home/Model/ROLCellIdentifiers.swift; sourceTree = "<group>"; };
 		4297CAC51AE241F70023AA6A /* ROLQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLQuestion.swift; sourceTree = "<group>"; };
 		42B7812A1AE4D78C0095DED5 /* ROLUserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLUserInfoManager.swift; sourceTree = "<group>"; };
-		42B7812C1AE4DB2E0095DED5 /* ROLNeedToLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLNeedToLoginCell.swift; sourceTree = "<group>"; };
-		42B7812D1AE4DB2E0095DED5 /* ROLNeedToLoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLNeedToLoginCell.xib; sourceTree = "<group>"; };
+		42B7812C1AE4DB2E0095DED5 /* ROLNeedToLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ROLNeedToLoginCell.swift; path = ../../Me/View/ROLNeedToLoginCell.swift; sourceTree = "<group>"; };
+		42B7812D1AE4DB2E0095DED5 /* ROLNeedToLoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ROLNeedToLoginCell.xib; path = ../../Me/View/ROLNeedToLoginCell.xib; sourceTree = "<group>"; };
 		42B781311AE4E35F0095DED5 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42B781341AE4E8820095DED5 /* ROLLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLLoginController.swift; sourceTree = "<group>"; };
 		42B781371AE4F57D0095DED5 /* ROLStringTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLStringTool.swift; sourceTree = "<group>"; };
@@ -189,7 +192,7 @@
 		42B7A9121ADF3060001B4D25 /* ROLHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLHomeCell.swift; sourceTree = "<group>"; };
 		42B7A9131ADF3060001B4D25 /* ROLHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ROLHomeCell.xib; sourceTree = "<group>"; };
 		42B7A9171ADF850A001B4D25 /* ROLQuestionare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLQuestionare.swift; sourceTree = "<group>"; };
-		42B7A91B1ADFA8FF001B4D25 /* ROLQuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLQuestionManager.swift; sourceTree = "<group>"; };
+		42B7A91B1ADFA8FF001B4D25 /* ROLQuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ROLQuestionManager.swift; path = ../../Home/Manager/ROLQuestionManager.swift; sourceTree = "<group>"; };
 		42EA22E61B073F4600DBBA29 /* SESettingLabelArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingLabelArrowItem.h; sourceTree = "<group>"; };
 		42EA22E71B073F4600DBBA29 /* SESettingLabelArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingLabelArrowItem.m; sourceTree = "<group>"; };
 		42EA22EB1B074C6C00DBBA29 /* ROLEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLEditController.swift; sourceTree = "<group>"; };
@@ -226,8 +229,6 @@
 			children = (
 				421A3B971ADB61AB00F9A4A8 /* ROLMeProfileCell.swift */,
 				421A3B981ADB61AB00F9A4A8 /* ROLMeProfileCell.xib */,
-				42B7812C1AE4DB2E0095DED5 /* ROLNeedToLoginCell.swift */,
-				42B7812D1AE4DB2E0095DED5 /* ROLNeedToLoginCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,6 +263,8 @@
 		421AF79C1AE62D74003B7AB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42B7812C1AE4DB2E0095DED5 /* ROLNeedToLoginCell.swift */,
+				42B7812D1AE4DB2E0095DED5 /* ROLNeedToLoginCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +490,8 @@
 				429240801AD94CAE00D4F152 /* SESettingSwitchItem.m */,
 				42EA22F01B07698A00DBBA29 /* SESettingTextFieldItem.h */,
 				42EA22F11B07698A00DBBA29 /* SESettingTextFieldItem.m */,
+				4262DEE31B0EB401009B9D0E /* SESettingCheckboxItem.h */,
+				4262DEE41B0EB401009B9D0E /* SESettingCheckboxItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				42B7812A1AE4D78C0095DED5 /* ROLUserInfoManager.swift */,
+				42B7A91B1ADFA8FF001B4D25 /* ROLQuestionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				42B781371AE4F57D0095DED5 /* ROLStringTool.swift */,
+				4297CAC31AE22DE90023AA6A /* ROLCellIdentifiers.swift */,
 				424D61991B060B4800A10147 /* ROLNotifications.swift */,
 				424D61A31B062A8200A10147 /* ROLColors.swift */,
 			);
@@ -594,7 +601,6 @@
 			children = (
 				42B7A9171ADF850A001B4D25 /* ROLQuestionare.swift */,
 				4297CAC51AE241F70023AA6A /* ROLQuestion.swift */,
-				4297CAC31AE22DE90023AA6A /* ROLCellIdentifiers.swift */,
 				4217B3581AE3A169000FA69B /* ROLAnswer.swift */,
 			);
 			path = Model;
@@ -613,7 +619,6 @@
 		42B7A91A1ADFA8DC001B4D25 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				42B7A91B1ADFA8FF001B4D25 /* ROLQuestionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -621,15 +626,15 @@
 		42E3EFA11AD8BFDD0030ED16 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				424D619F1B0628D900A10147 /* Feedback */,
-				424D619B1B06216000A10147 /* About */,
-				421AF79A1AE62D55003B7AB7 /* Mine */,
-				42B7A9191ADF85B8001B4D25 /* Login */,
-				42B7A90D1ADF2F7A001B4D25 /* Home */,
-				422586BB1ADA9BB0009EC220 /* More */,
-				429240971AD94E4700D4F152 /* Me */,
 				42E3EFA41AD8C0000030ED16 /* Delegate */,
 				42E3EFA31AD8BFFA0030ED16 /* Main */,
+				42B7A90D1ADF2F7A001B4D25 /* Home */,
+				421AF79A1AE62D55003B7AB7 /* Mine */,
+				42B7A9191ADF85B8001B4D25 /* Login */,
+				429240971AD94E4700D4F152 /* Me */,
+				424D619F1B0628D900A10147 /* Feedback */,
+				424D619B1B06216000A10147 /* About */,
+				422586BB1ADA9BB0009EC220 /* More */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -843,6 +848,7 @@
 				422586B61ADA2D6B009EC220 /* SECommon.swift in Sources */,
 				42826FA51B044F5500DB8491 /* UIColor+SE.m in Sources */,
 				421AF7931AE615BD003B7AB7 /* ROLRegisterController.swift in Sources */,
+				4262DEE51B0EB401009B9D0E /* SESettingCheckboxItem.m in Sources */,
 				42B7A9141ADF3060001B4D25 /* ROLHomeCell.swift in Sources */,
 				42826FA01B044F5500DB8491 /* NSString+Hash.m in Sources */,
 				42EA22EF1B074E1400DBBA29 /* ROLEditItem.swift in Sources */,

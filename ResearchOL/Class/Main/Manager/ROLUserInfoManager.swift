@@ -204,11 +204,48 @@ class ROLUserInfoManager: NSObject {
     }
     
     func getWatchListForCurrentUser() -> [String] {
+        if !self.isUserLogin { return [] }
         if self.currentUser == nil { return [] }
         var query = AVQuery(className: ROLUserKeys.kUserWatchListKey)
         var watchList = query.getFirstObject()
         var watchArray = watchList.objectForKey(self.currentUser!.objectId) as? [String]
         if watchArray == nil { return [] }
         return watchArray!
+    }
+    
+    func saveAttributeForCurrentUser(title: String, value: String, success: (finished: Bool) -> Void, failure: (error: NSError) -> Void) {
+        if !self.isUserLogin { return }
+        if self.currentUser == nil { return }
+        var user = self.currentUser!
+        user.setObject(value, forKey: getAttributeNameWithTitle(title))
+        println("value \(value), key \(getAttributeNameWithTitle(title))")
+        user.saveInBackgroundWithBlock { (finished, error) -> Void in
+            if finished {
+                success(finished: finished)
+            } else {
+                failure(error: error)
+            }
+        }
+    }
+    
+    func getAttributeForCurrentUser(attribute: String, value: String) -> String {
+        if !self.isUserLogin { return "" }
+        if self.currentUser == nil { return "" }
+        var user = self.currentUser!
+        var value = user.objectForKey(attribute) as! String
+        return value
+    }
+    
+    func getAttributeNameWithTitle(title: String) -> String {
+        let map = ["月收入": "monthlyIncome",
+                    "性别": "gender",
+                    "手机号": "mobilePhoneNumber",
+                    "年龄": "age",
+                    "爱好": "hobby",
+                    "地区": "location",
+                    "就业状态": "jobState",
+                    "教育程度": "educationState",
+                    "婚姻状况": "marriageState"]
+        return map[title]!
     }
 }

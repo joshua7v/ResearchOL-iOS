@@ -7,9 +7,10 @@
 //
 
 #import "SESettingItem.h"
-
+@class UITextField;
 @interface SESettingTextFieldItem : SESettingItem
 @property (copy, nonatomic) NSString *placeholder;
+@property (nonatomic, strong) UITextField *textField;
 
 + (instancetype)itemWithPlaceholder:(NSString *)placeholder;
 @end
