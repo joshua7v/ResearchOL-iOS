@@ -112,7 +112,7 @@ class ROLRegisterController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 SEProgressHUDTool.hideHUDForView(self.view)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.navigationController?.popViewControllerAnimated(true)
             })
         }) { (code) -> Void in
             if code == 202 {

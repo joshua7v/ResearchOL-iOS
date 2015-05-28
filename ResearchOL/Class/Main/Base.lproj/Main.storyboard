@@ -78,8 +78,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MKk-zb-ALa" id="jX5-WJ-B3Q">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就医排名调查" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61w-aT-io7">
-                                                    <rect key="frame" x="30" y="20" width="102" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就医排名调查" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61w-aT-io7">
+                                                    <rect key="frame" x="30" y="20" width="550" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -171,6 +171,7 @@
                                                 <constraint firstItem="yro-Zb-OAw" firstAttribute="leading" secondItem="jX5-WJ-B3Q" secondAttribute="leading" constant="50" id="fRk-Oo-iYu"/>
                                                 <constraint firstAttribute="trailing" secondItem="qba-ka-j9A" secondAttribute="trailing" constant="50" id="hiY-zD-2Ti"/>
                                                 <constraint firstItem="61w-aT-io7" firstAttribute="leading" secondItem="jX5-WJ-B3Q" secondAttribute="leading" constant="30" id="i3A-3y-fXa"/>
+                                                <constraint firstAttribute="trailing" secondItem="61w-aT-io7" secondAttribute="trailing" constant="20" id="kui-Pw-EyC"/>
                                                 <constraint firstItem="yro-Zb-OAw" firstAttribute="top" secondItem="Lu9-Aa-Bmd" secondAttribute="bottom" constant="10" id="oB4-an-JuD"/>
                                                 <constraint firstItem="qba-ka-j9A" firstAttribute="top" secondItem="61w-aT-io7" secondAttribute="bottom" constant="40" id="oE0-CW-Lcv"/>
                                                 <constraint firstAttribute="centerX" secondItem="Hbu-zG-Kkf" secondAttribute="centerX" constant="50" id="vcc-ul-53p"/>

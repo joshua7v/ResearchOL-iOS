@@ -26,13 +26,18 @@ class ROLMeProfileCell: UITableViewCell {
                 sender.setTitle("已签到", forState: .Normal)
                 sender.enabled = false
 //                var dict = [ROLUserInfoManager.sharedManager.currentUser?.objectId : NSDate.timeIntervalTo24()]
-                var dict = NSMutableDictionary()
-                dict.setObject(NSDate.timeIntervalTo24(), forKey: ROLUserInfoManager.sharedManager.currentUser!.objectId)
-                NSUserDefaults.standardUserDefaults().setObject(dict, forKey: ROLUserKeys.kSignInTimeKey)
+//                var dict = NSMutableDictionary()
+//                dict.setObject(NSDate.timeIntervalTo24(), forKey: ROLUserInfoManager.sharedManager.currentUser!.objectId)
+                NSUserDefaults.standardUserDefaults().setObject(NSDate.timeIntervalTo24(), forKey: ROLUserInfoManager.sharedManager.currentUser!.objectId)
                 NSUserDefaults.standardUserDefaults().synchronize()
+                
+                NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.signInNotification, object: nil)
             })
         }) { () -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 sender.setTitle("签到", forState: .Normal)
+                SEProgressHUDTool.showError("网络不给力", toView: UIApplication.sharedApplication().keyWindow)
+            })
         }
     }
     
@@ -67,6 +72,8 @@ class ROLMeProfileCell: UITableViewCell {
     private func configueNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleAvatarDidChoseNotification:", name: "AvatarDidChoseNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserLoginNotification:", name: ROLNotifications.userLoginNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserPointsDidAddNotification:", name: ROLNotifications.userPointsDidAddNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserAnsweredQuestionaresDidAddNotification:", name: ROLNotifications.userAnsweredQuestionaresDidAddNotification, object: nil)
     }
     
     @objc private func handleUserLoginNotification(noti: NSNotification) {
@@ -81,8 +88,16 @@ class ROLMeProfileCell: UITableViewCell {
         })
     }
     
+    @objc private func handleUserAnsweredQuestionaresDidAddNotification(noti: NSNotification) {
+        self.answeredQuestionaresLabel.text = "\(ROLUserInfoManager.sharedManager.getAnsweredQuestionaresNumberForCurrentUser())"
+    }
+    
     @objc private func handleAvatarDidChoseNotification(noti: NSNotification) {
         self.avatar.image = noti.object as? UIImage
+    }
+    
+    @objc private func handleUserPointsDidAddNotification(noti: NSNotification) {
+        self.pointsLabel.text = "\(ROLUserInfoManager.sharedManager.getPointsForCurrentUser())"
     }
     
     private func configueViews() {
@@ -107,10 +122,14 @@ class ROLMeProfileCell: UITableViewCell {
             })
         }
     
+//        var today = NSDate()
+//        var nowInterval = today.timeIntervalSince1970
+//        var dict = NSUserDefaults.standardUserDefaults().objectForKey(ROLUserKeys.kSignInTimeKey) as? NSMutableDictionary
+//        var interval = dict?.objectForKey(ROLUserInfoManager.sharedManager.currentUser!.objectId) as? NSTimeInterval
+        
         var today = NSDate()
         var nowInterval = today.timeIntervalSince1970
-        var dict = NSUserDefaults.standardUserDefaults().objectForKey(ROLUserKeys.kSignInTimeKey) as? NSMutableDictionary
-        var interval = dict?.objectForKey(ROLUserInfoManager.sharedManager.currentUser!.objectId) as? NSTimeInterval
+        var interval = NSUserDefaults.standardUserDefaults().objectForKey(ROLUserInfoManager.sharedManager.currentUser!.objectId) as? NSTimeInterval
         if interval == nil { return }
         if nowInterval > interval {
             // enable signin
@@ -134,8 +153,7 @@ class ROLMeProfileCell: UITableViewCell {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "AvatarDidChoseNotification", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: ROLNotifications.userLoginNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
 }

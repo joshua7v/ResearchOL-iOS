@@ -11,6 +11,16 @@ import UIKit
 class ROLMeController: SESettingViewController {
     let storyboardIdForEdit = "ROLEditController"
     
+    var phoneNumber = SESettingLabelArrowItem()
+    var gender = SESettingLabelArrowItem()
+    var age = SESettingLabelArrowItem()
+    var hobby = SESettingLabelArrowItem()
+    var location = SESettingLabelArrowItem()
+    var income = SESettingLabelArrowItem()
+    var job = SESettingLabelArrowItem()
+    var edu = SESettingLabelArrowItem()
+    var marriage = SESettingLabelArrowItem()
+    
     var editController: ROLNavigationController {
         get {
             return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier(self.storyboardIdForEdit) as! ROLNavigationController
@@ -53,7 +63,8 @@ class ROLMeController: SESettingViewController {
     // MARK: setup second group
     private func setupGroup1() {
         var group = self.addGroup()
-        var phoneNumber = SESettingLabelArrowItem(icon: nil, title: "手机号", text: "未填写", destVcClass: nil)
+        var phoneNumberText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kMobilePhoneNumberKey)
+        var phoneNumber = SESettingLabelArrowItem(icon: nil, title: "手机号", text: phoneNumberText == "" ? "未填写" : phoneNumberText, destVcClass: nil)
         phoneNumber.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "手机号"
@@ -63,11 +74,12 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 0, inSection: 1)
             })
         }
         
-        var gender = SESettingLabelArrowItem(icon: nil, title: "性别", text: "未填写", destVcClass: nil)
+        var genderText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kGenderKey)
+        var gender = SESettingLabelArrowItem(icon: nil, title: "性别", text: genderText == "" ? "未填写" : genderText, destVcClass: nil)
         gender.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "性别"
@@ -78,10 +90,12 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 1, inSection: 1)
             })
         }
-        var age = SESettingLabelArrowItem(icon: nil, title: "年龄", text: "未填写", destVcClass: nil)
+        
+        var ageText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kAgeKey)
+        var age = SESettingLabelArrowItem(icon: nil, title: "年龄", text: ageText == "" ? "未填写" : ageText, destVcClass: nil)
         age.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "年龄"
@@ -91,11 +105,12 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 2, inSection: 1)
             })
         }
         
-        var hobby = SESettingLabelArrowItem(icon: nil, title: "爱好", text: "未填写", destVcClass: nil)
+        var hobbyText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kHobbyKey)
+        var hobby = SESettingLabelArrowItem(icon: nil, title: "爱好", text: hobbyText == "" ? "未填写" : hobbyText, destVcClass: nil)
         hobby.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "爱好"
@@ -107,11 +122,12 @@ class ROLMeController: SESettingViewController {
             editVC.isSingleChoice = false
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 3, inSection: 1)
             })
         }
         
-        var location = SESettingLabelArrowItem(icon: nil, title: "地区", text: "未填写", destVcClass: nil)
+        var locationText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kLocationKey)
+        var location = SESettingLabelArrowItem(icon: nil, title: "地区", text: locationText == "" ? "未填写" : locationText, destVcClass: nil)
         location.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "地区"
@@ -121,16 +137,23 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 4, inSection: 1)
             })
         }
         
         group.items = [phoneNumber, gender, age, hobby, location]
+        
+        self.phoneNumber = phoneNumber
+        self.gender = gender
+        self.age = age
+        self.hobby = hobby
+        self.location = location
     }
     
     private func setupGroup2() {
         var group = self.addGroup()
-        var income = SESettingLabelArrowItem(icon: nil, title: "月收入", text: "未填写", destVcClass: nil)
+        var incomeText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kMonthlyIncomeKey)
+        var income = SESettingLabelArrowItem(icon: nil, title: "月收入", text: incomeText == "" ? "未填写" : incomeText, destVcClass: nil)
         income.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "月收入"
@@ -141,11 +164,12 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 0, inSection: 2)
             })
         }
         
-        var job = SESettingLabelArrowItem(icon: nil, title: "就业状态", text: "未填写", destVcClass: nil)
+        var jobText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kJobStateIncomeKey)
+        var job = SESettingLabelArrowItem(icon: nil, title: "就业状态", text: jobText == "" ? "未填写" : jobText, destVcClass: nil)
         job.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "就业状态"
@@ -156,11 +180,12 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 1, inSection: 2)
             })
         }
         
-        var edu = SESettingLabelArrowItem(icon: nil, title: "教育程度", text: "未填写", destVcClass: nil)
+        var eduText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kEducationStateKey)
+        var edu = SESettingLabelArrowItem(icon: nil, title: "教育程度", text: eduText == "" ? "未填写" : eduText, destVcClass: nil)
         edu.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "教育程度"
@@ -171,11 +196,12 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 2, inSection: 2)
             })
         }
         
-        var marriage = SESettingLabelArrowItem(icon: nil, title: "婚姻状况", text: "未填写", destVcClass: nil)
+        var marriageText = ROLUserInfoManager.sharedManager.getAttributeForCurrentUser(ROLUserKeys.kMarriageStateKey)
+        var marriage = SESettingLabelArrowItem(icon: nil, title: "婚姻状况", text: marriageText == "" ? "未填写" : marriageText, destVcClass: nil)
         marriage.operation = {
             var item: ROLEditItem = ROLEditItem()
             item.title = "婚姻状况"
@@ -186,11 +212,16 @@ class ROLMeController: SESettingViewController {
             editVC.item = item
             editVC.delegate = self
             self.presentViewController(editNavVC, animated: true, completion: { () -> Void in
-                
+                editVC.indexPath = NSIndexPath(forRow: 3, inSection: 2)
             })
         }
         
         group.items = [income, job, edu, marriage]
+        
+        self.income = income
+        self.job = job
+        self.edu = edu
+        self.marriage = marriage
     }
     
     // MARK: setup headerView
@@ -275,7 +306,48 @@ extension ROLMeController: UINavigationControllerDelegate, UIImagePickerControll
 }
 
 extension ROLMeController: ROLEditControllerDelegate {
-    func editControllerSaveButtonDidClicked(editController: ROLEditController) {
-        
+    func editControllerSaveButtonDidClicked(editController: ROLEditController, item: ROLEditItem, value: String) {
+        self.setNewData(editController, item: item, value: value)
+    }
+    
+    private func setNewData(editController: ROLEditController, item: ROLEditItem, value: String) {
+        if editController.indexPath.section == 1 {
+            switch editController.indexPath.row {
+            case 0:
+                self.phoneNumber.text = value
+                self.tableView.reloadData()
+            case 1:
+                self.gender.text = value
+                self.tableView.reloadData()
+            case 2:
+                self.age.text = value
+                self.tableView.reloadData()
+            case 3:
+                self.hobby.text = value
+                self.tableView.reloadData()
+            case 4:
+                self.location.text = value
+                self.tableView.reloadData()
+            default:
+                println("----default----")
+            }
+        } else if editController.indexPath.section == 2 {
+            switch editController.indexPath.row {
+            case 0:
+                self.income.text = value
+                self.tableView.reloadData()
+            case 1:
+                self.job.text = value
+                self.tableView.reloadData()
+            case 2:
+                self.edu.text = value
+                self.tableView.reloadData()
+            case 3:
+                self.marriage.text = value
+                self.tableView.reloadData()
+            default:
+                println("----default----")
+            }
+        }
     }
 }

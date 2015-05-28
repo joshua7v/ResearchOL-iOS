@@ -219,4 +219,13 @@ class ROLQuestionManager: NSObject {
         self.answerDict[questionareID] = self.answers
         println(self.answerDict)
     }
+    
+    func isQuestionareAnswered(questionID: String) -> Bool {
+        for i in ROLUserInfoManager.sharedManager.getAnsweredQuestionaresForCurrentUser() {
+            if i as! String == questionID {
+                return true
+            }
+        }
+        return false
+    }
 }

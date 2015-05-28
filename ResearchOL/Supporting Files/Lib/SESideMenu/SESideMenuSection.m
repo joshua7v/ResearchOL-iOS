@@ -56,12 +56,17 @@ static CGFloat const kAvatarHeight = 70.0f;
         //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveUpdateCheckInBadgeNotification) name:kUpdateCheckInBadgeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserDidLoginNotification) name:[ROLNotifications userLoginNotification] object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleAvatarDidChoseNotification:) name:@"AvatarDidChoseNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleUserPointsDidAddNotification:) name:[ROLNotifications userPointsDidAddNotification] object:nil];
     }
     return self;
 }
 
 - (void)handleAvatarDidChoseNotification:(NSNotification *)noti {
     self.avatarImageView.image = (UIImage *)noti.object;
+}
+
+- (void)handleUserPointsDidAddNotification:(NSNotification *)noti {
+    self.pointsLabel.text = [NSString stringWithFormat:@"%ld", (long)[ROLUserInfoManager sharedManager].getPointsForCurrentUser];
 }
 
 - (void)handleUserDidLoginNotification {

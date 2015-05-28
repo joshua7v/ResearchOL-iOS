@@ -118,12 +118,41 @@ class ROLHomeDetailController: UITableViewController {
         
         self.setup()
         self.setupData()
+        self.setupNotifications()
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !ROLUserInfoManager.sharedManager.isUserLogin { return }
+//        if self.startBtn.titleLabel?.text == "正在提交答案..." { return }
+        if ROLQuestionManager.sharedManager.isQuestionareAnswered(self.questionare.uuid) {
+            self.startBtn.setTitle("您已答过", forState: .Normal)
+            self.startBtn.enabled = false
+        } else {
+            self.startBtn.setTitle("马上参与", forState: .Normal)
+            self.startBtn.enabled = true
+        }
     }
     
     // MARK: - private
+    private func setupNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserFinishedAnswerQuestionareNotification", name: ROLNotifications.userFinishedAnswerQuestionareNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserDidFinishedAnswerQuestionareNotification", name: ROLNotifications.userDidFinishedAnswerQuestionareNotification, object: nil)
+    }
+    
+    @objc private func handleUserFinishedAnswerQuestionareNotification() {
+//        self.startBtn.setTitle("正在提交答案...", forState: .Normal)
+        SEProgressHUDTool.showMessage("正在提交答案...", toView: self.view)
+        self.startBtn.enabled = false
+    }
+
+    @objc private func handleUserDidFinishedAnswerQuestionareNotification() {
+        self.startBtn.setTitle("您已答过", forState: .Normal)
+        SEProgressHUDTool.hideHUDForView(self.view)
+        self.startBtn.enabled = false
+    }
+    
     func setup() {
         self.navigationItem.title = "问卷详情"
         titleLabel.text = questionare.title
@@ -187,5 +216,9 @@ class ROLHomeDetailController: UITableViewController {
         dest.questionareID = self.questionare.uuid
         // reset answers in memory
         ROLQuestionManager.sharedManager.resetAnswers()
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }

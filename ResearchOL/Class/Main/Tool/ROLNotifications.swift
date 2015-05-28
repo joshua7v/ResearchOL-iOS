@@ -10,7 +10,12 @@ import UIKit
 
 class ROLNotifications: NSObject {
     static let userLoginNotification: String = "UserLoginNotification"
+    static let userDidFinishedAnswerQuestionareNotification: String = "UserDidFinishedAnswerQuestionareNotification"
+    static let userFinishedAnswerQuestionareNotification: String = "userFinishedAnswerQuestionareNotification"
     static let showMenuNotification: String = "ShowMenuNotification"
     static let userLogoutNotification = "UserLogoutNotification"
     static let avatarDidChangedNotification: String = "AvatarDidChangedNotification"
+    static let signInNotification: String = "SignInNotification"
+    static let userPointsDidAddNotification: String = "UserPointsDidAddNotification"
+    static let userAnsweredQuestionaresDidAddNotification: String = "UserAnsweredQuestionaresDidAddNotification"
 }

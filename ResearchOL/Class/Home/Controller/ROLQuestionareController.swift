@@ -82,6 +82,11 @@ class ROLQuestionareController: UIViewController {
     @IBAction func finishBtnClicked(sender: UIButton) {
         if self.anonymousCheckbox.checkState.value == M13CheckboxStateUnchecked.value {
             ROLQuestionManager.sharedManager.setAnswerSheetToServer(ROLUserInfoManager.sharedManager.currentUser!, questionareID: self.questionareID, success: { () -> Void in
+                ROLUserInfoManager.sharedManager.setAnsweredQuestionareForCurrentUser(self.questionareID, success: { () -> Void in
+                    NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userDidFinishedAnswerQuestionareNotification, object: nil)
+                }, failure: { () -> Void in
+                    
+                })
                 println("save to server - success")
             })
         } else if self.anonymousCheckbox.checkState.value == M13CheckboxStateChecked.value {
@@ -91,6 +96,7 @@ class ROLQuestionareController: UIViewController {
                 println("save to server - success")
             })
         }
+        NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userFinishedAnswerQuestionareNotification, object: nil)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

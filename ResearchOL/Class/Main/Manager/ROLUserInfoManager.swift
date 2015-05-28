@@ -22,6 +22,15 @@ class ROLUserInfoManager: NSObject {
                 println(user)
                 return user
             }
+            
+            if FXKeychain.defaultKeychain()[ROLUserKeys.kUserIdKey] as? String != AVUser.currentUser().objectId {
+                var userId = FXKeychain.defaultKeychain()[ROLUserKeys.kUserIdKey] as? String
+                if userId == nil { return nil }
+                var query = AVQuery(className: "user")
+                var user = query.getObjectWithId(FXKeychain.defaultKeychain()[ROLUserKeys.kUserIdKey] as! String) as? AVUser
+                println(user)
+                return user
+            }
             return AVUser.currentUser()
         }
     }
@@ -75,18 +84,28 @@ class ROLUserInfoManager: NSObject {
                     watchList = watch
                 }
                 
+                var queryAnsweredQuestionares = AVQuery(className: ROLUserKeys.kUserAnsweredQuestionaresKey)
+                var answeredQuestionares = queryAnsweredQuestionares.getFirstObject()
+                if answeredQuestionares == nil {
+                    var ans = AVObject(className: ROLUserKeys.kUserAnsweredQuestionaresKey)
+                    answeredQuestionares = ans
+                }
+                
                 user.setObject(0, forKey: ROLUserKeys.kUserPointsKey)
                 user.setObject(0, forKey: ROLUserKeys.kUserAnsweredQuestionaresNumberKey)
                 user.setObject(avatarFile, forKey: ROLUserKeys.kUserAvatarKey)
                 
                 watchList.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
-                    user.setObject(watchList, forKey: ROLUserKeys.kUserWatchListKey)
-                    user.saveInBackground()
-//                    self.authUser(user.username, password: user.password, success: { () -> Void in
-//                        
-//                    }, failure: { () -> Void in
-//                        
-//                    })
+                    answeredQuestionares.saveInBackgroundWithBlock({ (succeeded, error) -> Void in
+                        user.setObject(watchList, forKey: ROLUserKeys.kUserWatchListKey)
+                        user.setObject(answeredQuestionares, forKey: ROLUserKeys.kUserAnsweredQuestionaresKey)
+                        user.saveInBackground()
+                        //                    self.authUser(user.username, password: user.password, success: { () -> Void in
+                        //
+                        //                    }, failure: { () -> Void in
+                        //                        
+                        //                    })
+                    })
                 })
             }
         }
@@ -208,9 +227,9 @@ class ROLUserInfoManager: NSObject {
         if self.currentUser == nil { return [] }
         var query = AVQuery(className: ROLUserKeys.kUserWatchListKey)
         var watchList = query.getFirstObject()
-        var watchArray = watchList.objectForKey(self.currentUser!.objectId) as? [String]
+        var watchArray: AnyObject! = watchList.objectForKey(self.currentUser!.objectId)
         if watchArray == nil { return [] }
-        return watchArray!
+        return watchArray as! [String]
     }
     
     func saveAttributeForCurrentUser(title: String, value: String, success: (finished: Bool) -> Void, failure: (error: NSError) -> Void) {
@@ -228,12 +247,13 @@ class ROLUserInfoManager: NSObject {
         }
     }
     
-    func getAttributeForCurrentUser(attribute: String, value: String) -> String {
+    func getAttributeForCurrentUser(attribute: String) -> String {
         if !self.isUserLogin { return "" }
         if self.currentUser == nil { return "" }
         var user = self.currentUser!
-        var value = user.objectForKey(attribute) as! String
-        return value
+        var value: AnyObject! = user.objectForKey(attribute)
+        if value == nil { return "" }
+        return value as! String
     }
     
     func getAttributeNameWithTitle(title: String) -> String {
@@ -259,9 +279,54 @@ class ROLUserInfoManager: NSObject {
         user.saveInBackgroundWithBlock { (finished, error) -> Void in
             if finished {
                 success()
+                NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userPointsDidAddNotification, object: nil)
             } else {
                 failure()
             }
         }
+    }
+    
+    private func addAnsweredQuestionaresNumberCurrentUser(addNumber: Int, success: () -> Void, failure: () -> Void) {
+        if !self.isUserLogin { return }
+        if self.currentUser == nil { return }
+        var user = self.currentUser!
+        var answeredQuestionaresNumber = user.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresNumberKey) as! Int
+        answeredQuestionaresNumber = answeredQuestionaresNumber + addNumber
+        user.setObject(answeredQuestionaresNumber, forKey: ROLUserKeys.kUserAnsweredQuestionaresNumberKey)
+        user.saveInBackgroundWithBlock { (finished, error) -> Void in
+            if finished {
+                success()
+                NSNotificationCenter.defaultCenter().postNotificationName(ROLNotifications.userAnsweredQuestionaresDidAddNotification, object: nil)
+            } else {
+                failure()
+            }
+        }
+    }
+    
+    func setAnsweredQuestionareForCurrentUser(questionareId: String,success: () -> Void, failure: () -> Void) {
+        if self.currentUser == nil { return }
+        var answeredQuestionares: AVObject = self.currentUser!.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresKey) as! AVObject
+        answeredQuestionares.addUniqueObject(questionareId, forKey: self.currentUser!.objectId)
+        answeredQuestionares.saveInBackgroundWithBlock { (finished, error) -> Void in
+            if finished {
+                self.addAnsweredQuestionaresNumberCurrentUser(1, success: { () -> Void in
+                    success()
+                }, failure: { () -> Void in
+                    failure()
+                })
+            } else {
+                failure()
+            }
+        }
+    }
+    
+    func getAnsweredQuestionaresForCurrentUser() -> NSArray {
+        if self.currentUser == nil { return [] }
+        var answeredQuestionares: AVObject = self.currentUser!.objectForKey(ROLUserKeys.kUserAnsweredQuestionaresKey) as! AVObject
+        var array = answeredQuestionares.objectForKey(self.currentUser!.objectId) as? NSArray
+        if array != nil {
+            return array!
+        }
+        return []
     }
 }

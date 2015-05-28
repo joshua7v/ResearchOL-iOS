@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ROLEditControllerDelegate: NSObjectProtocol {
-    func editControllerSaveButtonDidClicked(editController: ROLEditController)
+    func editControllerSaveButtonDidClicked(editController: ROLEditController, item: ROLEditItem, value: String)
 }
 
 class ROLEditController: SESettingViewController {
@@ -18,6 +18,7 @@ class ROLEditController: SESettingViewController {
     var checkboxes: NSMutableArray = NSMutableArray()
     var isSingleChoice = true
     var textField = UITextField()
+    var indexPath = NSIndexPath()
     
     var item: ROLEditItem = ROLEditItem() {
         didSet {
@@ -111,12 +112,14 @@ class ROLEditController: SESettingViewController {
                 SEProgressHUDTool.showError("请输入正确的手机号", toView: self.navigationController?.view)
             }
         }
+        
+        // change text in superview
+        if (self.delegate?.respondsToSelector("editControllerSaveButtonDidClicked:") != nil) {
+            self.delegate?.editControllerSaveButtonDidClicked(self, item: self.item, value: value)
+        }
     }
     
     @objc private func cancelBtnDidClicked() {
-        if (self.delegate?.respondsToSelector("editControllerSaveButtonDidClicked:") != nil) {
-            self.delegate?.editControllerSaveButtonDidClicked(self)
-        }
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })
