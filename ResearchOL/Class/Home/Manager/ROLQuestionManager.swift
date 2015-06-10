@@ -40,7 +40,7 @@ class ROLQuestionManager: NSObject {
     // MARK: - private
     
     // MARK: - public
-    func getWatchListQuestionaresForCurrentUser(success: (questionares: [ROLQuestionare]) -> Void) {
+    func getWatchListQuestionaresForCurrentUser(success: (questionares: [ROLQuestionare]) -> Void, failure: () -> Void) {
         if (ROLUserInfoManager.sharedManager.currentUser != nil) {
             var list = ROLUserInfoManager.sharedManager.getWatchListForCurrentUser()
             var array: [ROLQuestionare] = []
@@ -64,6 +64,41 @@ class ROLQuestionManager: NSObject {
                         success(questionares: array)
                     }
                 })
+            }
+            if count == 0 {
+                failure()
+            }
+        }
+    }
+    
+    func getAnsweredQuestionaresForCurrentUser(success: (questionares: [ROLQuestionare]) -> Void, failure: () -> Void) {
+        if (ROLUserInfoManager.sharedManager.currentUser != nil) {
+            var list = ROLUserInfoManager.sharedManager.getAnsweredQuestionaresForCurrentUser()
+            var array: [ROLQuestionare] = []
+            var count = 0
+            for i in list {
+                questionaresRef.queryOrderedByKey().queryEqualToValue(i).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
+                    var questionare = ROLQuestionare()
+                    questionare.uuid = snapshot.key as String
+                    questionare.title = snapshot.value["title"] as! String
+                    questionare.desc = snapshot.value["description"] as! String
+                    questionare.fireDate = snapshot.value["fireDate"] as! String
+                    questionare.endDate = snapshot.value["endDate"] as! String
+                    questionare.point = snapshot.value["point"] as! Int
+                    questionare.participant = snapshot.value["participant"] as! Int
+                    questionare.questionCount = snapshot.value["questionCount"] as! Int
+                    
+                    array.append(questionare)
+                    count = count + 1
+                    
+                    if count == list.count {
+                        success(questionares: array)
+                    }
+                })
+            }
+            
+            if count == 0 {
+                failure()
             }
         }
     }
@@ -191,6 +226,17 @@ class ROLQuestionManager: NSObject {
         }
         answerRef.setValue(dictionary, withCompletionBlock: { (error:NSError?, ref:Firebase!) -> Void in
             success()
+            self.questionaresRef.queryOrderedByKey().queryStartingAtValue(questionareID).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) -> Void in
+                var questionare = ROLQuestionare()
+                questionare.point = snapshot.value["point"] as! Int
+                if questionareID == snapshot.key as String {
+                    ROLUserInfoManager.sharedManager.addPointsForCurrentUser(questionare.point, success: { () -> Void in
+                        
+                        }, failure: { () -> Void in
+                            
+                    })
+                }
+            })
         })
     }
     

@@ -12,6 +12,7 @@ class ROLMoreController: SESettingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "设置"
         self.setupGroup0()
         self.setupGroup1()
     }
@@ -20,19 +21,17 @@ class ROLMoreController: SESettingViewController {
     // MARK: group0 - contact us
     func setupGroup0() {
         var group = self.addGroup()
-        group.header = "联系我们"
-        var contact = SESettingArrowItem(title: "联系方式", destVcClass: UIViewController.classForCoder())
-        var bussiness = SESettingArrowItem(title: "我是企业 我要调查！", destVcClass: UIViewController.classForCoder())
+        var contact = SESettingArrowItem(title: "联系方式", destVcClass: UITableViewController.classForCoder())
+        var bussiness = SESettingArrowItem(title: "我是企业 我要调查！", destVcClass: UITableViewController.classForCoder())
         group.items = [contact, bussiness]
     }
     
     // MARK: group1 - about
     func setupGroup1() {
         var group = self.addGroup()
-        group.header = "关于"
-        var rate = SESettingArrowItem(title: "评分", destVcClass: UIViewController.classForCoder())
-        var version = SESettingLabelItem(title: "版本", text: "2.2.2")
-        var questions = SESettingArrowItem(title: "常见问题", destVcClass: UIViewController.classForCoder())
+        var rate = SESettingArrowItem(title: "评分", destVcClass: UITableViewController.classForCoder())
+        var version = SESettingLabelItem(title: "版本", text: "0.1.4")
+        var questions = SESettingArrowItem(title: "常见问题", destVcClass: UITableViewController.classForCoder())
         group.items = [rate, version, questions]
     }
 }

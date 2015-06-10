@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -23,44 +23,35 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已答问卷" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVc-sm-Psx">
                         <rect key="frame" x="110" y="73" width="40" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-Xa-aCH">
                         <rect key="frame" x="200" y="73" width="20" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCY-kV-a4F">
                         <rect key="frame" x="110" y="53" width="14" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngn-sG-l7z">
                         <rect key="frame" x="200" y="53" width="21" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我叫李小花" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH7-hJ-pAk">
                         <rect key="frame" x="110" y="15" width="236" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTH-iL-Q7e">
-                        <rect key="frame" x="20" y="15" width="70" height="70"/>
-                        <state key="normal">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="avatarDidClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TWS-qk-TYx"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMs-iI-rfN">
-                        <rect key="frame" x="270" y="55" width="60" height="30"/>
+                        <rect key="frame" x="286" y="55" width="60" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Jit-bH-lA4"/>
                             <constraint firstAttribute="height" constant="30" id="aF2-MD-0sQ"/>
@@ -74,12 +65,22 @@
                             <action selector="signinBtnDidClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S0I-fF-o6J"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTH-iL-Q7e">
+                        <rect key="frame" x="20" y="15" width="70" height="70"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="avatarDidClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TWS-qk-TYx"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="VH7-hJ-pAk" secondAttribute="trailing" constant="20" id="02V-6X-uS4"/>
                     <constraint firstItem="DrI-SD-bs0" firstAttribute="bottom" secondItem="q4K-Xa-aCH" secondAttribute="bottom" id="08E-J4-dZR"/>
                     <constraint firstItem="VH7-hJ-pAk" firstAttribute="leading" secondItem="WCY-kV-a4F" secondAttribute="leading" id="7kA-8V-nXZ"/>
                     <constraint firstItem="DrI-SD-bs0" firstAttribute="top" secondItem="aTH-iL-Q7e" secondAttribute="top" id="8JX-un-ej5"/>
+                    <constraint firstAttribute="trailing" secondItem="FMs-iI-rfN" secondAttribute="trailing" constant="20" id="EWB-0O-lhx"/>
                     <constraint firstItem="DrI-SD-bs0" firstAttribute="leading" secondItem="aTH-iL-Q7e" secondAttribute="leading" id="SHj-E2-UEe"/>
                     <constraint firstItem="zVc-sm-Psx" firstAttribute="leading" secondItem="VH7-hJ-pAk" secondAttribute="leading" id="Squ-0O-4N3"/>
                     <constraint firstItem="q4K-Xa-aCH" firstAttribute="leading" secondItem="zVc-sm-Psx" secondAttribute="trailing" constant="50" id="Yzl-49-Hjg"/>
@@ -89,7 +90,6 @@
                     <constraint firstItem="VH7-hJ-pAk" firstAttribute="leading" secondItem="DrI-SD-bs0" secondAttribute="trailing" constant="20" id="fmN-12-xQl"/>
                     <constraint firstItem="DrI-SD-bs0" firstAttribute="width" secondItem="aTH-iL-Q7e" secondAttribute="width" id="iQS-IY-N7m"/>
                     <constraint firstItem="q4K-Xa-aCH" firstAttribute="top" secondItem="ngn-sG-l7z" secondAttribute="bottom" constant="5" id="icp-aH-yUk"/>
-                    <constraint firstItem="FMs-iI-rfN" firstAttribute="leading" secondItem="q4K-Xa-aCH" secondAttribute="trailing" constant="50" id="oTL-gJ-1Wc"/>
                     <constraint firstItem="q4K-Xa-aCH" firstAttribute="bottom" secondItem="FMs-iI-rfN" secondAttribute="bottom" id="poU-HN-btG"/>
                     <constraint firstItem="DrI-SD-bs0" firstAttribute="top" secondItem="VH7-hJ-pAk" secondAttribute="top" id="td8-gZ-PfW"/>
                     <constraint firstAttribute="centerY" secondItem="DrI-SD-bs0" secondAttribute="centerY" id="u1V-af-7ck"/>
@@ -104,7 +104,7 @@
                 <outlet property="signinBtn" destination="FMs-iI-rfN" id="t1r-Iw-xps"/>
                 <outlet property="usernameLabel" destination="VH7-hJ-pAk" id="zgU-3C-mgK"/>
             </connections>
-            <point key="canvasLocation" x="428" y="412"/>
+            <point key="canvasLocation" x="389" y="153"/>
         </tableViewCell>
     </objects>
     <resources>

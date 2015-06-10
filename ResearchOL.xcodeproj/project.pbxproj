@@ -77,7 +77,29 @@
 		42EA22EC1B074C6C00DBBA29 /* ROLEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA22EB1B074C6C00DBBA29 /* ROLEditController.swift */; };
 		42EA22EF1B074E1400DBBA29 /* ROLEditItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA22EE1B074E1400DBBA29 /* ROLEditItem.swift */; };
 		42EA22F21B07698A00DBBA29 /* SESettingTextFieldItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EA22F11B07698A00DBBA29 /* SESettingTextFieldItem.m */; };
+		42FA8DB81B1F2BE200FE23A8 /* ROLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FA8DB71B1F2BE200FE23A8 /* ROLTestCase.m */; };
+		42FA8DE41B1F329500FE23A8 /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DD71B1F329500FE23A8 /* libPods-AFNetworking.a */; };
+		42FA8DE51B1F329500FE23A8 /* libPods-AMSmoothAlert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DD81B1F329500FE23A8 /* libPods-AMSmoothAlert.a */; };
+		42FA8DE61B1F329500FE23A8 /* libPods-AVOSCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DD91B1F329500FE23A8 /* libPods-AVOSCloud.a */; };
+		42FA8DE71B1F329500FE23A8 /* libPods-FXKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DDA1B1F329500FE23A8 /* libPods-FXKeychain.a */; };
+		42FA8DE81B1F329500FE23A8 /* libPods-GPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DDB1B1F329500FE23A8 /* libPods-GPUImage.a */; };
+		42FA8DE91B1F329500FE23A8 /* libPods-M13Checkbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DDC1B1F329500FE23A8 /* libPods-M13Checkbox.a */; };
+		42FA8DEA1B1F329500FE23A8 /* libPods-Masonry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DDD1B1F329500FE23A8 /* libPods-Masonry.a */; };
+		42FA8DEB1B1F329500FE23A8 /* libPods-MBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DDE1B1F329500FE23A8 /* libPods-MBProgressHUD.a */; };
+		42FA8DEC1B1F329500FE23A8 /* libPods-MJExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DDF1B1F329500FE23A8 /* libPods-MJExtension.a */; };
+		42FA8DED1B1F329500FE23A8 /* libPods-MJRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DE01B1F329500FE23A8 /* libPods-MJRefresh.a */; };
+		42FA8DEE1B1F329500FE23A8 /* libPods-NYXImagesKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DE11B1F329500FE23A8 /* libPods-NYXImagesKit.a */; };
+		42FA8DEF1B1F329500FE23A8 /* libPods-SDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DE21B1F329500FE23A8 /* libPods-SDWebImage.a */; };
+		42FA8DF01B1F329500FE23A8 /* libPods-Toast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA8DE31B1F329500FE23A8 /* libPods-Toast.a */; };
+		42FA8E001B1F385B00FE23A8 /* ROLQuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7A91B1ADFA8FF001B4D25 /* ROLQuestionManager.swift */; };
+		42FA8E011B1F388100FE23A8 /* ROLQuestionare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7A9171ADF850A001B4D25 /* ROLQuestionare.swift */; };
+		42FA8E021B1F388100FE23A8 /* ROLQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CAC51AE241F70023AA6A /* ROLQuestion.swift */; };
+		42FA8E031B1F388100FE23A8 /* ROLAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217B3581AE3A169000FA69B /* ROLAnswer.swift */; };
+		42FA8E041B1F388B00FE23A8 /* ROLUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7812A1AE4D78C0095DED5 /* ROLUserInfoManager.swift */; };
+		42FA8E051B1F38AB00FE23A8 /* ROLUserKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42077EEF1B06ED9400DE2A79 /* ROLUserKeys.swift */; };
+		42FA8E061B1F38B300FE23A8 /* ROLNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D61991B060B4800A10147 /* ROLNotifications.swift */; };
 		42FCF7B01ADC031E00E18089 /* ROLProfileDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCF7AF1ADC031E00E18089 /* ROLProfileDetailController.swift */; };
+		A6175F53F53EFA9566B615EC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA674857E60A402C73A426A /* libPods.a */; };
 		B33807CA89C783509B0C09C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA674857E60A402C73A426A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -199,6 +221,35 @@
 		42EA22EE1B074E1400DBBA29 /* ROLEditItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLEditItem.swift; sourceTree = "<group>"; };
 		42EA22F01B07698A00DBBA29 /* SESettingTextFieldItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SESettingTextFieldItem.h; sourceTree = "<group>"; };
 		42EA22F11B07698A00DBBA29 /* SESettingTextFieldItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SESettingTextFieldItem.m; sourceTree = "<group>"; };
+		42FA8DB71B1F2BE200FE23A8 /* ROLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROLTestCase.m; sourceTree = "<group>"; };
+		42FA8DB91B1F2F9800FE23A8 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		42FA8DBB1B1F2FCD00FE23A8 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		42FA8DBC1B1F2FCD00FE23A8 /* libPods-AMSmoothAlert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AMSmoothAlert.a"; path = "Pods/../build/Debug-iphoneos/libPods-AMSmoothAlert.a"; sourceTree = "<group>"; };
+		42FA8DBD1B1F2FCD00FE23A8 /* libPods-AVOSCloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AVOSCloud.a"; path = "Pods/../build/Debug-iphoneos/libPods-AVOSCloud.a"; sourceTree = "<group>"; };
+		42FA8DBE1B1F2FCD00FE23A8 /* libPods-FXKeychain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FXKeychain.a"; path = "Pods/../build/Debug-iphoneos/libPods-FXKeychain.a"; sourceTree = "<group>"; };
+		42FA8DBF1B1F2FCD00FE23A8 /* libPods-GPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-GPUImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-GPUImage.a"; sourceTree = "<group>"; };
+		42FA8DC01B1F2FCD00FE23A8 /* libPods-M13Checkbox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-M13Checkbox.a"; path = "Pods/../build/Debug-iphoneos/libPods-M13Checkbox.a"; sourceTree = "<group>"; };
+		42FA8DC11B1F2FCD00FE23A8 /* libPods-Masonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Masonry.a"; path = "Pods/../build/Debug-iphoneos/libPods-Masonry.a"; sourceTree = "<group>"; };
+		42FA8DC21B1F2FCD00FE23A8 /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
+		42FA8DC31B1F2FCD00FE23A8 /* libPods-MJExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MJExtension.a"; path = "Pods/../build/Debug-iphoneos/libPods-MJExtension.a"; sourceTree = "<group>"; };
+		42FA8DC41B1F2FCD00FE23A8 /* libPods-MJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MJRefresh.a"; path = "Pods/../build/Debug-iphoneos/libPods-MJRefresh.a"; sourceTree = "<group>"; };
+		42FA8DC51B1F2FCD00FE23A8 /* libPods-NYXImagesKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NYXImagesKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-NYXImagesKit.a"; sourceTree = "<group>"; };
+		42FA8DC61B1F2FCD00FE23A8 /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
+		42FA8DC71B1F2FCD00FE23A8 /* libPods-Toast.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Toast.a"; path = "Pods/../build/Debug-iphoneos/libPods-Toast.a"; sourceTree = "<group>"; };
+		42FA8DD51B1F2FEF00FE23A8 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		42FA8DD71B1F329500FE23A8 /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		42FA8DD81B1F329500FE23A8 /* libPods-AMSmoothAlert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AMSmoothAlert.a"; path = "Pods/../build/Debug-iphoneos/libPods-AMSmoothAlert.a"; sourceTree = "<group>"; };
+		42FA8DD91B1F329500FE23A8 /* libPods-AVOSCloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AVOSCloud.a"; path = "Pods/../build/Debug-iphoneos/libPods-AVOSCloud.a"; sourceTree = "<group>"; };
+		42FA8DDA1B1F329500FE23A8 /* libPods-FXKeychain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FXKeychain.a"; path = "Pods/../build/Debug-iphoneos/libPods-FXKeychain.a"; sourceTree = "<group>"; };
+		42FA8DDB1B1F329500FE23A8 /* libPods-GPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-GPUImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-GPUImage.a"; sourceTree = "<group>"; };
+		42FA8DDC1B1F329500FE23A8 /* libPods-M13Checkbox.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-M13Checkbox.a"; path = "Pods/../build/Debug-iphoneos/libPods-M13Checkbox.a"; sourceTree = "<group>"; };
+		42FA8DDD1B1F329500FE23A8 /* libPods-Masonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Masonry.a"; path = "Pods/../build/Debug-iphoneos/libPods-Masonry.a"; sourceTree = "<group>"; };
+		42FA8DDE1B1F329500FE23A8 /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/../build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
+		42FA8DDF1B1F329500FE23A8 /* libPods-MJExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MJExtension.a"; path = "Pods/../build/Debug-iphoneos/libPods-MJExtension.a"; sourceTree = "<group>"; };
+		42FA8DE01B1F329500FE23A8 /* libPods-MJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MJRefresh.a"; path = "Pods/../build/Debug-iphoneos/libPods-MJRefresh.a"; sourceTree = "<group>"; };
+		42FA8DE11B1F329500FE23A8 /* libPods-NYXImagesKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NYXImagesKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-NYXImagesKit.a"; sourceTree = "<group>"; };
+		42FA8DE21B1F329500FE23A8 /* libPods-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/libPods-SDWebImage.a"; sourceTree = "<group>"; };
+		42FA8DE31B1F329500FE23A8 /* libPods-Toast.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Toast.a"; path = "Pods/../build/Debug-iphoneos/libPods-Toast.a"; sourceTree = "<group>"; };
 		42FCF7AF1ADC031E00E18089 /* ROLProfileDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ROLProfileDetailController.swift; sourceTree = "<group>"; };
 		64718FA09A66E54D503A24E2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8FA674857E60A402C73A426A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +269,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FA8DE41B1F329500FE23A8 /* libPods-AFNetworking.a in Frameworks */,
+				42FA8DE51B1F329500FE23A8 /* libPods-AMSmoothAlert.a in Frameworks */,
+				42FA8DE61B1F329500FE23A8 /* libPods-AVOSCloud.a in Frameworks */,
+				42FA8DE71B1F329500FE23A8 /* libPods-FXKeychain.a in Frameworks */,
+				42FA8DE81B1F329500FE23A8 /* libPods-GPUImage.a in Frameworks */,
+				42FA8DE91B1F329500FE23A8 /* libPods-M13Checkbox.a in Frameworks */,
+				42FA8DEA1B1F329500FE23A8 /* libPods-Masonry.a in Frameworks */,
+				42FA8DEB1B1F329500FE23A8 /* libPods-MBProgressHUD.a in Frameworks */,
+				42FA8DEC1B1F329500FE23A8 /* libPods-MJExtension.a in Frameworks */,
+				42FA8DED1B1F329500FE23A8 /* libPods-MJRefresh.a in Frameworks */,
+				42FA8DEE1B1F329500FE23A8 /* libPods-NYXImagesKit.a in Frameworks */,
+				42FA8DEF1B1F329500FE23A8 /* libPods-SDWebImage.a in Frameworks */,
+				42FA8DF01B1F329500FE23A8 /* libPods-Toast.a in Frameworks */,
+				A6175F53F53EFA9566B615EC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +379,7 @@
 			children = (
 				422328B31AD8BDDF0008EB80 /* ResearchOLTests.swift */,
 				422328B11AD8BDDF0008EB80 /* Supporting Files */,
+				42FA8DB71B1F2BE200FE23A8 /* ROLTestCase.m */,
 			);
 			path = ResearchOLTests;
 			sourceTree = "<group>";
@@ -688,6 +754,34 @@
 		E894DD3A0AC0DFE5D68362C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42FA8DD71B1F329500FE23A8 /* libPods-AFNetworking.a */,
+				42FA8DD81B1F329500FE23A8 /* libPods-AMSmoothAlert.a */,
+				42FA8DD91B1F329500FE23A8 /* libPods-AVOSCloud.a */,
+				42FA8DDA1B1F329500FE23A8 /* libPods-FXKeychain.a */,
+				42FA8DDB1B1F329500FE23A8 /* libPods-GPUImage.a */,
+				42FA8DDC1B1F329500FE23A8 /* libPods-M13Checkbox.a */,
+				42FA8DDD1B1F329500FE23A8 /* libPods-Masonry.a */,
+				42FA8DDE1B1F329500FE23A8 /* libPods-MBProgressHUD.a */,
+				42FA8DDF1B1F329500FE23A8 /* libPods-MJExtension.a */,
+				42FA8DE01B1F329500FE23A8 /* libPods-MJRefresh.a */,
+				42FA8DE11B1F329500FE23A8 /* libPods-NYXImagesKit.a */,
+				42FA8DE21B1F329500FE23A8 /* libPods-SDWebImage.a */,
+				42FA8DE31B1F329500FE23A8 /* libPods-Toast.a */,
+				42FA8DD51B1F2FEF00FE23A8 /* libPods.a */,
+				42FA8DBB1B1F2FCD00FE23A8 /* libPods-AFNetworking.a */,
+				42FA8DBC1B1F2FCD00FE23A8 /* libPods-AMSmoothAlert.a */,
+				42FA8DBD1B1F2FCD00FE23A8 /* libPods-AVOSCloud.a */,
+				42FA8DBE1B1F2FCD00FE23A8 /* libPods-FXKeychain.a */,
+				42FA8DBF1B1F2FCD00FE23A8 /* libPods-GPUImage.a */,
+				42FA8DC01B1F2FCD00FE23A8 /* libPods-M13Checkbox.a */,
+				42FA8DC11B1F2FCD00FE23A8 /* libPods-Masonry.a */,
+				42FA8DC21B1F2FCD00FE23A8 /* libPods-MBProgressHUD.a */,
+				42FA8DC31B1F2FCD00FE23A8 /* libPods-MJExtension.a */,
+				42FA8DC41B1F2FCD00FE23A8 /* libPods-MJRefresh.a */,
+				42FA8DC51B1F2FCD00FE23A8 /* libPods-NYXImagesKit.a */,
+				42FA8DC61B1F2FCD00FE23A8 /* libPods-SDWebImage.a */,
+				42FA8DC71B1F2FCD00FE23A8 /* libPods-Toast.a */,
+				42FA8DB91B1F2F9800FE23A8 /* libPods.a */,
 				8FA674857E60A402C73A426A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -719,9 +813,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 422328BA1AD8BDDF0008EB80 /* Build configuration list for PBXNativeTarget "ResearchOLTests" */;
 			buildPhases = (
+				155AB63DEC57313E1597FCFD /* Check Pods Manifest.lock */,
 				422328A91AD8BDDF0008EB80 /* Sources */,
 				422328AA1AD8BDDF0008EB80 /* Frameworks */,
 				422328AB1AD8BDDF0008EB80 /* Resources */,
+				A98DD99D2E214655BD4441AF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -800,6 +896,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		155AB63DEC57313E1597FCFD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		315DB1489AC9D2823C0E1B24 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -816,6 +927,21 @@
 			showEnvVarsInLog = 0;
 		};
 		84919B8C8034640062996EB6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A98DD99D2E214655BD4441AF /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -903,7 +1029,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FA8E061B1F38B300FE23A8 /* ROLNotifications.swift in Sources */,
+				42FA8E011B1F388100FE23A8 /* ROLQuestionare.swift in Sources */,
 				422328B41AD8BDDF0008EB80 /* ResearchOLTests.swift in Sources */,
+				42FA8E041B1F388B00FE23A8 /* ROLUserInfoManager.swift in Sources */,
+				42FA8E021B1F388100FE23A8 /* ROLQuestion.swift in Sources */,
+				42FA8E051B1F38AB00FE23A8 /* ROLUserKeys.swift in Sources */,
+				42FA8E031B1F388100FE23A8 /* ROLAnswer.swift in Sources */,
+				42FA8DB81B1F2BE200FE23A8 /* ROLTestCase.m in Sources */,
+				42FA8E001B1F385B00FE23A8 /* ROLQuestionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1157,7 @@
 			baseConfigurationReference = E312773B3F32660CEE8D6BFB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "ResearchOL/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1036,6 +1171,7 @@
 			baseConfigurationReference = 64718FA09A66E54D503A24E2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "ResearchOL/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1046,8 +1182,11 @@
 		};
 		422328BB1AD8BDDF0008EB80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E312773B3F32660CEE8D6BFB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1058,22 +1197,38 @@
 				);
 				INFOPLIST_FILE = "ResearchOLTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LIBTOOLFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResearchOL/Supporting Files/ResearchOL-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResearchOL.app/ResearchOL";
 			};
 			name = Debug;
 		};
 		422328BC1AD8BDDF0008EB80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64718FA09A66E54D503A24E2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ResearchOLTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LIBTOOLFLAGS = "$(OTHER_LDFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResearchOL/Supporting Files/ResearchOL-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ResearchOL.app/ResearchOL";
 			};
 			name = Release;

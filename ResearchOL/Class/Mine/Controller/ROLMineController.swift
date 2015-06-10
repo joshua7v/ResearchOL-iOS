@@ -12,14 +12,11 @@ class ROLMineController: UIViewController {
 
     @IBOutlet weak var finishedBtn: UIButton!
     @IBOutlet weak var watchBtn: UIButton!
-    @IBOutlet weak var todoBtn: UIButton!
     @IBOutlet weak var navView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navViewUnderLine: UIView!
-    @IBAction func todoBtnDidClicked(sender: UIButton) {
-        self.configueUnderLineWithBtn(sender)
-    }
     @IBAction func finishedBtnDidClicked(sender: UIButton) {
+        self.configueAnsweredData()
         self.configueUnderLineWithBtn(sender)
     }
     @IBAction func watchBtnDidClicked(sender: UIButton) {
@@ -51,17 +48,52 @@ class ROLMineController: UIViewController {
         self.configueNotifications()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.todoBtnDidClicked(self.todoBtn)
+        if ROLUserInfoManager.sharedManager.isUserLogin {
+            self.finishedBtnDidClicked(self.finishedBtn)
+            self.navView.hidden = false
+            self.tableView.contentInsetTop = 54 + self.tableView.contentInsetTop
+        } else {
+            self.navView.hidden = true
+        }
     }
     
     private func configueWatchData() {
-        ROLQuestionManager.sharedManager.getWatchListQuestionaresForCurrentUser { (questionares) -> Void in
-            self.questionares = questionares
-            self.tableView.reloadData()
+        self.tableView.removeHeader()
+        self.tableView.addLegendHeaderWithRefreshingBlock { () -> Void in
+            ROLQuestionManager.sharedManager.getWatchListQuestionaresForCurrentUser({ (questionares) -> Void in
+                self.questionares = questionares
+                self.tableView.reloadData()
+                self.tableView.legendHeader.endRefreshing()
+            }, failure: { () -> Void in
+                self.questionares = []
+                self.tableView.reloadData()
+                self.tableView.legendHeader.endRefreshing()
+            })
         }
+        self.tableView.legendHeader.updatedTimeHidden = true
+        
+        self.tableView.legendHeader.beginRefreshing()
+    }
+    
+    private func configueAnsweredData() {
+        self.tableView.removeHeader()
+        self.tableView.addLegendHeaderWithRefreshingBlock { () -> Void in
+            ROLQuestionManager.sharedManager.getAnsweredQuestionaresForCurrentUser({ (questionares) -> Void in
+                self.questionares = questionares
+                self.tableView.reloadData()
+                self.tableView.legendHeader.endRefreshing()
+            }, failure: { () -> Void in
+                self.questionares = []
+                self.tableView.reloadData()
+                self.tableView.legendHeader.endRefreshing()
+            })
+        }
+        self.tableView.legendHeader.updatedTimeHidden = true
+        
+        self.tableView.legendHeader.beginRefreshing()
     }
     
     private func configueViews() {
@@ -71,12 +103,6 @@ class ROLMineController: UIViewController {
         self.tableView.registerNib(UINib(nibName: ROLCellIdentifiers.ROLNeedToLoginCell, bundle: nil), forCellReuseIdentifier: ROLCellIdentifiers.ROLNeedToLoginCell)
         self.tableView.backgroundColor = ROLColors.coolGrayColor
         
-        if ROLUserInfoManager.sharedManager.isUserLogin {
-            self.navView.hidden = false
-            self.tableView.contentInset = UIEdgeInsets(top: 54, left: 0, bottom: 0, right: 0)
-        } else {
-            self.navView.hidden = true
-        }
     }
     
     private func configueNotifications() {

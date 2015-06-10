@@ -321,17 +321,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpd-ZG-IBV">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERg-Cz-CCQ">
-                                        <rect key="frame" x="20" y="7" width="45" height="30"/>
-                                        <state key="normal" title="待完成">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="todoBtnDidClicked:" destination="Yiq-mS-li2" eventType="touchUpInside" id="Xz2-cH-FWQ"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df4-Fe-pTB">
-                                        <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                        <rect key="frame" x="520" y="7" width="30" height="30"/>
                                         <state key="normal" title="关注">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -340,11 +331,11 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uN-nf-Vc5">
-                                        <rect key="frame" x="20" y="39" width="45" height="1"/>
+                                        <rect key="frame" x="47" y="39" width="36" height="1"/>
                                         <color key="backgroundColor" red="0.2784313725" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22G-Wb-gQ3">
-                                        <rect key="frame" x="285" y="7" width="30" height="30"/>
+                                        <rect key="frame" x="50" y="7" width="30" height="30"/>
                                         <state key="normal" title="答过">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -355,12 +346,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="22G-Wb-gQ3" secondAttribute="centerX" id="17E-Bg-Bzr"/>
-                                    <constraint firstItem="ERg-Cz-CCQ" firstAttribute="centerY" secondItem="22G-Wb-gQ3" secondAttribute="centerY" id="89V-xM-Nac"/>
+                                    <constraint firstItem="22G-Wb-gQ3" firstAttribute="leading" secondItem="Lpd-ZG-IBV" secondAttribute="leading" constant="50" id="81D-m5-hNL"/>
                                     <constraint firstItem="22G-Wb-gQ3" firstAttribute="centerY" secondItem="Df4-Fe-pTB" secondAttribute="centerY" id="9q7-RU-BiA"/>
-                                    <constraint firstAttribute="trailing" secondItem="Df4-Fe-pTB" secondAttribute="trailing" constant="20" id="AmU-eX-mtC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Df4-Fe-pTB" secondAttribute="trailing" constant="50" id="AmU-eX-mtC"/>
                                     <constraint firstAttribute="centerY" secondItem="22G-Wb-gQ3" secondAttribute="centerY" id="U0y-ns-s14"/>
-                                    <constraint firstItem="ERg-Cz-CCQ" firstAttribute="leading" secondItem="Lpd-ZG-IBV" secondAttribute="leading" constant="20" id="guN-jM-69h"/>
                                     <constraint firstAttribute="height" constant="44" id="jaQ-m6-Okw"/>
                                 </constraints>
                             </view>
@@ -382,7 +371,6 @@
                         <outlet property="navView" destination="Lpd-ZG-IBV" id="tmo-Ro-aFp"/>
                         <outlet property="navViewUnderLine" destination="9uN-nf-Vc5" id="QET-8C-5x3"/>
                         <outlet property="tableView" destination="bdO-H4-m4D" id="h8f-me-wPE"/>
-                        <outlet property="todoBtn" destination="ERg-Cz-CCQ" id="ytW-0O-cdY"/>
                         <outlet property="watchBtn" destination="Df4-Fe-pTB" id="QlZ-1s-7Qq"/>
                     </connections>
                 </viewController>
@@ -560,7 +548,7 @@
                                     <constraint firstAttribute="width" constant="60" id="IID-dQ-aIA"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="问卷调查 2.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoY-Pq-ZHS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="问卷调查 0.1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoY-Pq-ZHS">
                                 <rect key="frame" x="260" y="150" width="81" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>

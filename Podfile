@@ -15,6 +15,8 @@ pod 'NYXImagesKit', '~> 2.3'
 pod 'FXKeychain', '~> 1.5'
 pod 'MBProgressHUD', '~> 0.8'
 
+link_with 'ResearchOL', 'ResearchOLTests'
+
 post_install do |installer_representation|
     installer_representation.project.targets.each do |target|
         target.build_configurations.each do |config|
